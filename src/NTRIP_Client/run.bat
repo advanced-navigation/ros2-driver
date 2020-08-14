@@ -1,0 +1,1 @@
+ntrip_example.exe -m SYDN7 -s auscors.ga.gov.au -p odhTxYqBb9 -u scottobrien -B 115200 -D COM8

@@ -1,0 +1,56 @@
+----------------------------------------------------------------------
+      		Advanced Navigation NTRIP Client Example 
+----------------------------------------------------------------------
+This NTRIP Client is based on the open source library by Dirk Stoecker,
+the original source can be found here:
+
+https://software.rtcm-ntrip.org/browser/ntrip/trunk/ntripclient
+
+*******************
+**** COMPILING ****
+*******************
+
+Windows:
+	1. Install MinGW
+	2. Open a command prompt
+	3. Navigate to the directory with the makefile
+	4. Type mingw32-make
+		
+Linux:
+	1. Open a terminal
+	2. Navigate to the directory with the makefile
+	3. Type make
+	
+*******************
+**** RUNNING ****
+*******************
+NTRIP Client directory should be located in the Utilities folder of the SDK
+
+Call the program with following arguments:
+
+./ntrip_example or ntrip_example.exe (if Windows)  -s server -u user ...
+ -m --mountpoint the requested data set or sourcetable filtering criteria
+ -s --server     the server name or address
+ -p --password   the login password
+ -r --port       the server port number (default 2101)
+ -u --user       the user name
+
+Serial input/output:
+ -D --serdevice  serial device for output
+ -B --baud       baudrate for serial device
+
+The argument '-h' will cause a HELP on the screen.
+Without any argument ntripclient will provide the a table of
+available resources (sourcetable).
+
+A missing argument '-m' leads to the output of the complete broadcaster
+sourcetable. This may comprise hundreds of lines in case of large 
+networks.
+
+Disclaimer
+----------
+Note that this ntripclient program is for experimental use
+only. The Advanced Navigation disclaims any liability nor responsibility to any 
+person or entity with respect to any loss or damage caused, or alleged 
+to be caused, directly or indirectly by the use and application of the 
+Ntrip technology.
