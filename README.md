@@ -1,8 +1,4 @@
 # Advanced Navigation ROS2 Driver
-# Copyright 2020, Advanced Navigation
-
-
-
 
 ## Introduction
 
@@ -68,7 +64,7 @@ Open a new terminal or new tab, navigate to `workspace-folder-name`, and source 
 . install/setup.bash
 ```
 
-- Run the Driver in the following standalone
+- Run the Driver in the following manners:
   1. Baud Rate and Comm Port as arguments:
      ```
      usage: ros2 run package_name executable_name [baud_rate] [comm_port]

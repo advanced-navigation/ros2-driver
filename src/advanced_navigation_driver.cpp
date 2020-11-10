@@ -71,9 +71,13 @@ int main(int argc, char * argv[])
 		RCLCPP_INFO(node->get_logger(), "argv[%d}: %s\n", i, argv[i]);
 	}
 	*/
-
-	RCLCPP_INFO(node->get_logger(), "Your Advanced Navigation ROS driver is currently running\nPress Ctrl-C to interrupt\n");  
-	
+	if(argc == 1){
+		printf("usage: ros2 run package_name executable_name [baud_rate] [comm_port]\npackage_name     Name of the ROS package\nexecutable_name  Name of the executable\nbaud_rate        The Baud rate configured on the device. Default 115200\ncomm_port        The COM port of the connected device. Default /dev/ttyUSB0\n");
+		exit(EXIT_FAILURE);	
+	}
+	else{
+		RCLCPP_INFO(node->get_logger(), "Your Advanced Navigation ROS driver is currently running\nPress Ctrl-C to interrupt\n");  
+	}
 
 	// Set up for Log File
 	static const uint8_t request_all_configuration[] = { 0xE2, 0x01, 0x10, 0x9A, 0x73, 0xB6, 0xB4, 0xB5, 0xB8, 0xB9, 0xBA, 0xBC, 0xBD, 0xC0, 0xC2, 0xC3, 0xC4, 0x03, 0xC6, 0x45, 0xC7 };
@@ -111,9 +115,11 @@ int main(int argc, char * argv[])
 
   	// Configuring based on the state, what sort of driver to run
 	if (argc == 1){
-		com_port = std::string("/dev/ttyUSB0");  
-    	baud_rate = 115200;
-		state = 1;
+		printf("usage: ros2 run package_name executable_name [baud_rate] [comm_port]\npackage_name     Name of the ROS package\nexecutable_name  Name of the executable\nbaud_rate        The Baud rate configured on the device. Default 115200\ncomm_port        The COM port of the connected device. Default /dev/ttyUSB0\n");
+		exit(EXIT_FAILURE);	
+		//com_port = std::string("/dev/ttyUSB0");  
+    	//baud_rate = 115200;
+		//state = 1;
 	}
 	else if (argc == 3) {
 		com_port = std::string(argv[2]);
