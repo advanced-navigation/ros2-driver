@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(adnav-ros2)
+project(ros2-driver)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)

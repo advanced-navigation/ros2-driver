@@ -28,25 +28,25 @@ The following guides are useful in getting started with ROS2 if you are not fami
 
 - Packages should be created in the src directory, not the root of the workspace. Navigate to `workspace-folder-name/src`, and run the package create command: 
   ```
-  ros2 pkg create --build-type ament_cmake adnav-ros2
+  ros2 pkg create --build-type ament_cmake ros2-driver
   ```
-- Your terminal should return a message verifying the creation of your package and all its necessary files and folders. Navigate to `workspace-folder-name/src/adnav-ros2/src`.
+- Your terminal should return a message verifying the creation of your package and all its necessary files and folders. Navigate to `workspace-folder-name/src/ros2-driver/src`.
 - Get the Advanced Navigation ROS2 Driver   
   ```
-  wget Something TODO
+  git clone https://github.com/advanced-navigation/ros2-driver.git
   ```
 - You likely already have the `rclpp` and `std_msgs` packages installed as part of your ROS2 system. Either way, it’s good practice to run rosdep in the root of your workspace (`workspace-folder-name`) to check for missing dependencies before building:
   ```
   rosdep install -i --from-path src --rosdistro foxy -y
   ```
-- In the root of your workspace, workspace-folder-name, source and build the package:
+- In the root of your workspace, `workspace-folder-name`, source and build the package:
   - Source the ROS2 Environment to the current folder:
     ```
     source /opt/ros/foxy/setup.bash
     ```
   - Build your new package:
     ```
-    colcon build --packages-select adnav-ros2
+    colcon build --packages-select ros2-driver
     ```
 
 ## Device Configuration
@@ -61,6 +61,7 @@ If you are not sure how to configure your Advanced Navigation Device please refe
 
 Open a new terminal or new tab, navigate to `workspace-folder-name`, and source the setup files:
 ```
+source /opt/ros/foxy/setup.bash
 . install/setup.bash
 ```
 
@@ -73,7 +74,7 @@ Open a new terminal or new tab, navigate to `workspace-folder-name`, and source 
         baud_rate        The Baud rate configured on the device. Default 115200
         comm_port        The COM port of the connected device. Default /dev/ttyUSB0
      ```
-     ***e.g. ros2 run adnav-ros2 adnav_driver 115200 /dev/ttyUSB0***
+     ***e.g. ros2 run ros2-driver adnav_driver 115200 /dev/ttyUSB0***
   2. Baud Rate, Comm Port and NTRIP as arguments:
      ```
      ros2 run package_name executable_name -B [baud_rate] -D [comm_port] -s [server_url] -m [mountpoint]  -u [username] -p [password]
@@ -86,7 +87,7 @@ Open a new terminal or new tab, navigate to `workspace-folder-name`, and source 
        -u username      Username of your NTRIP account
        -p password      Password of your NTRIP account 
      ```
-     ***e.g. ros2 run adnav-ros2 adnav_driver -B 115200 -D /dev/ttyUSB0 -s alldayrtk.com -m MOUNTPOINT_20  -u yourUsername -p yourPassword***
+     ***e.g. ros2 run ros2-driver adnav_driver -B 115200 -D /dev/ttyUSB0 -s alldayrtk.com -m MOUNTPOINT_20  -u yourUsername -p yourPassword***
 
 
 ## Published Topics
