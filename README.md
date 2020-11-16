@@ -26,12 +26,7 @@ The following guides are useful in getting started with ROS2 if you are not fami
 
 ## Build Instruction
 
-- Packages should be created in the src directory, not the root of the workspace. Navigate to `workspace-folder-name/src`, and run the package create command: 
-  ```
-  ros2 pkg create --build-type ament_cmake ros2-driver
-  ```
-- Your terminal should return a message verifying the creation of your package and all its necessary files and folders. Navigate to `workspace-folder-name/src/ros2-driver/src`.
-- Get the Advanced Navigation ROS2 Driver   
+- Packages should be created in the src directory, not the root of the workspace. Navigate to `workspace-folder-name/src`, and get the Advanced Navigation ROS2 Driver   
   ```
   git clone https://github.com/advanced-navigation/ros2-driver.git
   ```
