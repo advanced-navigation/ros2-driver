@@ -1,7 +1,7 @@
 /****************************************************************/
 /*                                                              */
-/*                       Advanced Navigation                    */
-/*         					  ROS2 Driver			  			*/
+/*                    Advanced Navigation                       */
+/*         		  ROS2 Driver			        */
 /*          Copyright 2020, Advanced Navigation Pty Ltd         */
 /*                                                              */
 /****************************************************************/
