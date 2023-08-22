@@ -1,5 +1,6 @@
+
 cmake_minimum_required(VERSION 3.5)
-project(ros2-driver)
+project(advanced-navigation-orientus-driver)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
@@ -21,9 +22,20 @@ find_package(std_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(diagnostic_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(tf2_ros REQUIRED)
+#find_library(DRIVER tf2)
+
 
 add_executable(adnav_driver src/advanced_navigation_driver.cpp src/rs232/rs232.c src/an_packet_protocol.c src/spatial_packets.c src/NTRIP_Client/NTRIP/ntripclient.c)
-ament_target_dependencies(adnav_driver rclcpp std_msgs sensor_msgs diagnostic_msgs geometry_msgs)
+ament_target_dependencies(
+        adnav_driver
+        rclcpp
+        std_msgs
+        sensor_msgs
+        diagnostic_msgs
+        geometry_msgs
+        tf2_ros
+)
 
 install(TARGETS
 adnav_driver

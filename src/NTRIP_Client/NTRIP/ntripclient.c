@@ -27,7 +27,7 @@
 static char revisionstr[] = "$Revision: 1.51 $";
 static char datestr[]     = "$Date: 2009/09/11 09:49:19 $";
 
-int error = 0;
+int myerror = 0;
 int sleeptime = 0;
 long i;
 sockettype sockfd = 0;
@@ -129,7 +129,7 @@ int ntrip_initialise(struct Args *args, char *buf)
     {
       p = ntohs(se->s_port);
     }
-    if(!stop && !error)
+    if(!stop && !myerror)
     {
       snprintf(proxyport, sizeof(proxyport), "%d", p);
       port = args->proxyport;
@@ -143,7 +143,7 @@ int ntrip_initialise(struct Args *args, char *buf)
     port = args->port;
   }
 
-  if(!stop && !error)
+  if(!stop && !myerror)
   {
     memset(&their_addr, 0, sizeof(struct sockaddr_in));
     if((i = strtol(port, &b, 10)) && (!b || !*b))
@@ -157,18 +157,18 @@ int ntrip_initialise(struct Args *args, char *buf)
     {
       their_addr.sin_port = se->s_port;
     }
-    if(!stop && !error)
+    if(!stop && !myerror)
     {
       if(!(he=gethostbyname(server)))
       {
         fprintf(stderr, "Server name lookup failed for '%s'.\n", server);
-        error = 1;
+        myerror = 1;
       }
       else if((sockfd = socket(AF_INET, (args->mode == UDP ? SOCK_DGRAM :
       SOCK_STREAM), 0)) == -1)
       {
         //myperror("socket");
-        error = 1;
+        myerror = 1;
       }
       else
       {
@@ -178,15 +178,15 @@ int ntrip_initialise(struct Args *args, char *buf)
     }
   }
       
-  if(!stop && !error)
+  if(!stop && !myerror)
   {
     if(connect(sockfd, (struct sockaddr *)&their_addr,
     sizeof(struct sockaddr)) == -1)
     {
       //myperror("connect");
-      error = 1;
+      myerror = 1;
     }
-    if(!stop && !error)
+    if(!stop && !myerror)
     {
       if(!args->data)
       {
@@ -272,9 +272,9 @@ int ntrip_initialise(struct Args *args, char *buf)
     if(send(sockfd, buf, (size_t)i, 0) != i)
     {
       //myperror("send");
-      error = 1;
+      myerror = 1;
     }
-  return (error || stop);
+  return (myerror || stop);
 }
 
 int ntrip(struct Args *args, char *buf, int *byt)
@@ -292,7 +292,7 @@ int ntrip(struct Args *args, char *buf, int *byt)
       char temp[MAXDATASIZE];
 
       //Make all dec's above here static and move error checks to initlize. 
-      while(!stop && !error && (numbytes=recv(sockfd, buf, MAXDATASIZE-1, 0)) > 0)
+      while(!stop && !myerror && (numbytes=recv(sockfd, buf, MAXDATASIZE-1, 0)) > 0)
       {
 #ifndef _WIN32
         alarm(ALARMTIME);
@@ -315,7 +315,7 @@ int ntrip(struct Args *args, char *buf, int *byt)
             if(i == numbytes-l)
             {
               fprintf(stderr, "No 'Content-Type: gnss/data' found\n");
-              error = 1;
+              myerror = 1;
             }
               l = strlen(chunkycheck)-1;
               j=0;
@@ -335,7 +335,7 @@ int ntrip(struct Args *args, char *buf, int *byt)
                 fprintf(stderr, "%c", isprint(buf[k]) ? buf[k] : '.');
               }
               fprintf(stderr, "\n");
-              error = 1;
+              myerror = 1;
             }
             else if(args->mode != NTRIP1)
             {
@@ -369,7 +369,7 @@ int ntrip(struct Args *args, char *buf, int *byt)
             int pos = 0;
             
 
-            while(!stop && !cstop && !error && pos < numbytes)
+            while(!stop && !cstop && !myerror && pos < numbytes)
             { 
               
               switch(chunkymode)
@@ -427,14 +427,14 @@ int ntrip(struct Args *args, char *buf, int *byt)
             if(cstop)
             {
               fprintf(stderr, "Error in chunky transfer encoding\n");
-              error = 1;
+              myerror = 1;
             }
           }
           else
           { 
             totalbytes += numbytes;
             memcpy(temp,buf,(size_t)numbytes);
-             return(error || stop);
+             return(myerror || stop);
           }
           
           //SendBuf(temp, byt);
@@ -459,7 +459,7 @@ int ntrip(struct Args *args, char *buf, int *byt)
             }
           }
           
-          return(error || stop);
+          return(myerror || stop);
         }
       
 
@@ -480,7 +480,7 @@ int ntrip(struct Args *args, char *buf, int *byt)
   if(sockfd) closesocket(sockfd);
   sleep(10);
 
-  return(error || stop);
+  return(myerror || stop);
   
 }
 

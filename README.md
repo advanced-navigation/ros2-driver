@@ -1,4 +1,4 @@
-# Advanced Navigation ROS2 Driver
+# Advanced Navigation ROS2 Driver - IR Version
 
 ## Introduction
 
@@ -10,38 +10,29 @@ It is designed to work with all Advanced Navigation INS devices using ANPP.
 
 The code has been written to be easy to understand and for ease of extensibility with other ANPP packets.
 
-This example has been developed and tested using **Ubuntu Linux v20.04 LTS** and **ROS2 Foxy Fitzroy**. Installation instructions for ROS2 can be found here: https://index.ros.org/doc/ros2/Installation/Foxy/Linux-Install-Debians/
+This example has been developed and tested using **Ubuntu Linux v20.04 LTS** and **ROS2 Humble**. Installation instructions for ROS2 can be found here: https://index.ros.org/doc/ros2/Installation/Foxy/Linux-Install-Debians/
 
 If you require any assistance using this code, please email support@advancednavigation.com
-
-
-
-## ROS2 Getting Started Guide
-
-The following guides are useful in getting started with ROS2 if you are not familiar:
-
-- Setting up a ROS2 Workspace: https://index.ros.org/doc/ros2/Tutorials/Workspace/Creating-A-Workspace/
-- Basic Tutorial on importing an Example ROS2 code and compiling and running: https://index.ros.org/doc/ros2/Tutorials/Writing-A-Simple-Cpp-Publisher-And-Subscriber/
 
 
 ## Build Instruction
 
 - Packages should be created in the src directory, not the root of the workspace. Navigate to `workspace-folder-name/src`, and get the Advanced Navigation ROS2 Driver   
   ```
-  git clone https://github.com/advanced-navigation/ros2-driver.git
+  git clone https://github.com/independentrobotics/advanced-navigation-orientus-driver.git
   ```
 - You likely already have the `rclpp` and `std_msgs` packages installed as part of your ROS2 system. Either way, it’s good practice to run rosdep in the root of your workspace (`workspace-folder-name`) to check for missing dependencies before building:
   ```
-  rosdep install -i --from-path src --rosdistro foxy -y
+  rosdep install -i --from-path src --rosdistro humble -y
   ```
 - In the root of your workspace, `workspace-folder-name`, source and build the package:
   - Source the ROS2 Environment to the current folder:
     ```
-    source /opt/ros/foxy/setup.bash
+    source /opt/ros/humble/setup.bash
     ```
   - Build your new package:
     ```
-    colcon build --packages-select ros2-driver
+    colcon build --packages-select advanced-navigation-orientus
     ```
 
 ## Device Configuration
@@ -56,7 +47,7 @@ If you are not sure how to configure your Advanced Navigation Device please refe
 
 Open a new terminal or new tab, navigate to `workspace-folder-name`, and source the setup files:
 ```
-source /opt/ros/foxy/setup.bash
+source /opt/ros/humble/setup.bash
 . install/setup.bash
 ```
 
