@@ -121,15 +121,17 @@ int main(int argc, char * argv[])
     	//baud_rate = 115200;
 		//state = 1;
 	}
-	else if (argc == 3) {
-		com_port = std::string(argv[2]);
-		baud_rate = atoi(argv[1]);
-		state = 3;
-	}
-	else{
-		getargs(argc, argv, &args);
-		state = 0;
-	}
+	// Print the arguements
+	printf("argc: %d\n", argc);
+
+	com_port = std::string(argv[2]);
+	baud_rate = atoi(argv[1]);
+	state = 3;
+	
+	// else{
+	// 	getargs(argc, argv, &args);
+	// 	state = 0;
+	// }
   
 	// Creating the ROS2 Publishers
 	auto imu_pub = node->create_publisher<sensor_msgs::msg::Imu>("/Imu", 10);
@@ -604,6 +606,13 @@ int main(int argc, char * argv[])
 						temperature_msg.temperature = raw_sensors_packet.pressure_temperature;
 					}
 				}
+				// Magnetic Calibration Configuration Packet
+				// if(an_packet->id == packet_id_magnetic_calibration_configuration){
+				// 	if(decode_magnetic_calibration_configuration_packet(&magnetic_calibration_configuration_packet) == 0){
+				// 		//printf("Magnetic Calibration Configuration Packet\n");
+				// 		// Execute action server request while client waits for succesful calibration
+				// 	}
+				// }
 
 				// Ensure that you free the an_packet when your done with it or you will leak memory                                  
 				an_packet_free(&an_packet);
