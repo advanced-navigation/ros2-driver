@@ -53,6 +53,10 @@
 #include <sensor_msgs/msg/magnetic_field.hpp>
 #include <sensor_msgs/msg/temperature.hpp>
 #include <sensor_msgs/msg/fluid_pressure.hpp>
+#include <tf2_ros/transform_broadcaster.h>
+#include "std_srvs/srv/set_bool.hpp"
+
+
 #define RADIANS_TO_DEGREES (180.0/M_PI)
 const double PI = 4*atan(1);
 
@@ -226,11 +230,24 @@ int main(int argc, char * argv[])
 	filter_status_msg.name = "Filter Status";
 	filter_status_msg.message = "";
 
+	// Filter Options Packet
+	filter_options_packet_t filter_options_packet;
+	filter_options_packet.permanent = 1;
+	filter_options_packet.vehicle_type = 0;  // Vehicle Type (See section 10.9.6.1 of the reference manual)
+	filter_options_packet.internal_gnss_enabled = 0;
+	filter_options_packet.magnetometers_enabled = 1; // Magnetometer enabled
+	filter_options_packet.atmospheric_altitude_enabled = 0;
+	filter_options_packet.velocity_heading_enabled = 1;	// Velocity Heading enabled
+	filter_options_packet.reversing_detection_enabled = 0; // assuming this based on the loop you provided
+	filter_options_packet.motion_analysis_enabled = 0;
+	filter_options_packet.automatic_magnetic_calibration_enabled = 0;
+
   	// Intialising for the log files
 	rawtime = time(NULL);
 	timeinfo = localtime(&rawtime);
 	sprintf(filename, "Log_%02d-%02d-%02d_%02d-%02d-%02d.anpp", timeinfo->tm_year-100, timeinfo->tm_mon+1, timeinfo->tm_mday, timeinfo->tm_hour, timeinfo->tm_min, timeinfo->tm_sec);
 	log_file = fopen(filename, "wb");
+
   
   
   	// Initialise packets
@@ -240,6 +257,29 @@ int main(int argc, char * argv[])
 	quaternion_orientation_standard_deviation_packet_t quaternion_orientation_standard_deviation_packet;
 	raw_sensors_packet_t raw_sensors_packet;
 	ecef_position_packet_t ecef_position_packet;
+
+	// ROS2 Service for disabling or enabling the magnetometer
+	auto disable_magnetometer = node->create_service<std_srvs::srv::SetBool>(
+		"/DisableMagnetometer",
+		[&](const std::shared_ptr<std_srvs::srv::SetBool::Request> request,
+			const std::shared_ptr<std_srvs::srv::SetBool::Response> response) -> void
+		{
+			if (request->data)
+			{
+				filter_options_packet.magnetometers_enabled = 0;
+				SendBuf((unsigned char*)&filter_options_packet, sizeof(filter_options_packet));
+				response->success = true;
+				response->message = "Magnetometer Disabled";
+			}
+			else
+			{
+				filter_options_packet.magnetometers_enabled = 1;
+				SendBuf((unsigned char*)&filter_options_packet, sizeof(filter_options_packet));
+				response->success = true;
+				response->message = "Magnetometer Enabled";
+			}
+		}
+	);
 
 	if(state == 0){
 		if (OpenComport(args.serdevice, args.baud)){
@@ -606,6 +646,13 @@ int main(int argc, char * argv[])
 						temperature_msg.temperature = raw_sensors_packet.pressure_temperature;
 					}
 				}
+				// FILTER OPTIONS PACKET
+				if(an_packet->id == packet_id_filter_options){
+					if(decode_filter_options_packet(&filter_options_packet, an_packet) == 0){
+						printf("Filter Options Packet\n");
+					}
+				}
+
 				// Magnetic Calibration Configuration Packet
 				// if(an_packet->id == packet_id_magnetic_calibration_configuration){
 				// 	if(decode_magnetic_calibration_configuration_packet(&magnetic_calibration_configuration_packet) == 0){

@@ -19,6 +19,7 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(std_srvs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(diagnostic_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
@@ -31,6 +32,7 @@ ament_target_dependencies(
         adnav_driver
         rclcpp
         std_msgs
+        std_srvs
         sensor_msgs
         diagnostic_msgs
         geometry_msgs
