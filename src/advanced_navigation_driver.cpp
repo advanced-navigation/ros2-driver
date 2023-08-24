@@ -232,15 +232,16 @@ int main(int argc, char * argv[])
 
 	// Filter Options Packet
 	filter_options_packet_t filter_options_packet;
-	filter_options_packet.permanent = 1;
-	filter_options_packet.vehicle_type = 0;  // Vehicle Type (See section 10.9.6.1 of the reference manual)
-	filter_options_packet.internal_gnss_enabled = 0;
-	filter_options_packet.magnetometers_enabled = 1; // Magnetometer enabled
-	filter_options_packet.atmospheric_altitude_enabled = 0;
-	filter_options_packet.velocity_heading_enabled = 1;	// Velocity Heading enabled
-	filter_options_packet.reversing_detection_enabled = 0; // assuming this based on the loop you provided
-	filter_options_packet.motion_analysis_enabled = 0;
-	filter_options_packet.automatic_magnetic_calibration_enabled = 0;
+	// filter_options_packet.vehicle_type = 0;  // Vehicle Type (See section 10.9.6.1 of the reference manual)
+	// filter_options_packet.internal_gnss_enabled = 0;
+	// filter_options_packet.atmospheric_altitude_enabled = 0;
+	// filter_options_packet.velocity_heading_enabled = 1;	// Velocity Heading enabled
+	// filter_options_packet.reversing_detection_enabled = 0; // assuming this based on the loop you provided
+	// filter_options_packet.motion_analysis_enabled = 0;
+	// filter_options_packet.automatic_magnetic_calibration_enabled = 0;
+
+	// GPIO configuration for disabling the magnetomete
+
 
   	// Intialising for the log files
 	rawtime = time(NULL);
@@ -248,8 +249,6 @@ int main(int argc, char * argv[])
 	sprintf(filename, "Log_%02d-%02d-%02d_%02d-%02d-%02d.anpp", timeinfo->tm_year-100, timeinfo->tm_mon+1, timeinfo->tm_mday, timeinfo->tm_hour, timeinfo->tm_min, timeinfo->tm_sec);
 	log_file = fopen(filename, "wb");
 
-  
-  
   	// Initialise packets
 	an_decoder_t an_decoder;
 	an_packet_t *an_packet;
@@ -257,6 +256,7 @@ int main(int argc, char * argv[])
 	quaternion_orientation_standard_deviation_packet_t quaternion_orientation_standard_deviation_packet;
 	raw_sensors_packet_t raw_sensors_packet;
 	ecef_position_packet_t ecef_position_packet;
+	gpio_configuration_packet_t gpio_configuration_packet;
 
 	// ROS2 Service for disabling or enabling the magnetometer
 	auto disable_magnetometer = node->create_service<std_srvs::srv::SetBool>(
@@ -264,8 +264,9 @@ int main(int argc, char * argv[])
 		[&](const std::shared_ptr<std_srvs::srv::SetBool::Request> request,
 			const std::shared_ptr<std_srvs::srv::SetBool::Response> response) -> void
 		{
+			filter_options_packet.permanent = 1;
 			if (request->data)
-			{
+			{	
 				filter_options_packet.magnetometers_enabled = 0;
 				SendBuf((unsigned char*)&filter_options_packet, sizeof(filter_options_packet));
 				response->success = true;
@@ -446,107 +447,107 @@ int main(int argc, char * argv[])
 							system_status_msg.level = 2; // ERROR state
 							system_status_msg.message = system_status_msg.message + "3. Magnetometer Sensor Failure! ";
 						}
-						if (system_state_packet.system_status.b.pressure_sensor_failure) {
-							system_status_msg.level = 2; // ERROR state
-							system_status_msg.message = system_status_msg.message + "4. Pressure Sensor Failure! ";
-						}
-						if (system_state_packet.system_status.b.gnss_failure) {
-							system_status_msg.level = 2; // ERROR state
-							system_status_msg.message = system_status_msg.message + "5. GNSS Failure! ";
-						}
-						if (system_state_packet.system_status.b.accelerometer_over_range) {
-							system_status_msg.level = 2; // ERROR state
-							system_status_msg.message = system_status_msg.message + "6. Accelerometer Over Range! ";
-						}
-						if (system_state_packet.system_status.b.gyroscope_over_range) {
-							system_status_msg.level = 2; // ERROR state
-							system_status_msg.message = system_status_msg.message + "7. Gyroscope Over Range! ";
-						}
-						if (system_state_packet.system_status.b.magnetometer_over_range) {
-							system_status_msg.level = 2; // ERROR state
-							system_status_msg.message = system_status_msg.message + "8. Magnetometer Over Range! ";
-						}
-						if (system_state_packet.system_status.b.pressure_over_range) {
-							system_status_msg.level = 2; // ERROR state
-							system_status_msg.message = system_status_msg.message + "9. Pressure Over Range! ";
-						}
-						if (system_state_packet.system_status.b.minimum_temperature_alarm) {
-							system_status_msg.level = 2; // ERROR state
-							system_status_msg.message = system_status_msg.message + "10. Minimum Temperature Alarm! ";
-						}
-						if (system_state_packet.system_status.b.maximum_temperature_alarm) {
-							system_status_msg.level = 2; // ERROR state
-							system_status_msg.message = system_status_msg.message + "11. Maximum Temperature Alarm! ";
-						}
-						if (system_state_packet.system_status.b.low_voltage_alarm) {
-							system_status_msg.level = 2; // ERROR state
-							system_status_msg.message = system_status_msg.message + "12. Low Voltage Alarm! ";
-						}
-						if (system_state_packet.system_status.b.high_voltage_alarm) {
-							system_status_msg.level = 2; // ERROR state
-							system_status_msg.message = system_status_msg.message + "13. High Voltage Alarm! ";
-						}
-						if (system_state_packet.system_status.b.gnss_antenna_disconnected) {
-							system_status_msg.level = 2; // ERROR state
-							system_status_msg.message = system_status_msg.message + "14. GNSS Antenna Disconnected! ";
-						}
-						if (system_state_packet.system_status.b.serial_port_overflow_alarm) {
-							system_status_msg.level = 2; // ERROR state
-							system_status_msg.message = system_status_msg.message + "15. Data Output Overflow Alarm! ";
-						}
+						// if (system_state_packet.system_status.b.pressure_sensor_failure) {
+						// 	system_status_msg.level = 2; // ERROR state
+						// 	system_status_msg.message = system_status_msg.message + "4. Pressure Sensor Failure! ";
+						// }
+						// if (system_state_packet.system_status.b.gnss_failure) {
+						// 	system_status_msg.level = 2; // ERROR state
+						// 	system_status_msg.message = system_status_msg.message + "5. GNSS Failure! ";
+						// }
+						// if (system_state_packet.system_status.b.accelerometer_over_range) {
+						// 	system_status_msg.level = 2; // ERROR state
+						// 	system_status_msg.message = system_status_msg.message + "6. Accelerometer Over Range! ";
+						// }
+						// if (system_state_packet.system_status.b.gyroscope_over_range) {
+						// 	system_status_msg.level = 2; // ERROR state
+						// 	system_status_msg.message = system_status_msg.message + "7. Gyroscope Over Range! ";
+						// }
+						// if (system_state_packet.system_status.b.magnetometer_over_range) {
+						// 	system_status_msg.level = 2; // ERROR state
+						// 	system_status_msg.message = system_status_msg.message + "8. Magnetometer Over Range! ";
+						// }
+						// if (system_state_packet.system_status.b.pressure_over_range) {
+						// 	system_status_msg.level = 2; // ERROR state
+						// 	system_status_msg.message = system_status_msg.message + "9. Pressure Over Range! ";
+						// }
+						// if (system_state_packet.system_status.b.minimum_temperature_alarm) {
+						// 	system_status_msg.level = 2; // ERROR state
+						// 	system_status_msg.message = system_status_msg.message + "10. Minimum Temperature Alarm! ";
+						// }
+						// if (system_state_packet.system_status.b.maximum_temperature_alarm) {
+						// 	system_status_msg.level = 2; // ERROR state
+						// 	system_status_msg.message = system_status_msg.message + "11. Maximum Temperature Alarm! ";
+						// }
+						// if (system_state_packet.system_status.b.low_voltage_alarm) {
+						// 	system_status_msg.level = 2; // ERROR state
+						// 	system_status_msg.message = system_status_msg.message + "12. Low Voltage Alarm! ";
+						// }
+						// if (system_state_packet.system_status.b.high_voltage_alarm) {
+						// 	system_status_msg.level = 2; // ERROR state
+						// 	system_status_msg.message = system_status_msg.message + "13. High Voltage Alarm! ";
+						// }
+						// if (system_state_packet.system_status.b.gnss_antenna_disconnected) {
+						// 	system_status_msg.level = 2; // ERROR state
+						// 	system_status_msg.message = system_status_msg.message + "14. GNSS Antenna Disconnected! ";
+						// }
+						// if (system_state_packet.system_status.b.serial_port_overflow_alarm) {
+						// 	system_status_msg.level = 2; // ERROR state
+						// 	system_status_msg.message = system_status_msg.message + "15. Data Output Overflow Alarm! ";
+						// }
 
-						// FILTER STATUS
-						filter_status_msg.message = "";
-						filter_status_msg.level = 0; // default OK state
-						if (system_state_packet.filter_status.b.orientation_filter_initialised) {
-							filter_status_msg.message = filter_status_msg.message + "0. Orientation Filter Initialised. ";
-						}
-						else {
-							filter_status_msg.level = 1; // WARN state
-							filter_status_msg.message = filter_status_msg.message + "0. Orientation Filter NOT Initialised. ";
-						}
-						if (system_state_packet.filter_status.b.ins_filter_initialised) {
-							filter_status_msg.message = filter_status_msg.message + "1. Navigation Filter Initialised. ";
-						}
-						else {
-							filter_status_msg.level = 1; // WARN state
-							filter_status_msg.message = filter_status_msg.message + "1. Navigation Filter NOT Initialised. ";
-						}
-						if (system_state_packet.filter_status.b.heading_initialised) {
-							filter_status_msg.message = filter_status_msg.message + "2. Heading Initialised. ";
-						}
-						else {
-							filter_status_msg.level = 1; // WARN state
-							filter_status_msg.message = filter_status_msg.message + "2. Heading NOT Initialised. ";
-						}
-						if (system_state_packet.filter_status.b.utc_time_initialised) {
-							filter_status_msg.message = filter_status_msg.message + "3. UTC Time Initialised. ";
-						}
-						else {
-							filter_status_msg.level = 1; // WARN state
-							filter_status_msg.message = filter_status_msg.message + "3. UTC Time NOT Initialised. ";
-						}
-						if (system_state_packet.filter_status.b.event1_flag) {
-							filter_status_msg.level = 1; // WARN state
-							filter_status_msg.message = filter_status_msg.message + "7. Event 1 Occured. ";
-						}
-						else {
-							filter_status_msg.message = filter_status_msg.message + "7. Event 1 NOT Occured. ";
-						}
-						if (system_state_packet.filter_status.b.event2_flag) {
-							filter_status_msg.level = 1; // WARN state
-							filter_status_msg.message = filter_status_msg.message + "8. Event 2 Occured. ";
-						}
-						else {
-							filter_status_msg.message = filter_status_msg.message + "8. Event 2 NOT Occured. ";
-						}
-						if (system_state_packet.filter_status.b.internal_gnss_enabled) {
-							filter_status_msg.message = filter_status_msg.message + "9. Internal GNSS Enabled. ";
-						}
-						else {
-							filter_status_msg.level = 1; // WARN state
-							filter_status_msg.message = filter_status_msg.message + "9. Internal GNSS NOT Enabled. ";
-						}
+						// // FILTER STATUS
+						// filter_status_msg.message = "";
+						// filter_status_msg.level = 0; // default OK state
+						// if (system_state_packet.filter_status.b.orientation_filter_initialised) {
+						// 	filter_status_msg.message = filter_status_msg.message + "0. Orientation Filter Initialised. ";
+						// }
+						// else {
+						// 	filter_status_msg.level = 1; // WARN state
+						// 	filter_status_msg.message = filter_status_msg.message + "0. Orientation Filter NOT Initialised. ";
+						// }
+						// if (system_state_packet.filter_status.b.ins_filter_initialised) {
+						// 	filter_status_msg.message = filter_status_msg.message + "1. Navigation Filter Initialised. ";
+						// }
+						// else {
+						// 	filter_status_msg.level = 1; // WARN state
+						// 	filter_status_msg.message = filter_status_msg.message + "1. Navigation Filter NOT Initialised. ";
+						// }
+						// if (system_state_packet.filter_status.b.heading_initialised) {
+						// 	filter_status_msg.message = filter_status_msg.message + "2. Heading Initialised. ";
+						// }
+						// else {
+						// 	filter_status_msg.level = 1; // WARN state
+						// 	filter_status_msg.message = filter_status_msg.message + "2. Heading NOT Initialised. ";
+						// }
+						// if (system_state_packet.filter_status.b.utc_time_initialised) {
+						// 	filter_status_msg.message = filter_status_msg.message + "3. UTC Time Initialised. ";
+						// }
+						// else {
+						// 	filter_status_msg.level = 1; // WARN state
+						// 	filter_status_msg.message = filter_status_msg.message + "3. UTC Time NOT Initialised. ";
+						// }
+						// if (system_state_packet.filter_status.b.event1_flag) {
+						// 	filter_status_msg.level = 1; // WARN state
+						// 	filter_status_msg.message = filter_status_msg.message + "7. Event 1 Occured. ";
+						// }
+						// else {
+						// 	filter_status_msg.message = filter_status_msg.message + "7. Event 1 NOT Occured. ";
+						// }
+						// if (system_state_packet.filter_status.b.event2_flag) {
+						// 	filter_status_msg.level = 1; // WARN state
+						// 	filter_status_msg.message = filter_status_msg.message + "8. Event 2 Occured. ";
+						// }
+						// else {
+						// 	filter_status_msg.message = filter_status_msg.message + "8. Event 2 NOT Occured. ";
+						// }
+						// if (system_state_packet.filter_status.b.internal_gnss_enabled) {
+						// 	filter_status_msg.message = filter_status_msg.message + "9. Internal GNSS Enabled. ";
+						// }
+						// else {
+						// 	filter_status_msg.level = 1; // WARN state
+						// 	filter_status_msg.message = filter_status_msg.message + "9. Internal GNSS NOT Enabled. ";
+						// }
 						if (system_state_packet.filter_status.b.magnetic_heading_enabled) {
 							filter_status_msg.message = filter_status_msg.message + "10. Magnetic Heading Active. ";
 						}
