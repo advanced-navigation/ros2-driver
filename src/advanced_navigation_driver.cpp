@@ -48,6 +48,7 @@
 #include <sensor_msgs/msg/time_reference.hpp>
 #include <sensor_msgs/msg/imu.hpp>
 #include <geometry_msgs/msg/twist.hpp>
+// #include <geometry_msgs/msg.hpp>
 #include <geometry_msgs/msg/pose.hpp>
 #include <diagnostic_msgs/msg/diagnostic_array.hpp>
 #include <sensor_msgs/msg/magnetic_field.hpp>
@@ -55,6 +56,8 @@
 #include <sensor_msgs/msg/fluid_pressure.hpp>
 #include <tf2_ros/transform_broadcaster.h>
 #include "std_srvs/srv/set_bool.hpp"
+
+
 
 
 #define RADIANS_TO_DEGREES (180.0/M_PI)
@@ -145,6 +148,7 @@ int main(int argc, char * argv[])
 	auto temperature_pub = node->create_publisher<sensor_msgs::msg::Temperature>("/Temperature", 10);
 	auto twist_pub = node->create_publisher<geometry_msgs::msg::Twist>("/Twist", 10);
 	auto pose_pub = node->create_publisher<geometry_msgs::msg::Pose>("/Pose", 10);
+	auto euler_pose_pub = node->create_publisher<geometry_msgs::msg::Pose>("/EulerPose", 10);
 	auto system_status_pub = node->create_publisher<diagnostic_msgs::msg::DiagnosticStatus>("/SystemStatus", 10);
 	auto filter_status_pub = node->create_publisher<diagnostic_msgs::msg::DiagnosticStatus>("/FilterStatus", 10);
 	auto gnss_fix_type_pub = node->create_publisher<std_msgs::msg::String>("/GNSSFixType", 10);
@@ -218,6 +222,16 @@ int main(int argc, char * argv[])
 	pose_msg.orientation.z=0.0;
 	pose_msg.orientation.w=0.0;
 
+	// Pose geometry_msgs/Pose (EULER)
+	geometry_msgs::msg::Pose euler_pose_msg;
+	euler_pose_msg.position.x = 0;
+	euler_pose_msg.position.y = 0;
+	euler_pose_msg.position.z = 0;
+	euler_pose_msg.orientation.w=0.0;
+	euler_pose_msg.orientation.x=0.0;
+	euler_pose_msg.orientation.y=0.0;
+	euler_pose_msg.orientation.z=0.0;
+
 	// DiagnosticsStatus messages for System Status
 	diagnostic_msgs::msg::DiagnosticStatus system_status_msg;
 	system_status_msg.level = 0; // default OK state
@@ -230,18 +244,7 @@ int main(int argc, char * argv[])
 	filter_status_msg.name = "Filter Status";
 	filter_status_msg.message = "";
 
-	// Filter Options Packet
-	filter_options_packet_t filter_options_packet;
-	// filter_options_packet.vehicle_type = 0;  // Vehicle Type (See section 10.9.6.1 of the reference manual)
-	// filter_options_packet.internal_gnss_enabled = 0;
-	// filter_options_packet.atmospheric_altitude_enabled = 0;
-	// filter_options_packet.velocity_heading_enabled = 1;	// Velocity Heading enabled
-	// filter_options_packet.reversing_detection_enabled = 0; // assuming this based on the loop you provided
-	// filter_options_packet.motion_analysis_enabled = 0;
-	// filter_options_packet.automatic_magnetic_calibration_enabled = 0;
-
-	// GPIO configuration for disabling the magnetomete
-
+	
 
   	// Intialising for the log files
 	rawtime = time(NULL);
@@ -256,8 +259,10 @@ int main(int argc, char * argv[])
 	quaternion_orientation_standard_deviation_packet_t quaternion_orientation_standard_deviation_packet;
 	raw_sensors_packet_t raw_sensors_packet;
 	ecef_position_packet_t ecef_position_packet;
-	gpio_configuration_packet_t gpio_configuration_packet;
+	euler_orientation_packet_t euler_orientation_packet;
 
+	// Filter Options Packet
+	filter_options_packet_t filter_options_packet;
 	// ROS2 Service for disabling or enabling the magnetometer
 	auto disable_magnetometer = node->create_service<std_srvs::srv::SetBool>(
 		"/DisableMagnetometer",
@@ -265,17 +270,40 @@ int main(int argc, char * argv[])
 			const std::shared_ptr<std_srvs::srv::SetBool::Response> response) -> void
 		{
 			filter_options_packet.permanent = 1;
+			RCLCPP_INFO(node->get_logger(), "Configuring Usage of Magnetometer\n");
 			if (request->data)
 			{	
-				filter_options_packet.magnetometers_enabled = 0;
-				SendBuf((unsigned char*)&filter_options_packet, sizeof(filter_options_packet));
+				filter_options_packet.magnetometers_enabled = false;
+				RCLCPP_INFO(node->get_logger(), "Encoding message to disable magnetometer\n");
+				RCLCPP_INFO(node->get_logger(), "Packet Contents: %d\n", filter_options_packet.magnetometers_enabled);
+				RCLCPP_INFO(node->get_logger(), "Packet Contents: %d\n", filter_options_packet.permanent);		
+				an_packet = encode_filter_options_packet(&filter_options_packet);
+				// Print the packet contents
+				RCLCPP_INFO(node->get_logger(), "AN Packet ID: %d\n", an_packet->id);
+				RCLCPP_INFO(node->get_logger(), "AN acket Contents: %d\n", an_packet->data[0]);
+				RCLCPP_INFO(node->get_logger(), "AN Packet Contents: %d\n", an_packet->data[3]);
+				//an_packet_encode(an_packet);
+				// PRint the packet after encoding
+				// RCLCPP_INFO(node->get_logger(), "AN Packet ID: %d\n", an_packet->id);
+				// RCLCPP_INFO(node->get_logger(), "AN acket Contents: %d\n", an_packet->data[0]);
+				RCLCPP_INFO(node->get_logger(), "Sending packet\n");
+				SendBuf(an_packet_pointer(an_packet), an_packet_size(an_packet));
+				RCLCPP_INFO(node->get_logger(), "id: %d", an_packet->id);
+				RCLCPP_INFO(node->get_logger(), "Packet Sent, freeing packet\n");
+				an_packet_free(&an_packet);
+				// Check filter status to confirm successs
+				RCLCPP_INFO(node->get_logger(), "Checking if change was successfull\n");
 				response->success = true;
 				response->message = "Magnetometer Disabled";
+
 			}
 			else
 			{
 				filter_options_packet.magnetometers_enabled = 1;
-				SendBuf((unsigned char*)&filter_options_packet, sizeof(filter_options_packet));
+				an_packet = encode_filter_options_packet(&filter_options_packet);
+				an_packet_encode(an_packet);
+				SendBuf(an_packet_pointer(an_packet), an_packet_size(an_packet));
+				an_packet_free(&an_packet);
 				response->success = true;
 				response->message = "Magnetometer Enabled";
 			}
@@ -418,6 +446,11 @@ int main(int argc, char * argv[])
 						pose_msg.orientation.y = orientation[1];
 						pose_msg.orientation.z = orientation[2];
 						pose_msg.orientation.w = orientation[3];
+
+						// EULER POSE Orientation
+						euler_pose_msg.orientation.x = system_state_packet.orientation[0] * RADIANS_TO_DEGREES;
+						euler_pose_msg.orientation.y = system_state_packet.orientation[1] * RADIANS_TO_DEGREES;
+						euler_pose_msg.orientation.z = system_state_packet.orientation[2] * RADIANS_TO_DEGREES;
 
 						imu_msg.angular_velocity.x=system_state_packet.angular_velocity[0]; // These the same as the TWIST msg values
 						imu_msg.angular_velocity.y=system_state_packet.angular_velocity[1];
@@ -604,6 +637,19 @@ int main(int argc, char * argv[])
 					}
 				}
 
+				// EULER ORIENTATION PACKET
+				if(an_packet->id == packet_id_euler_orientation)
+				{
+					if(decode_euler_orientation_packet(&euler_orientation_packet, an_packet) == 0)
+					{
+						// EULER ORIENTATION
+						RCLCPP_INFO(node->get_logger(), "Euler Orientation Packet\n");
+						euler_pose_msg.orientation.x = euler_orientation_packet.orientation[0];
+						euler_pose_msg.orientation.y = euler_orientation_packet.orientation[1];
+						euler_pose_msg.orientation.z = euler_orientation_packet.orientation[2];
+					}
+				}
+
 				// QUATERNION ORIENTATION STANDARD DEVIATION PACKET 
 				if (an_packet->id == packet_id_quaternion_orientation_standard_deviation)
 				{
@@ -612,6 +658,7 @@ int main(int argc, char * argv[])
 					if(decode_quaternion_orientation_standard_deviation_packet(&quaternion_orientation_standard_deviation_packet, an_packet) == 0)
 					{
 						// IMU
+						
 						imu_msg.orientation_covariance[0] = quaternion_orientation_standard_deviation_packet.standard_deviation[0];
 						imu_msg.orientation_covariance[4] = quaternion_orientation_standard_deviation_packet.standard_deviation[1];
 						imu_msg.orientation_covariance[8] = quaternion_orientation_standard_deviation_packet.standard_deviation[2];
@@ -647,12 +694,6 @@ int main(int argc, char * argv[])
 						temperature_msg.temperature = raw_sensors_packet.pressure_temperature;
 					}
 				}
-				// FILTER OPTIONS PACKET
-				if(an_packet->id == packet_id_filter_options){
-					if(decode_filter_options_packet(&filter_options_packet, an_packet) == 0){
-						printf("Filter Options Packet\n");
-					}
-				}
 
 				// Magnetic Calibration Configuration Packet
 				// if(an_packet->id == packet_id_magnetic_calibration_configuration){
@@ -676,6 +717,7 @@ int main(int argc, char * argv[])
 				temperature_pub->publish(temperature_msg);
 				pose_pub->publish(pose_msg);
 				gnss_fix_type_pub->publish(gnss_fix_type_msgs);
+				euler_pose_pub->publish(euler_pose_msg);
 			}
 			
 			// Write the logs to the logger reset when counter is full
