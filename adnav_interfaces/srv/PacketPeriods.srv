@@ -1,0 +1,24 @@
+# This service outlines the data and response for requesting a change in the packet periods
+# of a device. Please see ANPP Documentation for more info 
+# (Certus ANPP: https://docs.advancednavigation.com/certus/ANPP/Advanced%20Navigation%20Packet.htm)
+
+# Provide the following data
+
+# This is a boolean field, when set to one it deletes any existing packet rates. When set to zero 
+# existing packet rates remain. Only one packet rate can exist per packet ID, so new packet rates
+# will overwrite existing packet rates for the same packet ID.
+bool clear_existing_periods
+
+# This is a boolean field, when set to true (1) the packet periods overwrite device memory and will
+# be used upon a restart. 
+# When set to False (0) the configuration will be used but will revert to the previous permanent 
+# configuration upon the device reseting.  
+bool permanent
+
+# This indicates the period in units of the packet timer period. Add as many to the array as requested. 
+adnav_interfaces/PacketPeriod[] periods
+
+---
+
+# Acknowledgement response from device
+adnav_interfaces/RawAcknowledge acknowledgment

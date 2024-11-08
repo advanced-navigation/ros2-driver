@@ -1,0 +1,40 @@
+# This contains the data structure a service initializing the NTRIP Client of the
+# Advanced Navigation ROS Drivers. If the service is called while ntrip is running
+# the new configuration will override the old configuration. 
+
+bool NTRIP_ENABLE = true#
+bool NTRIP_DISABLE = false#
+
+# Boolean value describing wether to activate or deactivate the ntrip client
+bool enable
+
+# NTRIP HOST
+# String data type in the form of a hostname or ip seperated with a ':' from
+# the port number. i.e.
+# <Hostname/IPv4 Address>:<Port>
+string host
+
+# NTRIP USERNAME
+# String data type to be passed to the NTRIP Server for access verification
+# Seek your preffered servers requirements. If your server requires no 
+# username leave empty
+string username
+
+# NTRIP PASSWORD
+# String data type to be passed to the NTRIP Server for access verification
+# Seek your preffered servers requirements. If your server requires no 
+# password leave empty
+string password
+
+# NTRIP MOUNTPOINT
+# Specific mounpoint on the NTRIP Server to recieve RTCM Corrections from. 
+# Please see your servers Sourcetable to select an appropriate mountpoint. 
+string mountpoint
+
+---
+
+# Success response
+bool success
+
+# String for more in depth response on success
+string reason

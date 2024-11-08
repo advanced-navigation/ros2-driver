@@ -1,0 +1,32 @@
+# This service outlines the data and response for requesting a change in the packet period timing
+# of a device. Please see ANPP Documentation for more info 
+# (Certus ANPP: https://docs.advancednavigation.com/certus/ANPP/Advanced%20Navigation%20Packet.htm)
+
+# Providing the following data
+
+# UTC Syncronisation
+# This is a boolean value that determines whether or not the packet timer is synchronised with UTC time, 
+# with zero for disabled and one for enabled. For UTC Synchronisation to be enabled the packet timer 
+# period must multiply into 1000000 evenly. For example if the packet timer period is 10000 (10 ms), 
+# 1000000/10000 = 100 which is valid for UTC synchronisation. If the packet timer period is 15000 (15 ms), 
+# 1000000/15000 = 66.6666 which is not valid for UTC synchronisation. To get the rate, use the following formula:
+# Packet Timer Rate = 1000000/(Packet Timer Period) Hz
+bool utc_synchronisation
+
+# Change Permanency.
+# If this is set to false (0) the change will happen but will not be saved to onboard flash. Upon restarting
+# the device it will reset to last permanent period
+# If this is set to true (1) the change will be occur and will overwrite the flash memory on the device. 
+# This state will be saved and used when the device is restarted. 
+bool permanent
+
+# This is a value in microseconds that sets the master packet timer period. The minimum value is 1000 (1 ms) or
+# 1000 Hz and the maximum value is 65535 (65.535 ms) or 15.30 Hz.
+uint16 packet_timer_period
+
+
+---
+# Response
+
+# Acknowledgement response from device
+adnav_interfaces/RawAcknowledge acknowledgment

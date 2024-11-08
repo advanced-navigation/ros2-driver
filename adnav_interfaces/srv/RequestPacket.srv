@@ -1,0 +1,12 @@
+# This service outlines the data and response for requesting a single time set of packets from
+# a device and have it decoded by the adnav_node if it has a method for the specific packet. 
+# Please see ANPP Documentation for more info on packets and packet ids.
+# (Certus ANPP: https://docs.advancednavigation.com/certus/ANPP/Advanced%20Navigation%20Packet.htm)
+
+# Provide the following data
+uint32[] packet_ids
+
+---
+
+# Response, returns true if all were successfully requested.
+bool success
