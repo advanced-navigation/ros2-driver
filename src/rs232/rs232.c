@@ -39,7 +39,7 @@
 
 
 int Cport,
-    error;
+    rs232_error;
 
 struct termios new_port_settings,
        old_port_settings;
@@ -108,8 +108,8 @@ int OpenComport(char *comport, int baudrate)
     return(1);
   }
 
-  error = tcgetattr(Cport, &old_port_settings);
-  if(error==-1)
+  rs232_error = tcgetattr(Cport, &old_port_settings);
+  if(rs232_error==-1)
   {
     close(Cport);
     perror("unable to read portsettings ");
@@ -123,8 +123,8 @@ int OpenComport(char *comport, int baudrate)
   new_port_settings.c_lflag = 0;
   new_port_settings.c_cc[VMIN] = 0;      /* block untill n bytes are received */
   new_port_settings.c_cc[VTIME] = 1;     /* block untill a timer expires (n * 100 mSec.) */
-  error = tcsetattr(Cport, TCSANOW, &new_port_settings);
-  if(error==-1)
+  rs232_error = tcsetattr(Cport, TCSANOW, &new_port_settings);
+  if(rs232_error==-1)
   {
     close(Cport);
     perror("unable to adjust portsettings ");
@@ -366,4 +366,5 @@ int IsCTSEnabled()
 
 
 #endif
+
 

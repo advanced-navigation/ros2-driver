@@ -16,14 +16,16 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 find_package(ament_cmake REQUIRED)
-find_package(rclcpp REQUIRED)
-find_package(std_msgs REQUIRED)
-find_package(sensor_msgs REQUIRED)
 find_package(diagnostic_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(tf2 REQUIRED)
+find_package(tf2_ros REQUIRED)
 
 add_executable(adnav_driver src/advanced_navigation_driver.cpp src/rs232/rs232.c src/an_packet_protocol.c src/spatial_packets.c src/NTRIP_Client/NTRIP/ntripclient.c)
-ament_target_dependencies(adnav_driver rclcpp std_msgs sensor_msgs diagnostic_msgs geometry_msgs)
+ament_target_dependencies(adnav_driver rclcpp std_msgs sensor_msgs diagnostic_msgs geometry_msgs tf2 tf2_ros)
 
 install(TARGETS
 adnav_driver
