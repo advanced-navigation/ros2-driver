@@ -1,0 +1,3 @@
+[submodule "an-ros-common"]
+	path = an-ros-common
+	url = git@github.com:advanced-navigation/an-ros-common.git
