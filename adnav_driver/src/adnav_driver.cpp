@@ -1473,7 +1473,7 @@ void Driver::decodePackets(an_decoder_t &an_decoder, const int &bytes) {
 			case packet_id_ecef_position: ecefPosRosDecoder(an_packet);
 				break;
 
-			case packet_id_quaternion_orientation_standard_deviation: quartOrientSDRosDriver(an_packet);
+			case packet_id_euler_orientation_standard_deviation: eulerOrientSDRosDriver(an_packet);
 				break;
 
 			case packet_id_raw_sensors: rawSensorsRosDecoder(an_packet);
@@ -1833,33 +1833,33 @@ void Driver::ecefPosRosDecoder(an_packet_t* an_packet) {
 }
 
 /**
- * @brief Function to decode the Quaternion Orientation Standard Deviation ANPP Packet (ANPP.27).
+ * @brief Function to decode the Euler Orientation Standard Deviation ANPP Packet (ANPP.26).
  *
  * This function accesses in a thread safe manner the class stored ROS messages, placed relevant information into them,
  * then using the publishing control variable, requests a publisher thread to publish the message.
  *
  * @param an_packet a pointer to an an_packet_t object which will be decoded.
  */
-void Driver::quartOrientSDRosDriver(an_packet_t* an_packet) {
-	quaternion_orientation_standard_deviation_packet_t quaternion_orientation_standard_deviation_packet;
+void Driver::eulerOrientSDRosDriver(an_packet_t* an_packet) {
+	euler_orientation_standard_deviation_packet_t euler_orientation_standard_deviation_packet;
 	std::unique_lock<std::mutex> lock(messages_mutex_);
-	RCLCPP_DEBUG(this->get_logger(), "Packet 27: \tMutex: L\tAccess: %d", P27_num_);
+	RCLCPP_DEBUG(this->get_logger(), "Packet 26: \tMutex: L\tAccess: %d", P26_num_);
 	// Debug timekeeper
 	auto time = this->get_clock().get()->now().nanoseconds();
 
-	if(decode_quaternion_orientation_standard_deviation_packet(&quaternion_orientation_standard_deviation_packet, an_packet) == 0)
+	if(decode_euler_orientation_standard_deviation_packet(&euler_orientation_standard_deviation_packet, an_packet) == 0)
 	 {
 		// IMU message
-		imu_msg_.orientation_covariance[0] = quaternion_orientation_standard_deviation_packet.standard_deviation[0];
-		imu_msg_.orientation_covariance[4] = quaternion_orientation_standard_deviation_packet.standard_deviation[1];
-		imu_msg_.orientation_covariance[8] = quaternion_orientation_standard_deviation_packet.standard_deviation[2];
+		imu_msg_.orientation_covariance[0] = pow(euler_orientation_standard_deviation_packet.standard_deviation[0], 2);
+		imu_msg_.orientation_covariance[4] = pow(euler_orientation_standard_deviation_packet.standard_deviation[1], 2);
+		imu_msg_.orientation_covariance[8] = pow(euler_orientation_standard_deviation_packet.standard_deviation[2], 2);
 	}
 	// Now that work is complete notify an update for the publisher.
 	msg_write_done_ = true;
 	msg_cv_.notify_one();
 	// RCLCPP_DEBUG(this->get_logger(), "Raw: \tNotifying Complete\t%d", raw_num_++);
 	auto diff = this->get_clock().get()->now().nanoseconds() - time;
-	RCLCPP_DEBUG(this->get_logger(), "Packet 27:\tMutex: U\tAccess: %d\tTimeLocked: %ld μs", P27_num_++, diff/1000);
+	RCLCPP_DEBUG(this->get_logger(), "Packet 26:\tMutex: U\tAccess: %d\tTimeLocked: %ld μs", P26_num_++, diff/1000);
 }
 
 /**

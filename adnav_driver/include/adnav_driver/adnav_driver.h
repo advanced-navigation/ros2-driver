@@ -133,7 +133,7 @@ class Driver : public rclcpp::Node  // Inheriting gives every "this->" as a poin
 
  private:
     // Debug variables
-    int pub_num_ = 0, P28_num_ = 0, P20_num_ = 0, P27_num_ = 0, P33_num_ = 0, P0_num_ = 0;
+    int pub_num_ = 0, P28_num_ = 0, P20_num_ = 0, P26_num_ = 0, P33_num_ = 0, P0_num_ = 0;
 
     // Defines what communication method to use, refer to adnav_driver_connection_e.
     int communication_state_;
@@ -297,7 +297,7 @@ class Driver : public rclcpp::Node  // Inheriting gives every "this->" as a poin
     void deviceInfoDecoder(an_packet_t* an_packet);
     void systemStateRosDecoder(an_packet_t* an_packet);
     void ecefPosRosDecoder(an_packet_t* an_packet);
-    void quartOrientSDRosDriver(an_packet_t* an_packet);
+    void eulerOrientSDRosDriver(an_packet_t* an_packet);
     void rawSensorsRosDecoder(an_packet_t* an_packet);
 };
 
