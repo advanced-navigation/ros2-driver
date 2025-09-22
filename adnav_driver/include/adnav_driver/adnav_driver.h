@@ -134,7 +134,7 @@ class Driver : public rclcpp::Node  // Inheriting gives every "this->" as a poin
 
  private:
     double roll_, pitch_, yaw_;
-    double yaw_offset_, roll_offset_;
+    double yaw_offset_, roll_offset_, pitch_offset_;
     tf2::Quaternion rotation_q_;
     tf2::Matrix3x3 rotation_matrix_;
 
