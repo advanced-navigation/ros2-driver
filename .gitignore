@@ -11,3 +11,11 @@ __pycache__/
 .vs/
 Log_*
 cpplint_*
+
+**/.obj*
+
+adnav/debian/
+adnav_driver/debian/
+adnav_launch/debian/
+adnav_interfaces/debian/
+
