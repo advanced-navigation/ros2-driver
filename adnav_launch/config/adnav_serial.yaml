@@ -46,3 +46,15 @@ adnav_node:
     # The size of the packet period in Microseconds. 
     # Bounded to [1000-65535] [1000Hz-15.29Hz]
     packet_timer_period: 1000
+
+    # Optional
+    # Only do this if you have not already set the orientation and offset in the JAVA App
+    # Add TF rotation to the raw RPY values of the IMU based on your robot's body coordinate system
+    rotation_x_angle: 0.0
+    rotation_y_angle: 0.0
+    rotation_z_angle: 0.0
+
+    # Add an offset to the raw RPY values of the IMU based on your robot's body coordinate system
+    yaw_offset: 0.0
+    roll_offset: 0.0
+    pitch_offset: 0.0

@@ -497,6 +497,23 @@ void Driver::setupParams() {
 	comms_select_description.integer_range.push_back(commRange);
 	this->declare_parameter<int>("comm_select", adnav::CONNECTION_SERIAL, comms_select_description);
 	comms_data_.method = (int) this->get_parameter("comm_select").as_int();
+
+	// Add parameters for static rotation
+    this->declare_parameter<double>("rotation_x_angle", 0.0);
+    this->declare_parameter<double>("rotation_y_angle", 0.0);
+    this->declare_parameter<double>("rotation_z_angle", 0.0);
+	this->declare_parameter<double>("roll_offset", 0.0);
+	this->declare_parameter<double>("pitch_offset", 0.0);	
+	this->declare_parameter<double>("yaw_offset", 0.0);
+
+	this->get_parameter<double>("rotation_x_angle", roll_);
+	this->get_parameter<double>("rotation_y_angle", pitch_);
+	this->get_parameter<double>("rotation_z_angle", yaw_);
+	this->get_parameter<double>("pitch_offset", pitch_offset_);
+	this->get_parameter<double>("yaw_offset", yaw_offset_);
+
+    rotation_q_.setRPY(roll_, pitch_, yaw_);
+    rotation_matrix_.setRotation(rotation_q_);
 }
 
 //~~~~~~ Control Functions
@@ -1602,43 +1619,50 @@ void Driver::systemStateRosDecoder(an_packet_t* an_packet) {
 				ntrip_client_->set_location(llh_.latitude, llh_.longitude, llh_.height);
 			}
 			// TWIST
-			twist_msg_.linear.x = system_state_packet.velocity[0];
-			twist_msg_.linear.y = system_state_packet.velocity[1];
-			twist_msg_.linear.z = system_state_packet.velocity[2];
-			twist_msg_.angular.x = system_state_packet.angular_velocity[0];
-			twist_msg_.angular.y = system_state_packet.angular_velocity[1];
-			twist_msg_.angular.z = system_state_packet.angular_velocity[2];
+            tf2::Vector3 original_vel(system_state_packet.velocity[0], system_state_packet.velocity[1], system_state_packet.velocity[2]);
+            tf2::Vector3 rotated_vel = rotation_matrix_ * original_vel;
+            twist_msg_.linear.x = rotated_vel.x();
+            twist_msg_.linear.y = rotated_vel.y();
+            twist_msg_.linear.z = rotated_vel.z();
 
+            tf2::Vector3 original_ang_vel(system_state_packet.angular_velocity[0], system_state_packet.angular_velocity[1], system_state_packet.angular_velocity[2]);
+            tf2::Vector3 rotated_ang_vel = rotation_matrix_ * original_ang_vel;
+            twist_msg_.angular.x = rotated_ang_vel.x();
+            twist_msg_.angular.y = rotated_ang_vel.y();
+            twist_msg_.angular.z = rotated_ang_vel.z();
 
 			// IMU
 			imu_msg_.header.stamp.sec = system_state_packet.unix_time_seconds;
 			imu_msg_.header.stamp.nanosec = system_state_packet.microseconds*1000;
 			imu_msg_.header.frame_id = frame_id_;
 			// Using the RPY orientation as done by cosama
-			orientation_.setRPY(
-				system_state_packet.orientation[0],
-				system_state_packet.orientation[1],
-				M_PI/2.0f - system_state_packet.orientation[2] // REP 103
-			);
-			imu_msg_.orientation.x = orientation_[0];
-			imu_msg_.orientation.y = orientation_[1];
-			imu_msg_.orientation.z = orientation_[2];
-			imu_msg_.orientation.w = orientation_[3];
+            tf2::Quaternion sensor_orientation;
+            sensor_orientation.setRPY(
+                system_state_packet.orientation[0] + (roll_offset_ * M_PI / 180.0),
+                system_state_packet.orientation[1] + (pitch_offset_ * M_PI / 180.0),
+                M_PI/2.0f - system_state_packet.orientation[2] + (yaw_offset_ * M_PI / 180.0)// REP 103
+            );
 
-			// POSE Orientation
-			pose_msg_.orientation.x = orientation_[0];
-			pose_msg_.orientation.y = orientation_[1];
-			pose_msg_.orientation.z = orientation_[2];
-			pose_msg_.orientation.w = orientation_[3];
+			// Apply the static rotation by multiplying the quaternions
+            tf2::Quaternion final_orientation = rotation_q_ * sensor_orientation;
+            final_orientation.normalize(); // It's good practice to normalize after multiplication
 
-			imu_msg_.angular_velocity.x = system_state_packet.angular_velocity[0]; // These the same as the TWIST msg values
-			imu_msg_.angular_velocity.y = system_state_packet.angular_velocity[1];
-			imu_msg_.angular_velocity.z = system_state_packet.angular_velocity[2];
+            // Assign the final, rotated orientation to the IMU and Pose messages
+            imu_msg_.orientation.x = final_orientation.x();
+            imu_msg_.orientation.y = final_orientation.y();
+            imu_msg_.orientation.z = final_orientation.z();
+            imu_msg_.orientation.w = final_orientation.w();
 
-			// The IMU linear acceleration is now coming from the RAW Sensors Accelerometer
-			imu_msg_.linear_acceleration.x = system_state_packet.body_acceleration[0];
-			imu_msg_.linear_acceleration.y = system_state_packet.body_acceleration[1];
-			imu_msg_.linear_acceleration.z = system_state_packet.body_acceleration[2];
+            // POSE Orientation
+            pose_msg_.orientation.x = final_orientation.x();
+            pose_msg_.orientation.y = final_orientation.y();
+            pose_msg_.orientation.z = final_orientation.z();
+            pose_msg_.orientation.w = final_orientation.w();
+
+            // The angular velocity is already rotated, so this is correct
+            imu_msg_.angular_velocity.x = rotated_ang_vel.x();
+            imu_msg_.angular_velocity.y = rotated_ang_vel.y();
+            imu_msg_.angular_velocity.z = rotated_ang_vel.z();
 
 			// SYSTEM STATUS
 			system_status_msg_.message = "";
@@ -1883,19 +1907,26 @@ void Driver::rawSensorsRosDecoder(an_packet_t* an_packet) {
 	if(decode_raw_sensors_packet(&raw_sensors_packet, an_packet) == 0) {
 
 		// RAW MAGNETICFIELD VALUE FROM IMU
-		mag_field_msg_.header.frame_id = frame_id_;
-		mag_field_msg_.magnetic_field.x = raw_sensors_packet.magnetometers[0];
-		mag_field_msg_.magnetic_field.y = raw_sensors_packet.magnetometers[1];
-		mag_field_msg_.magnetic_field.z = raw_sensors_packet.magnetometers[2];
+        mag_field_msg_.header.frame_id = frame_id_;
+        tf2::Vector3 original_mag(raw_sensors_packet.magnetometers[0], raw_sensors_packet.magnetometers[1], raw_sensors_packet.magnetometers[2]);
+        tf2::Vector3 rotated_mag = rotation_matrix_ * original_mag;
+        mag_field_msg_.magnetic_field.x = rotated_mag.x();
+        mag_field_msg_.magnetic_field.y = rotated_mag.y();
+        mag_field_msg_.magnetic_field.z = rotated_mag.z();
 
-		imu_raw_msg_.header.frame_id = frame_id_;
-		imu_raw_msg_.orientation_covariance[0] = -1; // Tell recievers that no orientation is sent.
-		imu_raw_msg_.linear_acceleration.x = raw_sensors_packet.accelerometers[0];
-		imu_raw_msg_.linear_acceleration.y = raw_sensors_packet.accelerometers[1];
-		imu_raw_msg_.linear_acceleration.z = raw_sensors_packet.accelerometers[2];
-		imu_raw_msg_.angular_velocity.x = raw_sensors_packet.gyroscopes[0];
-		imu_raw_msg_.angular_velocity.y = raw_sensors_packet.gyroscopes[1];
-		imu_raw_msg_.angular_velocity.z = raw_sensors_packet.gyroscopes[2];
+        imu_raw_msg_.header.frame_id = frame_id_;
+        imu_raw_msg_.orientation_covariance[0] = -1; // Tell recievers that no orientation is sent.
+        tf2::Vector3 original_raw_accel(raw_sensors_packet.accelerometers[0], raw_sensors_packet.accelerometers[1], raw_sensors_packet.accelerometers[2]);
+        tf2::Vector3 rotated_raw_accel = rotation_matrix_ * original_raw_accel;
+        imu_raw_msg_.linear_acceleration.x = rotated_raw_accel.x();
+        imu_raw_msg_.linear_acceleration.y = rotated_raw_accel.y();
+        imu_raw_msg_.linear_acceleration.z = rotated_raw_accel.z();
+
+        tf2::Vector3 original_raw_gyro(raw_sensors_packet.gyroscopes[0], raw_sensors_packet.gyroscopes[1], raw_sensors_packet.gyroscopes[2]);
+        tf2::Vector3 rotated_raw_gyro = rotation_matrix_ * original_raw_gyro;
+        imu_raw_msg_.angular_velocity.x = rotated_raw_gyro.x();
+        imu_raw_msg_.angular_velocity.y = rotated_raw_gyro.y();
+        imu_raw_msg_.angular_velocity.z = rotated_raw_gyro.z();
 
 		// BAROMETRIC PRESSURE
 		baro_msg_.header.frame_id = frame_id_;

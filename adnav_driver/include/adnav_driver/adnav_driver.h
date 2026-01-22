@@ -61,6 +61,7 @@
 // ROS2 Packages, Services, Messages
 #include <rclcpp/rclcpp.hpp>
 #include <tf2/LinearMath/Quaternion.h>
+#include <tf2/LinearMath/Matrix3x3.h>
 #include <rcl_interfaces/msg/set_parameters_result.hpp>
 #include <std_msgs/msg/string.hpp>
 #include <sensor_msgs/msg/nav_sat_fix.hpp>
@@ -132,6 +133,11 @@ class Driver : public rclcpp::Node  // Inheriting gives every "this->" as a poin
     ~Driver();
 
  private:
+    double roll_, pitch_, yaw_;
+    double yaw_offset_, roll_offset_, pitch_offset_;
+    tf2::Quaternion rotation_q_;
+    tf2::Matrix3x3 rotation_matrix_;
+
     // Debug variables
     int pub_num_ = 0, P28_num_ = 0, P20_num_ = 0, P27_num_ = 0, P33_num_ = 0, P0_num_ = 0;
 
