@@ -41,10 +41,7 @@ int main(int argc, char * argv[])
 
 	// Add the driver node to the executor and spin it.
 	executor.add_node(node);
-
-	while(rclcpp::ok()) {
-		executor.spin();
-	}
+	executor.spin();
 
 	rclcpp::shutdown();
   	return 0;

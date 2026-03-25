@@ -1,5 +1,4 @@
 cmake_minimum_required(VERSION 3.5)
-set(CMAKE_BUILD_TYPE release)
 project(adnav_driver)
 
 # Default to C99
@@ -9,7 +8,7 @@ endif()
 
 # Default to C++14
 if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 14)
+  set(CMAKE_CXX_STANDARD 17)
 endif()
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
@@ -26,10 +25,12 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
-find_package(diagnostic_msgs REQUIRED)
+find_package(diagnostic_updater REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(geographic_msgs REQUIRED)
 find_package(std_srvs REQUIRED)
 find_package(tf2 REQUIRED)
+find_package(tf2_geometry_msgs REQUIRED)
 find_package(adnav_interfaces REQUIRED)
 
 # Build
@@ -51,10 +52,12 @@ set(DEPENDENCIES
   "std_msgs"
   "std_srvs"
   "sensor_msgs"
-  "diagnostic_msgs"
+  "diagnostic_updater"
   "geometry_msgs"
   "tf2"
+  "tf2_geometry_msgs"
   "adnav_interfaces"
+  "geographic_msgs"
 )
 
 set(EXECUTABLE_NAME "adnav_driver")
@@ -65,17 +68,9 @@ add_executable(${EXECUTABLE_NAME} src/main.cpp)
 target_link_libraries(${EXECUTABLE_NAME} ${PROJECT_NAME}_lib)
 ament_target_dependencies(${EXECUTABLE_NAME} ${DEPENDENCIES})
 
-# add_executable(srv_test src/srv_test.cpp)
-# target_link_libraries(srv_test ${PROJECT_NAME}_lib)
-# ament_target_dependencies(srv_test ${DEPENDENCIES})
-
 install(TARGETS ${EXECUTABLE_NAME}
   DESTINATION lib/${PROJECT_NAME}
 )
-
-# install(TARGETS srv_test
-#   DESTINATION lib/${PROJECT_NAME}
-# )
 
 install(
   DIRECTORY include/

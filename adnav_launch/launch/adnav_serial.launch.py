@@ -22,7 +22,5 @@ def generate_launch_description():
         parameters = [config]        
     )
 
-    ld.add_action
-
     ld.add_action(node)
     return ld

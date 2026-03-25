@@ -12,9 +12,11 @@
   <depend>rclcpp</depend>
   <depend>std_msgs</depend>
   <depend>sensor_msgs</depend>
-  <depend>diagnostic_msgs</depend>
+  <depend>diagnostic_updater</depend>
   <depend>geometry_msgs</depend>
+  <depend>geographic_msgs</depend>
   <depend>tf2</depend>
+  <depend>tf2_geometry_msgs</depend>
   <depend>std_srvs</depend>
   <depend>adnav_interfaces</depend>
 

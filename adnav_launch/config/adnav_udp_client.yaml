@@ -24,7 +24,7 @@ adnav_node:
 
     # This is the minimum period for reading and publishing data.
     # Warning on some systems this is performance limited.  
-    # The configuration will be rejected if publissh_us < read_us
+    # The configuration will be rejected if publish_us < read_us
     # Units are in μs. 20000 = 50Hz | 1000 = 1000Hz etc.
     publish_us: 20000
     read_us: 1000
