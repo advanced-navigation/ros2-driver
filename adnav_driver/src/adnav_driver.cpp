@@ -1828,18 +1828,17 @@ void Driver::systemStateRosDecoder(an_packet_t* an_packet) {
 			);
 
 			// TWIST
-
 			twist_msg_.linear.x = system_state_packet.velocity[0];
 			twist_msg_.linear.y = system_state_packet.velocity[1];
 			twist_msg_.linear.z = system_state_packet.velocity[2];
 
-			if (params.convert_twist_enu_to_flu) {
-				twist_msg_ = transformTwistEnuToFlu(twist_msg_, orientation_);
-			}
-
 			twist_msg_.angular.x = system_state_packet.angular_velocity[0];
 			twist_msg_.angular.y = system_state_packet.angular_velocity[1];
 			twist_msg_.angular.z = system_state_packet.angular_velocity[2];
+
+			if (params.convert_twist_enu_to_flu) {
+				twist_msg_ = transformTwistEnuToFlu(twist_msg_, orientation_);
+			}
 
 			twist_stamped_msg_.twist = twist_msg_;
 			twist_stamped_msg_.header = nav_fix_msg_.header;
