@@ -1823,7 +1823,7 @@ void Driver::systemStateRosDecoder(an_packet_t* an_packet) {
 			// Using the RPY orientation as done by cosama
 			orientation_.setRPY(
 				system_state_packet.orientation[0],
-				system_state_packet.orientation[1],
+				-system_state_packet.orientation[1],
 				M_PI/2.0f - system_state_packet.orientation[2] // REP 103
 			);
 
