@@ -41,6 +41,10 @@ adnav:
       type: bool
       default_value: false
       description: "If true, the driver will request ECEF Position."
+    utm_position:
+      type: bool
+      default_value: false
+      description: "If true, the driver will request UTM Position."
     raw_sensors:
       type: bool
       default_value: false
@@ -64,10 +68,6 @@ adnav:
     description: "Port for communication with the Advanced Navigation device when using IP connection"
     validation:
       bounds<>: [1, 65535]
-  convert_twist_enu_to_flu:
-    type: bool
-    default_value: true
-    description: "If true, converts Twist messages from ENU to FLU frame convention."
   log_path:
     type: string
     default_value: "~/.ros/log/"
@@ -78,9 +78,9 @@ adnav:
       default_value: true
       description: "Require orientation, navigation and heading to be initialised."
     gnss_fix:
-        type: bool
-        default_value: true
-        description: "Require a precise GNSS fix (3D or better) for the device to be considered healthy."
+      type: bool
+      default_value: true
+      description: "Require a precise GNSS fix (3D or better) for the device to be considered healthy."
     external_velocity:
       type: bool
       default_value: false
@@ -89,6 +89,10 @@ adnav:
       type: bool
       default_value: true
       description: "Require no sensor over-range errors."
+    spoofing:
+      type: bool
+      default_value: false
+      description: "Require no spoofing or interference."
     thresholds:
       position_accuracy_rms_2d:
           type: double

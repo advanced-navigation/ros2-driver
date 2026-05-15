@@ -67,10 +67,9 @@
 // ROS2 Packages, Services, Messages
 #include <rclcpp/rclcpp.hpp>
 #include "diagnostic_updater/diagnostic_updater.hpp"
-#include <tf2/LinearMath/Quaternion.h>
+#include <tf2/LinearMath/Quaternion.hpp>
 #include <rcl_interfaces/msg/set_parameters_result.hpp>
 #include <sensor_msgs/msg/nav_sat_fix.hpp>
-#include <sensor_msgs/msg/time_reference.hpp>
 #include <sensor_msgs/msg/imu.hpp>
 #include <geometry_msgs/msg/twist.hpp>
 #include <geometry_msgs/msg/twist_stamped.hpp>
@@ -83,18 +82,16 @@
 #include <geographic_msgs/msg/geo_pose.hpp>
 #include <geographic_msgs/msg/geo_pose_stamped.hpp>
 
-#include <cmath>
-
-
 namespace adnav {
 
-    inline constexpr std::array<uint8_t, 5> REQUIRED_PACKETS = {
+    inline constexpr std::array<uint8_t, 6> REQUIRED_PACKETS = {
         {
             packet_id_system_state,
             packet_id_body_velocity,
             packet_id_euler_orientation_standard_deviation,
             packet_id_velocity_standard_deviation,
-            packet_id_running_time
+            packet_id_running_time,
+            packet_id_gnss_position_velocity_time
         }};
 
 constexpr double RADIANS_TO_DEGREES = (180.0/M_PI);
@@ -151,21 +148,24 @@ class Driver : public rclcpp::Node
     TimedBox<raw_sensors_packet_t> raw_sensors_packet_;
     TimedBox<euler_orientation_standard_deviation_packet_t> euler_orientation_standard_deviation_packet_;
     TimedBox<velocity_standard_deviation_packet_t> velocity_standard_deviation_packet_;
+    TimedBox<gnss_position_velocity_time_packet_t> gnss_position_velocity_time_packet_;
 
     // Msgs. Only access with protection of messages_mutex_
-    tf2::Quaternion                 orientation_;
+    tf2::Quaternion                 orientation_frd_ned_;
+    tf2::Quaternion                 orientation_flu_;
     sensor_msgs::msg::Imu           imu_msg_;
     sensor_msgs::msg::Imu           imu_raw_msg_;
     sensor_msgs::msg::MagneticField mag_field_msg_;
     sensor_msgs::msg::NavSatFix     nav_fix_msg_;
     sensor_msgs::msg::FluidPressure baro_msg_;
     sensor_msgs::msg::Temperature   temp_msg_;
-    geometry_msgs::msg::Twist       twist_msg_;
+    geometry_msgs::msg::Twist       twist_flu_msg_;
     geometry_msgs::msg::TwistStamped twist_stamped_msg_;
-    geometry_msgs::msg::TwistStamped twist_stamped_msg_body;
+    geometry_msgs::msg::TwistStamped twist_stamped_msg_body; // this should be the same as post ENU --> FLU
+    geometry_msgs::msg::TwistStamped twist_stamped_msg_enu;
     geometry_msgs::msg::TwistStamped twist_stamped_msg_external_body;
-    geometry_msgs::msg::PoseStamped pose_stamped_msg_;
-    geometry_msgs::msg::Pose        pose_msg_;
+    geometry_msgs::msg::PoseStamped pose_ecef_stamped_msg_;
+    geometry_msgs::msg::PoseStamped pose_utm_stamped_msg_;
     geographic_msgs::msg::GeoPose   geo_pose_msg_;
     geographic_msgs::msg::GeoPoseStamped geo_pose_stamped_msg_;
 
@@ -181,10 +181,11 @@ class Driver : public rclcpp::Node
     rclcpp::Publisher<sensor_msgs::msg::Temperature>::SharedPtr 			temperature_pub_;
     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr 				twist_pub_;
     rclcpp::Publisher<geometry_msgs::msg::TwistStamped>::SharedPtr 			twist_stamped_pub_;
+    rclcpp::Publisher<geometry_msgs::msg::TwistStamped>::SharedPtr 			twist_stamped_enu_pub_;
     rclcpp::Publisher<geometry_msgs::msg::TwistStamped>::SharedPtr 			twist_stamped_body_velocity_pub_;
     rclcpp::Publisher<geometry_msgs::msg::TwistStamped>::SharedPtr 			twist_stamped_external_body_pub_;
-    rclcpp::Publisher<geometry_msgs::msg::Pose>::SharedPtr 					pose_pub_;
-    rclcpp::Publisher<geometry_msgs::msg::PoseStamped>::SharedPtr 			pose_stamped_pub_;
+    rclcpp::Publisher<geometry_msgs::msg::PoseStamped>::SharedPtr 			pose_ecef_stamped_pub_;
+    rclcpp::Publisher<geometry_msgs::msg::PoseStamped>::SharedPtr 			pose_utm_stamped_pub_;
     rclcpp::Publisher<geographic_msgs::msg::GeoPose>::SharedPtr 			geo_pose_pub_;
     rclcpp::Publisher<geographic_msgs::msg::GeoPoseStamped>::SharedPtr 		geo_pose_stamped_pub_;
 
@@ -286,7 +287,9 @@ class Driver : public rclcpp::Node
     void decodePackets(an_decoder_t &an_decoder, const int &bytes_received);
     void deviceInfoDecoder(an_packet_t* an_packet);
     void systemStateRosDecoder(an_packet_t* an_packet);
+    void gnssPosVelTimeRosDecoder(an_packet_t* an_packet);
     void ecefPosRosDecoder(an_packet_t* an_packet);
+    void utmPosRosDecoder(an_packet_t* an_packet);
     void quartOrientSDRosDriver(an_packet_t* an_packet);
     void rawSensorsRosDecoder(an_packet_t* an_packet);
     void extBodyVelRosDecoder(an_packet_t *an_packet);

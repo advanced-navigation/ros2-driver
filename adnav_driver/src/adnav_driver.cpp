@@ -250,7 +250,7 @@ Driver::Driver(): rclcpp::Node("adnav_driver")
 				udp_handle->close();
 			}
 
-			if (!st.stop_requested())
+			if (!st.stop_requested() && rclcpp::ok())
 			{
 				RCLCPP_ERROR(this->get_logger(), "Attempting reconnect in 2 seconds");
 				std::condition_variable_any cv;
@@ -376,6 +376,7 @@ void Driver::createPublishers() {
 	nav_sat_fix_pub_ = this->create_publisher<sensor_msgs::msg::NavSatFix>("nav_sat_fix", 10);
 	twist_pub_ = this->create_publisher<geometry_msgs::msg::Twist>("twist", 10);
 	twist_stamped_pub_ = this->create_publisher<geometry_msgs::msg::TwistStamped>("twist_stamped", 10);
+	twist_stamped_enu_pub_ = this->create_publisher<geometry_msgs::msg::TwistStamped>("twist_stamped_enu", 10);
 	geo_pose_pub_ = this->create_publisher<geographic_msgs::msg::GeoPose>("geopose", 10);
 	geo_pose_stamped_pub_ = this->create_publisher<geographic_msgs::msg::GeoPoseStamped>("geopose_stamped", 10);
 	imu_pub_ = this->create_publisher<sensor_msgs::msg::Imu>("imu", 10);
@@ -400,8 +401,12 @@ void Driver::createPublishers() {
 
 	if (params.additional_packets.ecef_position)
 	{
-		pose_pub_ = this->create_publisher<geometry_msgs::msg::Pose>("pose", 10);
-		pose_stamped_pub_ = this->create_publisher<geometry_msgs::msg::PoseStamped>("pose_stamped", 10);
+		pose_ecef_stamped_pub_ = this->create_publisher<geometry_msgs::msg::PoseStamped>("pose_stamped", 10);
+	}
+
+	if (params.additional_packets.utm_position)
+	{
+		pose_utm_stamped_pub_ = this->create_publisher<geometry_msgs::msg::PoseStamped>("pose_utm", 10);
 	}
 }
 
@@ -497,6 +502,7 @@ void Driver::receivePackets(const std::span<const uint8_t> buffer) {
 }
 
 	bool Driver::packet_is_recent(uint8_t packet_id, std::chrono::microseconds max_age) {
+		return true;
 		auto now = this->get_clock()->now();
 		auto pkt_it = packet_receive_times.find(packet_id);
 		if (pkt_it == packet_receive_times.end())
@@ -527,7 +533,8 @@ void Driver::publishTimerCallback() {
 	if (packet_is_recent(packet_id_system_state, std::chrono::microseconds(params.publish_us)))
 	{
 		nav_sat_fix_pub_->publish(nav_fix_msg_);
-		twist_pub_->publish(twist_msg_);
+		twist_pub_->publish(twist_flu_msg_);
+		twist_stamped_enu_pub_->publish(twist_stamped_msg_enu);
 		twist_stamped_pub_->publish(twist_stamped_msg_);
 		imu_pub_->publish(imu_msg_);
 		geo_pose_pub_->publish(geo_pose_msg_);
@@ -552,10 +559,14 @@ void Driver::publishTimerCallback() {
 		temperature_pub_->publish(temp_msg_);
 	}
 
-	if (packet_is_recent(packet_id_ecef_position, std::chrono::microseconds(params.publish_us)) && pose_pub_ && pose_stamped_pub_)
+	if (packet_is_recent(packet_id_ecef_position, std::chrono::microseconds(params.publish_us)) && pose_ecef_stamped_pub_)
 	{
-		pose_pub_->publish(pose_msg_);
-		pose_stamped_pub_->publish(pose_stamped_msg_);
+		pose_ecef_stamped_pub_->publish(pose_ecef_stamped_msg_);
+	}
+
+	if (packet_is_recent(packet_id_utm_position, std::chrono::microseconds(params.publish_us)) && pose_utm_stamped_pub_ && pose_utm_stamped_pub_)
+	{
+		pose_utm_stamped_pub_->publish(pose_utm_stamped_msg_);
 	}
 }
 
@@ -848,6 +859,34 @@ void Driver::accuracy_diagnostic(diagnostic_updater::DiagnosticStatusWrapper &st
 		} else if (params.health.thresholds.velocity_accuracy_rms_2d != 0.0 || params.health.thresholds.velocity_accuracy_rms_3d != 0.0)
 		{
 			stat.summary(diagnostic_msgs::msg::DiagnosticStatus::ERROR, std::format("Velocity Standard Deviation packet: {}", to_string(velocity_stddev_pkt.error())));
+		}
+
+		const auto pvt_pkt = gnss_position_velocity_time_packet_.value();
+		if (pvt_pkt)
+		{
+			const auto spoofing_status = static_cast<spoofing_interference_status_e>(pvt_pkt.value().status_bitfield.b.spoofing_status);
+			const auto interference_status = static_cast<spoofing_interference_status_e>(pvt_pkt.value().status_bitfield.b.interference_status);
+			stat.add("Spoofing Status", to_string(spoofing_status));
+			stat.add("Interference Status", to_string(interference_status));
+
+			if (spoofing_status != spoofing_interference_status_unknown)
+			{
+				if (params.health.spoofing && spoofing_status != spoofing_interference_status_none)
+				{
+					stat.mergeSummary(diagnostic_msgs::msg::DiagnosticStatus::ERROR, "Spoofing detected");
+				}
+			}
+
+			if (interference_status != spoofing_interference_status_unknown)
+			{
+				if (params.health.spoofing && interference_status != spoofing_interference_status_none)
+				{
+					stat.mergeSummary(diagnostic_msgs::msg::DiagnosticStatus::ERROR, "Interference detected");
+				}
+			}
+		} else
+		{
+			stat.summary(diagnostic_msgs::msg::DiagnosticStatus::ERROR, std::format("GNSS Position Velocity Time packet: {}", to_string(pvt_pkt.error())));
 		}
 
 		if (stat.level == diagnostic_msgs::msg::DiagnosticStatus::OK)
@@ -1215,6 +1254,13 @@ std::vector<adnav_interfaces::msg::PacketPeriod> Driver::getPacketRequest() {
 		if (params.additional_packets.ecef_position) {
 			adnav_interfaces::msg::PacketPeriod period;
 			period.packet_id = packet_id_ecef_position;
+			period.packet_period = params.default_packet_period;
+			packet_periods.push_back(period);
+		}
+
+		if (params.additional_packets.utm_position) {
+			adnav_interfaces::msg::PacketPeriod period;
+			period.packet_id = packet_id_utm_position;
 			period.packet_period = params.default_packet_period;
 			packet_periods.push_back(period);
 		}
@@ -1617,6 +1663,12 @@ void Driver::decodePackets(an_decoder_t &an_decoder, const int &bytes) {
 			case packet_id_ecef_position: ecefPosRosDecoder(an_packet);
 				break;
 
+			case packet_id_utm_position: utmPosRosDecoder(an_packet);
+				break;
+
+			case packet_id_gnss_position_velocity_time: gnssPosVelTimeRosDecoder(an_packet);
+				break;
+
 			case packet_id_quaternion_orientation_standard_deviation: quartOrientSDRosDriver(an_packet);
 				break;
 
@@ -1732,35 +1784,6 @@ void Driver::deviceInfoDecoder(an_packet_t* an_packet) {
 			device_information_packet.serial_number[2]).c_str());
 }
 
-        geometry_msgs::msg::Twist transformTwistEnuToFlu(
-            const geometry_msgs::msg::Twist & twist_enu,
-            const tf2::Quaternion & orientation)
-		{
-            // Inverse orientation to transform from ENU to FLU
-            tf2::Quaternion q_enu_to_flu = orientation.inverse();
-
-            tf2::Vector3 twist_vel, twist_angular;
-            tf2::fromMsg(twist_enu.linear, twist_vel);
-            tf2::fromMsg(twist_enu.angular, twist_angular);
-
-			twist_vel.setY(-twist_vel.y());
-			twist_vel.setZ(-twist_vel.z());
-
-            // Rotate the ENU twist into the FLU frame
-            tf2::Vector3 transformed_velocity = tf2::quatRotate(q_enu_to_flu, twist_vel);
-            tf2::Vector3 transformed_angular = tf2::quatRotate(q_enu_to_flu, twist_angular);
-
-            geometry_msgs::msg::Twist twist_flu;
-            twist_flu.linear.x = -transformed_velocity.y();
-            twist_flu.linear.y = transformed_velocity.x();
-            twist_flu.linear.z = transformed_velocity.z();
-            twist_flu.angular.x = -transformed_angular.y();
-            twist_flu.angular.y = transformed_angular.x();
-            twist_flu.angular.z = transformed_angular.z();
-
-            return twist_flu;
-    }
-
 /**
  * @brief Function to decode the System State ANPP Packet (ANPP.20).
  *
@@ -1816,48 +1839,53 @@ void Driver::systemStateRosDecoder(an_packet_t* an_packet) {
 			llh_.longitude = system_state_packet.longitude * RADIANS_TO_DEGREES;
 			llh_.height = system_state_packet.height;
 
-			if(ntrip_client_.get() != nullptr) {
+			if(ntrip_client_) {
 				ntrip_client_->set_location(llh_.latitude, llh_.longitude, llh_.height);
 			}
 
-			// Using the RPY orientation as done by cosama
-			orientation_.setRPY(
+			// the orientation fields in the packet are roll, pitch, heading (0 = North, pi/2 = east)
+			// system packet roll pitch yaw is in FRD with a NED world frame
+			orientation_frd_ned_.setRPY(
 				system_state_packet.orientation[0],
-				-system_state_packet.orientation[1],
-				M_PI/2.0f - system_state_packet.orientation[2] // REP 103
+				system_state_packet.orientation[1],
+				system_state_packet.orientation[2]
 			);
 
-			// TWIST
-			twist_msg_.linear.x = system_state_packet.velocity[0];
-			twist_msg_.linear.y = system_state_packet.velocity[1];
-			twist_msg_.linear.z = system_state_packet.velocity[2];
+			orientation_flu_ = transform_frd_ned_to_flu_enu(orientation_frd_ned_);
 
-			twist_msg_.angular.x = system_state_packet.angular_velocity[0];
-			twist_msg_.angular.y = system_state_packet.angular_velocity[1];
-			twist_msg_.angular.z = system_state_packet.angular_velocity[2];
+			// system packet velocities are NED, so it needs to be rearranged for ENU
+			twist_stamped_msg_enu.twist.linear.x = system_state_packet.velocity[1];
+			twist_stamped_msg_enu.twist.linear.y = system_state_packet.velocity[0];
+			twist_stamped_msg_enu.twist.linear.z = -system_state_packet.velocity[2];
 
-			if (params.convert_twist_enu_to_flu) {
-				twist_msg_ = transformTwistEnuToFlu(twist_msg_, orientation_);
-			}
+			geometry_msgs::msg::Vector3 angular_velocity_frd;
+			// system packet angular velocity is in body frame, FRD
+			angular_velocity_frd.x = system_state_packet.angular_velocity[0];
+			angular_velocity_frd.y = system_state_packet.angular_velocity[1];
+			angular_velocity_frd.z = system_state_packet.angular_velocity[2];
 
-			twist_stamped_msg_.twist = twist_msg_;
+			twist_flu_msg_.linear = transform_enu_to_flu(twist_stamped_msg_enu.twist.linear, orientation_flu_);
+			twist_flu_msg_.angular = transform_frd_to_flu(angular_velocity_frd);
+
+			// convert the FRD angular vel to ENU for the enu twist for completion's sake
+			twist_stamped_msg_enu.twist.angular = transform_frd_to_enu(angular_velocity_frd, orientation_frd_ned_);
+
+			twist_stamped_msg_.twist = twist_flu_msg_;
 			twist_stamped_msg_.header = nav_fix_msg_.header;
+			twist_stamped_msg_enu.header.frame_id = "enu";
+			twist_stamped_msg_enu.header.stamp = nav_fix_msg_.header.stamp;
+
+			geometry_msgs::msg::Vector3 body_frd_acceleration;
+			body_frd_acceleration.x = system_state_packet.body_acceleration[0];
+			body_frd_acceleration.y = system_state_packet.body_acceleration[1];
+			body_frd_acceleration.z = system_state_packet.body_acceleration[2];
 
 			// IMU
 			imu_msg_.header = nav_fix_msg_.header;
-			imu_msg_.orientation.x = orientation_[0];
-			imu_msg_.orientation.y = orientation_[1];
-			imu_msg_.orientation.z = orientation_[2];
-			imu_msg_.orientation.w = orientation_[3];
+			imu_msg_.orientation = tf2::toMsg(orientation_flu_);
 
-			imu_msg_.angular_velocity.x = system_state_packet.angular_velocity[0]; // These the same as the TWIST msg values
-			imu_msg_.angular_velocity.y = system_state_packet.angular_velocity[1];
-			imu_msg_.angular_velocity.z = system_state_packet.angular_velocity[2];
-
-			// The IMU linear acceleration is now coming from the RAW Sensors Accelerometer
-			imu_msg_.linear_acceleration.x = system_state_packet.body_acceleration[0];
-			imu_msg_.linear_acceleration.y = system_state_packet.body_acceleration[1];
-			imu_msg_.linear_acceleration.z = system_state_packet.body_acceleration[2];
+			imu_msg_.angular_velocity = twist_flu_msg_.angular;
+			imu_msg_.linear_acceleration = transform_frd_to_flu(body_frd_acceleration);
 
 			geo_pose_msg_.orientation = imu_msg_.orientation;
 			geo_pose_msg_.position.latitude = nav_fix_msg_.latitude;
@@ -1878,6 +1906,15 @@ void Driver::systemStateRosDecoder(an_packet_t* an_packet) {
 	}
 }
 
+void Driver::gnssPosVelTimeRosDecoder(an_packet_t* an_packet) {
+	gnss_position_velocity_time_packet_t pvt_packet;
+
+	if(decode_gnss_position_velocity_time_packet(&pvt_packet, an_packet) == 0)
+	{
+		gnss_position_velocity_time_packet_ = pvt_packet;
+	}
+}
+
 /**
  * @brief Function to decode the ECEF Position ANPP Packet (ANPP.33).
  *
@@ -1892,14 +1929,30 @@ void Driver::ecefPosRosDecoder(an_packet_t* an_packet) {
 	// ECEF Position (in meters) Packet for Pose Message
 	if(decode_ecef_position_packet(&ecef_position_packet, an_packet) == 0)
 	 {
-		pose_msg_.position.x = ecef_position_packet.position[0];
-		pose_msg_.position.y = ecef_position_packet.position[1];
-		pose_msg_.position.z = ecef_position_packet.position[2];
+		// Position is in X, Y, Z
+		pose_ecef_stamped_msg_.pose.position.x = ecef_position_packet.position[0];
+		pose_ecef_stamped_msg_.pose.position.y = ecef_position_packet.position[1];
+		pose_ecef_stamped_msg_.pose.position.z = ecef_position_packet.position[2];
 
-		// TODO this borrowing between packets isn't great
-		pose_msg_.orientation = imu_msg_.orientation;
-		pose_stamped_msg_.pose = pose_msg_;
-		pose_stamped_msg_.header = nav_fix_msg_.header;
+		pose_ecef_stamped_msg_.header.stamp = nav_fix_msg_.header.stamp;
+		pose_ecef_stamped_msg_.header.frame_id = "ecef";
+	}
+}
+
+void Driver::utmPosRosDecoder(an_packet_t* an_packet) {
+	utm_position_packet_t utm_position_packet;
+
+	if(decode_utm_position_packet(&utm_position_packet, an_packet) == 0)
+	{
+		// Position is in Northing, Easting, Height
+		pose_utm_stamped_msg_.pose.position.x = utm_position_packet.position[1];
+		pose_utm_stamped_msg_.pose.position.y = utm_position_packet.position[0];
+		pose_utm_stamped_msg_.pose.position.z = utm_position_packet.position[2];
+
+		pose_utm_stamped_msg_.pose.orientation = imu_msg_.orientation;
+		pose_utm_stamped_msg_.header.stamp = nav_fix_msg_.header.stamp;
+		pose_utm_stamped_msg_.header.frame_id = fmt::format("UTM_{}{}",
+			utm_position_packet.zone_number, std::toupper(utm_position_packet.zone_char));
 	}
 }
 
@@ -1942,15 +1995,19 @@ void Driver::rawSensorsRosDecoder(an_packet_t* an_packet) {
 		mag_field_msg_.magnetic_field.x = raw_sensors_packet.magnetometers[0];
 		mag_field_msg_.magnetic_field.y = raw_sensors_packet.magnetometers[1];
 		mag_field_msg_.magnetic_field.z = raw_sensors_packet.magnetometers[2];
+		mag_field_msg_.magnetic_field = transform_frd_to_flu(mag_field_msg_.magnetic_field);
 
 		imu_raw_msg_.header.frame_id = frame_id_;
 		imu_raw_msg_.orientation_covariance[0] = -1; // Tell recievers that no orientation is sent.
 		imu_raw_msg_.linear_acceleration.x = raw_sensors_packet.accelerometers[0];
 		imu_raw_msg_.linear_acceleration.y = raw_sensors_packet.accelerometers[1];
 		imu_raw_msg_.linear_acceleration.z = raw_sensors_packet.accelerometers[2];
+		imu_raw_msg_.linear_acceleration = transform_frd_to_flu(imu_raw_msg_.linear_acceleration);
+
 		imu_raw_msg_.angular_velocity.x = raw_sensors_packet.gyroscopes[0];
 		imu_raw_msg_.angular_velocity.y = raw_sensors_packet.gyroscopes[1];
 		imu_raw_msg_.angular_velocity.z = raw_sensors_packet.gyroscopes[2];
+		imu_raw_msg_.angular_velocity = transform_frd_to_flu(imu_raw_msg_.angular_velocity);
 
 		// BAROMETRIC PRESSURE
 		baro_msg_.header.frame_id = frame_id_;
@@ -1970,17 +2027,19 @@ void Driver::bodyVelRosDecoder(an_packet_t *an_packet)
 
 	if (decode_body_velocity_packet(&body_velocity_packet, an_packet) == 0)
 	{
+		// body velocity is in body frame (FRD)
 		twist_stamped_msg_body.twist.linear.x = body_velocity_packet.velocity[0];
-		twist_stamped_msg_body.twist.linear.y = -body_velocity_packet.velocity[1];
-		twist_stamped_msg_body.twist.linear.z = -body_velocity_packet.velocity[2];
+		twist_stamped_msg_body.twist.linear.y = body_velocity_packet.velocity[1];
+		twist_stamped_msg_body.twist.linear.z = body_velocity_packet.velocity[2];
 
 		if (const auto sys_pkt = system_state_packet_.value(); sys_pkt.has_value())
 		{
-			// borrow the angular rates from the system packet
+			// borrow the angular rates from the system packet (in FRD)
 			twist_stamped_msg_body.twist.angular.x = sys_pkt.value().angular_velocity[0];
 			twist_stamped_msg_body.twist.angular.y = sys_pkt.value().angular_velocity[1];
 			twist_stamped_msg_body.twist.angular.z = sys_pkt.value().angular_velocity[2];
 		}
+		twist_stamped_msg_body.twist = transform_frd_to_flu(twist_stamped_msg_body.twist);
 		twist_stamped_msg_body.header.stamp = stamp_time;
 		twist_stamped_msg_body.header.frame_id = frame_id_;
 	}
@@ -1994,8 +2053,10 @@ void Driver::extBodyVelRosDecoder(an_packet_t *an_packet)
 	if (decode_external_body_velocity_packet(&external_body_velocity_packet, an_packet) == 0)
 	{
 		twist_stamped_msg_external_body.twist.linear.x = external_body_velocity_packet.velocity[0];
-		twist_stamped_msg_external_body.twist.linear.y = -external_body_velocity_packet.velocity[1];
-		twist_stamped_msg_external_body.twist.linear.z = -external_body_velocity_packet.velocity[2];
+		twist_stamped_msg_external_body.twist.linear.y = external_body_velocity_packet.velocity[1];
+		twist_stamped_msg_external_body.twist.linear.z = external_body_velocity_packet.velocity[2];
+		twist_stamped_msg_external_body.twist = transform_frd_to_flu(twist_stamped_msg_external_body.twist);
+
 		twist_stamped_msg_external_body.header.stamp = stamp_time;
 		twist_stamped_msg_external_body.header.frame_id = external_frame_id_;
 	}

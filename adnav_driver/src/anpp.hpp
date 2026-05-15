@@ -64,6 +64,16 @@ inline std::string to_string(const GnssFixStatus status) {
     return "Unknown Status";
 }
 
+inline std::string to_string(const spoofing_interference_status_e status) {
+	switch (status) {
+		case spoofing_interference_status_unknown: return "Unknown";
+		case spoofing_interference_status_none: return "None";
+		case spoofing_interference_status_detected_mitigated: return "Detected, Mitigated";
+		case spoofing_interference_status_detected_unmitigated: return "Detected, Unmitigated";
+	}
+	return "Unknown Status";
+}
+
 inline std::optional<std::string> packet_id_to_string(packet_id_e p_id)
 {
 	switch (p_id)
@@ -136,6 +146,9 @@ inline std::optional<std::string> packet_id_to_string(packet_id_e p_id)
 		case packet_id_sensor_temperatures: return "Sensor Temperatures";
 		case packet_id_system_temperature: return "System Temperature";
 		case packet_id_quantum_sensor: return "Quantum Sensor";
+		case packet_id_vessel_motion: return "Vessel Motion";
+		case packet_id_gnss_position_velocity_time: return "GNSS Position Velocity Time";
+		case packet_id_gnss_orientation: return "GNSS Orientation";
 
 		case packet_id_packet_timer_period: return "Packet Timer Period";
 		case packet_id_packet_periods: return "Packet Periods";

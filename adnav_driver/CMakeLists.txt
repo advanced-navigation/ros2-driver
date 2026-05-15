@@ -61,17 +61,32 @@ set(DEPENDENCIES
 
 set(EXECUTABLE_NAME "adnav_driver")
 
-ament_target_dependencies(${PROJECT_NAME}_lib ${DEPENDENCIES})
-
 generate_parameter_library(
         adnav_parameters
         src/adnav_parameters.yaml
 )
-target_link_libraries(${PROJECT_NAME}_lib adnav_parameters uvw::uvw)
+
+target_link_libraries(${PROJECT_NAME}_lib PUBLIC
+        ${adnav_interfaces_TARGETS}
+        ${geographic_msgs_TARGETS}
+        ${geometry_msgs_TARGETS}
+        ${sensor_msgs_TARGETS}
+        ${std_msgs_TARGETS}
+        ${std_srvs_TARGETS}
+        diagnostic_updater::diagnostic_updater
+        geographic_msgs::validation
+        rclcpp::rclcpp
+        sensor_msgs::sensor_msgs_library
+        tf2::tf2
+        tf2_geometry_msgs::tf2_geometry_msgs
+        uvw::uvw
+        adnav_parameters
+)
 
 add_executable(${EXECUTABLE_NAME} src/main.cpp)
-target_link_libraries(${EXECUTABLE_NAME} ${PROJECT_NAME}_lib uvw::uvw)
-ament_target_dependencies(${EXECUTABLE_NAME} ${DEPENDENCIES})
+target_link_libraries(${EXECUTABLE_NAME}
+        ${PROJECT_NAME}_lib
+)
 
 install(TARGETS ${EXECUTABLE_NAME}
   DESTINATION lib/${PROJECT_NAME}
