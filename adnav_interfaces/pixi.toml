@@ -1,0 +1,37 @@
+[workspace]
+name = "adnav_interfaces"
+channels = [
+  "http://localhost:8000",
+  "https://prefix.dev/robostack-kilted",
+  "https://prefix.dev/conda-forge",
+]
+platforms = ["linux-64", "linux-aarch64"]
+preview = ["pixi-build"]
+
+[dependencies]
+adnav_interfaces = { path = "." }
+
+[package]
+name = "adnav_interfaces"
+version = "2.2.1"
+description = "Advanced Navigation ROS 2 Driver Interfaces"
+license = "LicenseRef-Proprietary"
+authors = ["Greenroom Robotics <software-team@greenroomrobotics.com>"]
+
+[package.build.backend]
+name = "pixi-build-ros-gr"
+version = "*"
+
+[package.build.config]
+mode = "pixi-native"
+build-type = "ament_idl"
+distro = "kilted"
+
+[package.host-dependencies]
+ros-kilted-ament-cmake               = "*"
+ros-kilted-std-msgs                  = "*"
+ros-kilted-geometry-msgs             = "*"
+
+[package.run-dependencies]
+ros-kilted-std-msgs                  = "*"
+ros-kilted-geometry-msgs             = "*"

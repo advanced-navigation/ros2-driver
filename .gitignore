@@ -11,3 +11,5 @@ __pycache__/
 .vs/
 Log_*
 cpplint_*
+.pixi/
+pixi.lock
