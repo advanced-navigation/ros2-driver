@@ -146,7 +146,7 @@ Driver::Driver(): rclcpp::Node("adnav_driver")
 					RCLCPP_INFO(this->get_logger(), "TCP: Connection established");
 					// tcp.keep_alive(true, uvw::tcp_handle::time{2});
 
-					if (const auto err = uv_tcp_keepalive_ex(tcp.raw(), 1, 1, 1, 2); err != 0) {
+					if (const auto err = uv_tcp_keepalive(tcp.raw(), 1, 1); err != 0) {
 						RCLCPP_ERROR(this->get_logger(), "Failed to set TCP keep-alive: %s", uv_strerror(err));
 						throw std::runtime_error("Failed to set TCP keep-alive");
 					}
