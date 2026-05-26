@@ -1,7 +1,7 @@
 [workspace]
 name = "adnav_interfaces"
 channels = [
-  "http://localhost:8000",
+  "http://localhost:8000/general",
   "https://prefix.dev/robostack-kilted",
   "https://prefix.dev/conda-forge",
 ]
