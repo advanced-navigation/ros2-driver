@@ -502,7 +502,6 @@ void Driver::receivePackets(const std::span<const uint8_t> buffer) {
 }
 
 	bool Driver::packet_is_recent(uint8_t packet_id, std::chrono::microseconds max_age) {
-		return true;
 		auto now = this->get_clock()->now();
 		auto pkt_it = packet_receive_times.find(packet_id);
 		if (pkt_it == packet_receive_times.end())
