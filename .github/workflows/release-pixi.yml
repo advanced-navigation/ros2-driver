@@ -1,0 +1,38 @@
+name: Tag & Release (pixi)
+on:
+  workflow_dispatch:
+    inputs:
+      package:
+        type: choice
+        description: 'If not specified, all packages will be released.'
+        options:
+          - ""
+          - adnav_driver
+          - adnav_interfaces
+      changelog:
+        type: boolean
+        default: true
+        description: Generate and commit CHANGELOG.md
+
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write
+
+jobs:
+  release:
+    runs-on: 2vcpu-ubuntu-2404
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: greenroom-robotics/mise/.github/actions/release@v4
+        with:
+          package: ${{ inputs.package }}
+          changelog: ${{ inputs.changelog }}
+          package-dir: .
+          gh-app-id: ${{ secrets.GH_APP_ID }}
+          gh-app-private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+          azure-client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          azure-tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          azure-subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}

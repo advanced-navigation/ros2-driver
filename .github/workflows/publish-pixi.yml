@@ -1,0 +1,70 @@
+name: Publish (pixi, from tag)
+on:
+  push:
+    tags:
+      - '*@*'
+  workflow_dispatch:
+    inputs:
+      package:
+        description: 'Package name (default: parse from pushed tag)'
+        type: string
+        default: ''
+      version:
+        description: 'Version (default: parse from pushed tag)'
+        type: string
+        default: ''
+      sha:
+        description: 'Commit SHA to publish (default: checked-out ref)'
+        type: string
+        default: ''
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: 2vcpu-ubuntu-2404
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Resolve package/version/sha
+        id: resolve
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            ref="${GITHUB_REF_NAME}"
+            echo "package=${ref%@*}" >> "$GITHUB_OUTPUT"
+            echo "version=${ref##*@}" >> "$GITHUB_OUTPUT"
+            echo "sha=${GITHUB_SHA}" >> "$GITHUB_OUTPUT"
+          else
+            sha="${{ inputs.sha }}"; [ -z "$sha" ] && sha="${GITHUB_SHA}"
+            echo "package=${{ inputs.package }}" >> "$GITHUB_OUTPUT"
+            echo "version=${{ inputs.version }}" >> "$GITHUB_OUTPUT"
+            echo "sha=$sha" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: greenroom-robotics/mise/.github/actions/setup@v4
+        id: setup
+        with:
+          gh-app-id: ${{ secrets.GH_APP_ID }}
+          gh-app-private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+          azure-client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          azure-tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          azure-subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      - name: Publish recipe PR to ros-recipes
+        shell: bash
+        env:
+          GH_TOKEN: ${{ steps.setup.outputs.gh-token }}
+          GITHUB_TOKEN: ${{ steps.setup.outputs.gh-token }}
+          API_TOKEN_GITHUB: ${{ steps.setup.outputs.gh-token }}
+        run: |
+          pixi run mise ci recipes-pr \
+            --version="${{ steps.resolve.outputs.version }}" \
+            --package="${{ steps.resolve.outputs.package }}" \
+            --sha="${{ steps.resolve.outputs.sha }}" \
+            --package-dir=. \
+            --ros-distro=kilted \
+            --recipes-repo=greenroom-robotics/ros-recipes
+      - if: always()
+        uses: greenroom-robotics/conda-channel-proxy/.github/actions/teardown@v2
