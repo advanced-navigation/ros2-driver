@@ -24,7 +24,7 @@ permissions:
 
 jobs:
   publish:
-    runs-on: 2vcpu-ubuntu-2404
+    runs-on: runs-on=${{ github.run_id }}/runner=2cpu-linux-x64
     steps:
       - uses: actions/checkout@v6
         with:
@@ -52,6 +52,14 @@ jobs:
           azure-client-id: ${{ secrets.AZURE_CLIENT_ID }}
           azure-tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           azure-subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      # Build gate: a recipe that doesn't build breaks every release once it
+      # lands in ros-recipes, so prove the package builds before publishing.
+      - name: Build package
+        shell: bash
+        run: |
+          pixi run mise ci build \
+            --package="${{ steps.resolve.outputs.package }}" \
+            --package-dir=.
       - name: Publish recipe PR to ros-recipes
         shell: bash
         env:
@@ -67,4 +75,4 @@ jobs:
             --ros-distro=kilted \
             --recipes-repo=greenroom-robotics/ros-recipes
       - if: always()
-        uses: greenroom-robotics/conda-channel-proxy/.github/actions/teardown@v2
+        uses: greenroom-robotics/conda-channel-proxy/.github/actions/teardown@v3
