@@ -19,6 +19,15 @@ if(WIN32)
   add_definitions(-DNOMINMAX)
 endif()
 
+# Conda/pixi builds set $PREFIX (rattler-build) or $CONDA_PREFIX/$PIXI_PROJECT_ROOT
+# (pixi envs); deb builds set none of these. Guard pixi-only source differences
+# behind GR_PIXI_BUILD so the deb path stays byte-identical to main.
+if(DEFINED ENV{PREFIX} OR DEFINED ENV{CONDA_PREFIX} OR DEFINED ENV{PIXI_PROJECT_ROOT})
+  set(GR_PIXI_BUILD ON)
+else()
+  set(GR_PIXI_BUILD OFF)
+endif()
+
 #find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
@@ -45,6 +54,10 @@ add_library(${PROJECT_NAME}_lib
   ${src_MAIN}
   ${src_COMMON}
 )
+
+if(GR_PIXI_BUILD)
+  target_compile_definitions(${PROJECT_NAME}_lib PRIVATE GR_PIXI_BUILD)
+endif()
 
 set(DEPENDENCIES
   "rclcpp"
