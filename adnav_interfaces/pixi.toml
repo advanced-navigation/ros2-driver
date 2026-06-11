@@ -1,7 +1,7 @@
 [workspace]
 name = "adnav_interfaces"
 channels = [
-  "http://localhost:8000/general",
+  "http://localhost:12222/general",
   "https://prefix.dev/robostack-kilted",
   "https://prefix.dev/conda-forge",
 ]
@@ -12,26 +12,54 @@ preview = ["pixi-build"]
 adnav_interfaces = { path = "." }
 
 [package]
-name = "adnav_interfaces"
-version = "2.2.1"
+name        = "adnav_interfaces"
+version     = "2.2.1"
 description = "Advanced Navigation ROS 2 Driver Interfaces"
-license = "LicenseRef-Proprietary"
-authors = ["Greenroom Robotics <software-team@greenroomrobotics.com>"]
+license     = "LicenseRef-Proprietary"
+authors     = ["Greenroom Robotics <software-team@greenroomrobotics.com>"]
 
 [package.build.backend]
-name = "pixi-build-ros-gr"
-version = "*"
+name    = "pixi-build-ros-gr"
+version = ">=0.4,<0.5"
 
 [package.build.config]
-mode = "pixi-native"
-build-type = "ament_idl"
-distro = "kilted"
+mode         = "pixi-native"
+build-type   = "ament_idl"
+distro       = "kilted"
+build-number = 1
 
 [package.host-dependencies]
-ros-kilted-ament-cmake               = "*"
-ros-kilted-std-msgs                  = "*"
-ros-kilted-geometry-msgs             = "*"
+ros-kilted-ament-cmake        = "*"
+ros-kilted-std-msgs           = "*"
+ros-kilted-geometry-msgs      = "*"
+ros-kilted-builtin-interfaces = "*"
 
 [package.run-dependencies]
-ros-kilted-std-msgs                  = "*"
-ros-kilted-geometry-msgs             = "*"
+ros-kilted-std-msgs           = "*"
+ros-kilted-geometry-msgs      = "*"
+ros-kilted-builtin-interfaces = "*"
+
+# Test env builds the package from source with colcon (deb parity),
+# so it needs the build (host) deps as well as the test deps.
+[feature.tests.dependencies]
+cxx-compiler                  = "*"
+cmake                         = "*"
+make                          = "*"
+pkg-config                    = "*"
+ros-kilted-ament-cmake        = "*"
+ros-kilted-std-msgs           = "*"
+ros-kilted-geometry-msgs      = "*"
+ros-kilted-builtin-interfaces = "*"
+# the ament_idl build backend injects rosidl itself; a colcon source build needs it explicitly
+ros-kilted-rosidl-default-generators = "*"
+ros-kilted-rosidl-default-runtime    = "*"
+# CMakeLists uses ament_lint_auto under BUILD_TESTING
+ros-kilted-ament-lint-auto   = "*"
+ros-kilted-ament-lint-common = "*"
+colcon-common-extensions     = "*"
+
+[feature.tests.tasks]
+test = "colcon build && (LD_PRELOAD=$CONDA_PREFIX/lib/libpython3.so colcon test --event-handlers console_direct+ || true) && colcon test-result --all --verbose"
+
+[environments]
+tests = { features = ["tests"], no-default-feature = true }
