@@ -1,0 +1,17 @@
+# To use:
+#
+#     pre-commit run -a
+#
+# Or:
+#
+#     pre-commit install  # (runs every time you commit in git)
+#
+# See https://github.com/pre-commit/pre-commit
+
+repos:
+  # TOML hooks
+  - repo: https://github.com/ComPWA/taplo-pre-commit
+    rev: v0.9.3
+    hooks:
+      - id: taplo-format
+        files: (^|/)pixi\.toml$

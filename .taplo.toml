@@ -1,0 +1,10 @@
+[formatting]
+align_entries = true
+column_width = 100
+
+[[rule]]
+name = "pixi-schema"
+include = ["**/pixi.toml"]
+
+[rule.schema]
+path = "https://raw.githubusercontent.com/prefix-dev/pixi/main/schema/schema.json"
