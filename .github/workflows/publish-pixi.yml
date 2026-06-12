@@ -6,15 +6,17 @@ on:
   workflow_dispatch:
     inputs:
       package:
-        description: 'Package name (default: parse from pushed tag)'
-        type: string
-        default: ''
+        description: 'Package to publish'
+        type: choice
+        options:
+          - adnav_driver
+          - adnav_interfaces
       version:
-        description: 'Version (default: parse from pushed tag)'
+        description: 'Version (blank = most recent <package>@* tag)'
         type: string
         default: ''
       sha:
-        description: 'Commit SHA to publish (default: checked-out ref)'
+        description: 'Commit SHA (blank = sha of the resolved tag)'
         type: string
         default: ''
 
@@ -29,21 +31,35 @@ jobs:
       - uses: actions/checkout@v6
         with:
           fetch-depth: 0
+          fetch-tags: true
       - name: Resolve package/version/sha
         id: resolve
         shell: bash
         run: |
           if [ "${{ github.event_name }}" = "push" ]; then
             ref="${GITHUB_REF_NAME}"
-            echo "package=${ref%@*}" >> "$GITHUB_OUTPUT"
-            echo "version=${ref##*@}" >> "$GITHUB_OUTPUT"
-            echo "sha=${GITHUB_SHA}" >> "$GITHUB_OUTPUT"
+            package="${ref%@*}"
+            version="${ref##*@}"
+            sha="${GITHUB_SHA}"
           else
-            sha="${{ inputs.sha }}"; [ -z "$sha" ] && sha="${GITHUB_SHA}"
-            echo "package=${{ inputs.package }}" >> "$GITHUB_OUTPUT"
-            echo "version=${{ inputs.version }}" >> "$GITHUB_OUTPUT"
-            echo "sha=$sha" >> "$GITHUB_OUTPUT"
+            package="${{ inputs.package }}"
+            version="${{ inputs.version }}"
+            sha="${{ inputs.sha }}"
+            # Fall back to the most recent tag of shape <package>@* when version
+            # or sha weren't given on manual dispatch.
+            if [ -z "$version" ] || [ -z "$sha" ]; then
+              tag="$(git tag --list "${package}@*" --sort=-version:refname | head -n 1)"
+              if [ -z "$tag" ]; then
+                echo "::error::no tag matching ${package}@* found"; exit 1
+              fi
+              echo "Resolved most-recent tag for ${package}: ${tag}"
+              [ -z "$version" ] && version="${tag##*@}"
+              [ -z "$sha" ] && sha="$(git rev-list -n 1 "$tag")"
+            fi
           fi
+          echo "package=${package}" >> "$GITHUB_OUTPUT"
+          echo "version=${version}" >> "$GITHUB_OUTPUT"
+          echo "sha=${sha}" >> "$GITHUB_OUTPUT"
       - uses: greenroom-robotics/mise/.github/actions/setup@v4
         id: setup
         with:
