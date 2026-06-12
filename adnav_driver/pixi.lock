@@ -11,29 +11,34 @@ environments:
     packages:
       linux-64:
       - conda: http://localhost:12222/general/linux-64/ros-kilted-action-msgs-2.3.1-np2py312h31f38b3_3.conda
-      - conda: http://localhost:12222/general/linux-64/ros-kilted-builtin-interfaces-2.3.1-np2py312h2ed9cc7_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-builtin-interfaces-2.3.1-np2py312h31f38b3_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-composition-interfaces-2.3.1-np2py312h2ed9cc7_3.conda
-      - conda: http://localhost:12222/general/linux-64/ros-kilted-diagnostic-msgs-5.5.2-np2py312h31f38b3_3.conda
-      - conda: http://localhost:12222/general/linux-64/ros-kilted-example-interfaces-0.13.1-np2py312h31f38b3_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-diagnostic-msgs-5.5.2-np2py312h2ed9cc7_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-example-interfaces-0.13.1-np2py312h2ed9cc7_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-generate-parameter-library-10.0.1-np2py312h2c89a96_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-generate-parameter-library-py-10.2.1-np2py312h2ed9cc7_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-geographic-msgs-1.0.6-np2py312h31f38b3_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-geometry-msgs-5.5.2-np2py312h2ed9cc7_3.conda
-      - conda: http://localhost:12222/general/linux-64/ros-kilted-lifecycle-msgs-2.3.1-np2py312h31f38b3_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-lifecycle-msgs-2.3.1-np2py312h2ed9cc7_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-nav-msgs-5.5.2-np2py312h31f38b3_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-parameter-traits-10.0.1-np2py312h1e2911d_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-rcl-interfaces-2.3.1-np2py312h31f38b3_3.conda
-      - conda: http://localhost:12222/general/linux-64/ros-kilted-rosgraph-msgs-2.3.1-np2py312h2ed9cc7_3.conda
-      - conda: http://localhost:12222/general/linux-64/ros-kilted-rosidl-core-generators-0.3.2-np2py312h31f38b3_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-rosgraph-msgs-2.3.1-np2py312h31f38b3_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-rosidl-core-generators-0.3.2-np2py312h2ed9cc7_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-rosidl-generator-mypy-0.2.1-np2py312h31f38b3_3.conda
-      - conda: http://localhost:12222/general/linux-64/ros-kilted-rosidl-generator-pydantic-1.3.0-np2py312h2ed9cc7_3.conda
-      - conda: http://localhost:12222/general/linux-64/ros-kilted-sensor-msgs-5.5.2-np2py312h2ed9cc7_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-rosidl-generator-pydantic-1.3.0-np2py312h31f38b3_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-sensor-msgs-5.5.2-np2py312h31f38b3_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-service-msgs-2.3.1-np2py312h2ed9cc7_3.conda
-      - conda: http://localhost:12222/general/linux-64/ros-kilted-shape-msgs-5.5.2-np2py312h31f38b3_3.conda
-      - conda: http://localhost:12222/general/linux-64/ros-kilted-statistics-msgs-2.3.1-np2py312h2ed9cc7_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-shape-msgs-5.5.2-np2py312h2ed9cc7_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-statistics-msgs-2.3.1-np2py312h31f38b3_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-std-msgs-5.5.2-np2py312h31f38b3_3.conda
-      - conda: http://localhost:12222/general/linux-64/ros-kilted-std-srvs-5.5.2-np2py312h31f38b3_3.conda
-      - conda: http://localhost:12222/general/linux-64/ros-kilted-stereo-msgs-5.5.2-np2py312h2ed9cc7_3.conda
-      - conda: http://localhost:12222/general/linux-64/ros-kilted-trajectory-msgs-5.5.2-np2py312h31f38b3_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-std-srvs-5.5.2-np2py312h2ed9cc7_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-stereo-msgs-5.5.2-np2py312h31f38b3_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-trajectory-msgs-5.5.2-np2py312h2ed9cc7_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-type-description-interfaces-2.3.1-np2py312h31f38b3_3.conda
-      - conda: http://localhost:12222/general/linux-64/ros-kilted-unique-identifier-msgs-2.7.0-np2py312h31f38b3_3.conda
-      - conda: http://localhost:12222/general/linux-64/ros-kilted-visualization-msgs-5.5.2-np2py312h2ed9cc7_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-unique-identifier-msgs-2.7.0-np2py312h2ed9cc7_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-visualization-msgs-5.5.2-np2py312h31f38b3_3.conda
+      - conda: http://localhost:12222/general/linux-64/uvw_vendor-1.0.1-hb0f4dca_3.conda
       - conda: https://prefix.dev/conda-forge/linux-64/_openmp_mutex-4.5-20_gnu.conda
       - conda: https://prefix.dev/conda-forge/linux-64/aiohttp-3.14.1-py312h5d8c7f2_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/alsa-lib-1.2.16-hb03c661_1.conda
@@ -56,6 +61,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/linux-64/cmake-4.3.3-hc85cc9f_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/console_bridge-1.0.2-h924138e_1.tar.bz2
       - conda: https://prefix.dev/conda-forge/linux-64/contourpy-1.3.3-py312h0a2e395_4.conda
+      - conda: https://prefix.dev/conda-forge/linux-64/cpp-expected-1.3.1-h171cf75_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/cppcheck-2.21.0-py312h014360a_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/cryptography-48.0.1-py312ha4b625e_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/cyrus-sasl-2.1.28-hac629b4_1.conda
@@ -66,7 +72,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/linux-64/eigen-abi-3.4.0.100-h3bcb7cf_2.conda
       - conda: https://prefix.dev/conda-forge/linux-64/eigen-abi-devel-3.4.0.100-he46ec76_2.conda
       - conda: https://prefix.dev/conda-forge/linux-64/epoxy-1.5.10-hb03c661_2.conda
-      - conda: https://prefix.dev/conda-forge/linux-64/expat-2.8.1-hecca717_0.conda
+      - conda: https://prefix.dev/conda-forge/linux-64/expat-2.8.1-hecca717_1.conda
       - conda: https://prefix.dev/conda-forge/linux-64/ffmpeg-8.1.1-gpl_hee00b0e_901.conda
       - conda: https://prefix.dev/conda-forge/linux-64/flann-1.9.2-he1b7b50_6.conda
       - conda: https://prefix.dev/conda-forge/linux-64/fmt-12.1.0-hff5e90c_0.conda
@@ -148,7 +154,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/linux-64/libegl-devel-1.7.0-ha4b6fd6_3.conda
       - conda: https://prefix.dev/conda-forge/linux-64/libev-4.33-hd590300_2.conda
       - conda: https://prefix.dev/conda-forge/linux-64/libevent-2.1.12-hf998b51_1.conda
-      - conda: https://prefix.dev/conda-forge/linux-64/libexpat-2.8.1-hecca717_0.conda
+      - conda: https://prefix.dev/conda-forge/linux-64/libexpat-2.8.1-hecca717_1.conda
       - conda: https://prefix.dev/conda-forge/linux-64/libffi-3.5.2-h3435931_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/libflac-1.5.0-he200343_1.conda
       - conda: https://prefix.dev/conda-forge/linux-64/libfreetype-2.14.3-ha770c72_0.conda
@@ -225,7 +231,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/linux-64/liburing-2.14-hb700be7_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/libusb-1.0.29-h73b1eb8_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/libuuid-2.42.1-h5347b49_0.conda
-      - conda: https://prefix.dev/conda-forge/linux-64/libuv-1.52.1-h280c20c_0.conda
+      - conda: https://prefix.dev/conda-forge/linux-64/libuv-1.51.0-hb03c661_1.conda
       - conda: https://prefix.dev/conda-forge/linux-64/libva-2.23.0-he1eb515_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/libvorbis-1.3.7-h54a6638_2.conda
       - conda: https://prefix.dev/conda-forge/linux-64/libvpl-2.16.0-h54a6638_0.conda
@@ -245,6 +251,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/linux-64/lxml-6.1.1-py312h63ddcf0_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/lz4-4.4.5-py312h3d67a73_1.conda
       - conda: https://prefix.dev/conda-forge/linux-64/lz4-c-1.10.0-h5888daf_1.conda
+      - conda: https://prefix.dev/conda-forge/linux-64/markupsafe-3.0.3-py312h8a5da7c_1.conda
       - conda: https://prefix.dev/conda-forge/linux-64/matplotlib-base-3.10.9-py312he3d6523_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/mesalib-26.0.3-h8cca3c9_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/mpg123-1.32.9-hc50e24c_0.conda
@@ -389,6 +396,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/noarch/idna-3.17-pyhcf101f3_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/importlib-metadata-9.0.0-pyhcf101f3_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/iniconfig-2.3.0-pyhd8ed1ab_0.conda
+      - conda: https://prefix.dev/conda-forge/noarch/jinja2-3.1.6-pyhcf101f3_1.conda
       - conda: https://prefix.dev/conda-forge/noarch/lark-parser-0.12.0-pyhd8ed1ab_1.conda
       - conda: https://prefix.dev/conda-forge/noarch/mccabe-0.7.0-pyhd8ed1ab_1.conda
       - conda: https://prefix.dev/conda-forge/noarch/munkres-1.1.4-pyhd8ed1ab_1.conda
@@ -418,6 +426,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/noarch/snowballstemmer-3.1.1-pyhd8ed1ab_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/toml-0.10.2-pyhcf101f3_3.conda
       - conda: https://prefix.dev/conda-forge/noarch/tomli-2.4.1-pyhcf101f3_0.conda
+      - conda: https://prefix.dev/conda-forge/noarch/typeguard-4.5.2-pyhcf101f3_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/typing-extensions-4.15.0-h396c80c_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/typing-inspection-0.4.2-pyhcf101f3_2.conda
       - conda: https://prefix.dev/conda-forge/noarch/typing_extensions-4.15.0-pyhcf101f3_0.conda
@@ -484,6 +493,7 @@ environments:
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-demo-nodes-py-0.36.4-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-depthimage-to-laserscan-2.5.1-np2py312h3b5449b_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-desktop-0.12.0-np2py312h2ed9cc7_19.conda
+      - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-diagnostic-updater-4.3.6-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-dummy-map-server-0.36.4-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-dummy-robot-bringup-0.36.4-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-dummy-sensors-0.36.4-np2py312h2ed9cc7_19.conda
@@ -665,6 +675,7 @@ environments:
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-rqt-shell-1.3.1-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-rqt-srv-1.3.0-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-rqt-topic-1.8.2-np2py312h2ed9cc7_19.conda
+      - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-rsl-1.3.0-np2py312h6f43896_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-rti-connext-dds-cmake-module-1.1.1-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-rttest-0.18.3-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-rviz-assimp-vendor-15.0.12-np2py312h4f3ad64_19.conda
@@ -681,6 +692,7 @@ environments:
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-sros2-0.15.5-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-sros2-cmake-0.15.5-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-tango-icons-vendor-0.4.1-np2py312h2ed9cc7_19.conda
+      - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-tcb-span-1.2.0-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-teleop-twist-joy-2.6.5-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-teleop-twist-keyboard-2.4.1-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-tf2-0.41.6-np2py312h2ed9cc7_19.conda
@@ -696,6 +708,7 @@ environments:
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-tf2-sensor-msgs-0.41.6-np2py312h3ba0a76_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-tf2-tools-0.41.6-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-tinyxml2-vendor-0.10.1-np2py312h2ed9cc7_19.conda
+      - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-tl-expected-1.2.0-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-tlsf-0.10.1-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-tlsf-cpp-0.18.3-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-topic-monitor-0.36.4-np2py312h2ed9cc7_19.conda
@@ -713,29 +726,34 @@ environments:
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros2-distro-mutex-0.15.0-kilted_19.conda
       linux-aarch64:
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-action-msgs-2.3.1-np2py312h2c707e6_3.conda
-      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-builtin-interfaces-2.3.1-np2py312h2c707e6_3.conda
-      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-composition-interfaces-2.3.1-np2py312h2c707e6_3.conda
-      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-diagnostic-msgs-5.5.2-np2py312h61f2ce4_3.conda
-      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-example-interfaces-0.13.1-np2py312h61f2ce4_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-builtin-interfaces-2.3.1-np2py312h61f2ce4_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-composition-interfaces-2.3.1-np2py312h61f2ce4_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-diagnostic-msgs-5.5.2-np2py312h2c707e6_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-example-interfaces-0.13.1-np2py312h2c707e6_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-generate-parameter-library-10.0.1-np2py312hdb0de1a_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-generate-parameter-library-py-10.2.1-np2py312h61f2ce4_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-geographic-msgs-1.0.6-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-geometry-msgs-5.5.2-np2py312h2c707e6_3.conda
-      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-lifecycle-msgs-2.3.1-np2py312h61f2ce4_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-lifecycle-msgs-2.3.1-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-nav-msgs-5.5.2-np2py312h2c707e6_3.conda
-      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-rcl-interfaces-2.3.1-np2py312h61f2ce4_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-parameter-traits-10.0.1-np2py312h8b5252a_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-rcl-interfaces-2.3.1-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-rosgraph-msgs-2.3.1-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-rosidl-core-generators-0.3.2-np2py312h61f2ce4_3.conda
-      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-rosidl-generator-mypy-0.2.1-np2py312h61f2ce4_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-rosidl-generator-mypy-0.2.1-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-rosidl-generator-pydantic-1.3.0-np2py312h2c707e6_3.conda
-      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-sensor-msgs-5.5.2-np2py312h61f2ce4_3.conda
-      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-service-msgs-2.3.1-np2py312h61f2ce4_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-sensor-msgs-5.5.2-np2py312h2c707e6_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-service-msgs-2.3.1-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-shape-msgs-5.5.2-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-statistics-msgs-2.3.1-np2py312h2c707e6_3.conda
-      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-std-msgs-5.5.2-np2py312h61f2ce4_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-std-msgs-5.5.2-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-std-srvs-5.5.2-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-stereo-msgs-5.5.2-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-trajectory-msgs-5.5.2-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-type-description-interfaces-2.3.1-np2py312h61f2ce4_3.conda
-      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-unique-identifier-msgs-2.7.0-np2py312h61f2ce4_3.conda
-      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-visualization-msgs-5.5.2-np2py312h2c707e6_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-unique-identifier-msgs-2.7.0-np2py312h2c707e6_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-visualization-msgs-5.5.2-np2py312h61f2ce4_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/uvw_vendor-1.0.1-he8cfe8b_3.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/_openmp_mutex-4.5-20_gnu.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/aiohttp-3.14.1-py312he7e3343_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/alsa-lib-1.2.16-he30d5cf_1.conda
@@ -758,6 +776,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/linux-aarch64/cmake-4.3.3-hc9d863e_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/console_bridge-1.0.2-hdd96247_1.tar.bz2
       - conda: https://prefix.dev/conda-forge/linux-aarch64/contourpy-1.3.3-py312hf18b547_4.conda
+      - conda: https://prefix.dev/conda-forge/linux-aarch64/cpp-expected-1.3.1-hdc560ac_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/cppcheck-2.21.0-py312h5677ec4_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/cryptography-48.0.1-py312h96535df_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/cyrus-sasl-2.1.28-h6598af7_1.conda
@@ -768,7 +787,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/linux-aarch64/eigen-abi-3.4.0.100-h9a8c16c_2.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/eigen-abi-devel-3.4.0.100-hd8f9dff_2.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/epoxy-1.5.10-he30d5cf_2.conda
-      - conda: https://prefix.dev/conda-forge/linux-aarch64/expat-2.8.1-hfae3067_0.conda
+      - conda: https://prefix.dev/conda-forge/linux-aarch64/expat-2.8.1-hfae3067_1.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/ffmpeg-8.1.1-gpl_h2dd1d65_901.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/flann-1.9.2-headf6c6_6.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/fmt-12.1.0-h20c602a_0.conda
@@ -847,7 +866,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/linux-aarch64/libegl-devel-1.7.0-hd24410f_3.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/libev-4.33-h31becfc_2.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/libevent-2.1.12-h4ba1bb4_1.conda
-      - conda: https://prefix.dev/conda-forge/linux-aarch64/libexpat-2.8.1-hfae3067_0.conda
+      - conda: https://prefix.dev/conda-forge/linux-aarch64/libexpat-2.8.1-hfae3067_1.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/libffi-3.5.2-h376a255_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/libflac-1.5.0-he9c94f4_1.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/libfreetype-2.14.3-h8af1aa0_1.conda
@@ -922,7 +941,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/linux-aarch64/liburing-2.14-hfefdfc9_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/libusb-1.0.29-h06eaf92_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/libuuid-2.42.1-h1022ec0_0.conda
-      - conda: https://prefix.dev/conda-forge/linux-aarch64/libuv-1.52.1-h80f16a2_0.conda
+      - conda: https://prefix.dev/conda-forge/linux-aarch64/libuv-1.51.0-he30d5cf_1.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/libvorbis-1.3.7-h7ac5ae9_2.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/libvpx-1.15.2-hfae3067_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/libvulkan-loader-1.4.341.0-h8b8848b_0.conda
@@ -940,6 +959,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/linux-aarch64/lxml-6.1.1-py312hfe2c7ef_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/lz4-4.4.5-py312he78555a_1.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/lz4-c-1.10.0-h5ad3122_1.conda
+      - conda: https://prefix.dev/conda-forge/linux-aarch64/markupsafe-3.0.3-py312hd077ced_1.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/matplotlib-base-3.10.9-py312h9d0c5ba_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/mesalib-26.0.3-h455aa48_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/mpg123-1.32.9-h65af167_0.conda
@@ -1082,6 +1102,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/noarch/idna-3.17-pyhcf101f3_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/importlib-metadata-9.0.0-pyhcf101f3_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/iniconfig-2.3.0-pyhd8ed1ab_0.conda
+      - conda: https://prefix.dev/conda-forge/noarch/jinja2-3.1.6-pyhcf101f3_1.conda
       - conda: https://prefix.dev/conda-forge/noarch/lark-parser-0.12.0-pyhd8ed1ab_1.conda
       - conda: https://prefix.dev/conda-forge/noarch/mccabe-0.7.0-pyhd8ed1ab_1.conda
       - conda: https://prefix.dev/conda-forge/noarch/munkres-1.1.4-pyhd8ed1ab_1.conda
@@ -1111,6 +1132,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/noarch/snowballstemmer-3.1.1-pyhd8ed1ab_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/toml-0.10.2-pyhcf101f3_3.conda
       - conda: https://prefix.dev/conda-forge/noarch/tomli-2.4.1-pyhcf101f3_0.conda
+      - conda: https://prefix.dev/conda-forge/noarch/typeguard-4.5.2-pyhcf101f3_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/typing-extensions-4.15.0-h396c80c_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/typing-inspection-0.4.2-pyhcf101f3_2.conda
       - conda: https://prefix.dev/conda-forge/noarch/typing_extensions-4.15.0-pyhcf101f3_0.conda
@@ -1176,6 +1198,7 @@ environments:
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-demo-nodes-py-0.36.4-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-depthimage-to-laserscan-2.5.1-np2py312h3c25c5b_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-desktop-0.12.0-np2py312h61f2ce4_19.conda
+      - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-diagnostic-updater-4.3.6-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-dummy-map-server-0.36.4-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-dummy-robot-bringup-0.36.4-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-dummy-sensors-0.36.4-np2py312h61f2ce4_19.conda
@@ -1357,6 +1380,7 @@ environments:
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-rqt-shell-1.3.1-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-rqt-srv-1.3.0-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-rqt-topic-1.8.2-np2py312h61f2ce4_19.conda
+      - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-rsl-1.3.0-np2py312he3bec8b_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-rti-connext-dds-cmake-module-1.1.1-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-rttest-0.18.3-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-rviz-assimp-vendor-15.0.12-np2py312h617ce90_19.conda
@@ -1373,6 +1397,7 @@ environments:
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-sros2-0.15.5-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-sros2-cmake-0.15.5-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-tango-icons-vendor-0.4.1-np2py312h61f2ce4_19.conda
+      - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-tcb-span-1.2.0-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-teleop-twist-joy-2.6.5-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-teleop-twist-keyboard-2.4.1-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-tf2-0.41.6-np2py312h61f2ce4_19.conda
@@ -1388,6 +1413,7 @@ environments:
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-tf2-sensor-msgs-0.41.6-np2py312h78fd680_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-tf2-tools-0.41.6-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-tinyxml2-vendor-0.10.1-np2py312h61f2ce4_19.conda
+      - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-tl-expected-1.2.0-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-tlsf-0.10.1-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-tlsf-cpp-0.18.3-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-topic-monitor-0.36.4-np2py312h61f2ce4_19.conda
@@ -1415,9 +1441,13 @@ environments:
       - conda: http://localhost:12222/general/linux-64/ros-kilted-composition-interfaces-2.3.1-np2py312h2ed9cc7_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-diagnostic-msgs-5.5.2-np2py312h2ed9cc7_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-example-interfaces-0.13.1-np2py312h2ed9cc7_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-generate-parameter-library-10.0.1-np2py312h2c89a96_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-generate-parameter-library-py-10.2.1-np2py312h2ed9cc7_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-geographic-msgs-1.0.6-np2py312h31f38b3_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-geometry-msgs-5.5.2-np2py312h2ed9cc7_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-lifecycle-msgs-2.3.1-np2py312h2ed9cc7_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-nav-msgs-5.5.2-np2py312h31f38b3_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-parameter-traits-10.0.1-np2py312h1e2911d_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-rcl-interfaces-2.3.1-np2py312h31f38b3_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-rosgraph-msgs-2.3.1-np2py312h31f38b3_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-rosidl-core-generators-0.3.2-np2py312h2ed9cc7_3.conda
@@ -1434,6 +1464,7 @@ environments:
       - conda: http://localhost:12222/general/linux-64/ros-kilted-type-description-interfaces-2.3.1-np2py312h31f38b3_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-unique-identifier-msgs-2.7.0-np2py312h2ed9cc7_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-visualization-msgs-5.5.2-np2py312h31f38b3_3.conda
+      - conda: http://localhost:12222/general/linux-64/uvw_vendor-1.0.1-hb0f4dca_3.conda
       - conda: https://prefix.dev/conda-forge/linux-64/_openmp_mutex-4.5-20_gnu.conda
       - conda: https://prefix.dev/conda-forge/linux-64/aiohttp-3.14.1-py312h5d8c7f2_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/alsa-lib-1.2.16-hb03c661_1.conda
@@ -1462,6 +1493,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/linux-64/console_bridge-1.0.2-h924138e_1.tar.bz2
       - conda: https://prefix.dev/conda-forge/linux-64/contourpy-1.3.3-py312h0a2e395_4.conda
       - conda: https://prefix.dev/conda-forge/linux-64/coverage-7.14.1-py312h8a5da7c_0.conda
+      - conda: https://prefix.dev/conda-forge/linux-64/cpp-expected-1.3.1-h171cf75_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/cppcheck-2.21.0-py312h014360a_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/cryptography-48.0.1-py312ha4b625e_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/cxx-compiler-1.11.0-hfcd1e18_0.conda
@@ -1639,7 +1671,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/linux-64/liburing-2.14-hb700be7_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/libusb-1.0.29-h73b1eb8_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/libuuid-2.42.1-h5347b49_0.conda
-      - conda: https://prefix.dev/conda-forge/linux-64/libuv-1.52.1-h280c20c_0.conda
+      - conda: https://prefix.dev/conda-forge/linux-64/libuv-1.51.0-hb03c661_1.conda
       - conda: https://prefix.dev/conda-forge/linux-64/libva-2.23.0-he1eb515_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/libvorbis-1.3.7-h54a6638_2.conda
       - conda: https://prefix.dev/conda-forge/linux-64/libvpl-2.16.0-h54a6638_0.conda
@@ -1660,6 +1692,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/linux-64/lz4-4.4.5-py312h3d67a73_1.conda
       - conda: https://prefix.dev/conda-forge/linux-64/lz4-c-1.10.0-h5888daf_1.conda
       - conda: https://prefix.dev/conda-forge/linux-64/make-4.4.1-hb9d3cd8_2.conda
+      - conda: https://prefix.dev/conda-forge/linux-64/markupsafe-3.0.3-py312h8a5da7c_1.conda
       - conda: https://prefix.dev/conda-forge/linux-64/matplotlib-base-3.10.9-py312he3d6523_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/mesalib-26.0.3-h8cca3c9_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/mpg123-1.32.9-hc50e24c_0.conda
@@ -1827,6 +1860,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/noarch/idna-3.17-pyhcf101f3_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/importlib-metadata-9.0.0-pyhcf101f3_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/iniconfig-2.3.0-pyhd8ed1ab_0.conda
+      - conda: https://prefix.dev/conda-forge/noarch/jinja2-3.1.6-pyhcf101f3_1.conda
       - conda: https://prefix.dev/conda-forge/noarch/kernel-headers_linux-64-4.18.0-he073ed8_9.conda
       - conda: https://prefix.dev/conda-forge/noarch/lark-parser-0.12.0-pyhd8ed1ab_1.conda
       - conda: https://prefix.dev/conda-forge/noarch/libgcc-devel_linux-64-14.3.0-hf649bbc_119.conda
@@ -1863,6 +1897,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/noarch/sysroot_linux-64-2.28-h4ee821c_9.conda
       - conda: https://prefix.dev/conda-forge/noarch/toml-0.10.2-pyhcf101f3_3.conda
       - conda: https://prefix.dev/conda-forge/noarch/tomli-2.4.1-pyhcf101f3_0.conda
+      - conda: https://prefix.dev/conda-forge/noarch/typeguard-4.5.2-pyhcf101f3_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/typing-extensions-4.15.0-h396c80c_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/typing-inspection-0.4.2-pyhcf101f3_2.conda
       - conda: https://prefix.dev/conda-forge/noarch/typing_extensions-4.15.0-pyhcf101f3_0.conda
@@ -1929,6 +1964,7 @@ environments:
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-demo-nodes-py-0.36.4-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-depthimage-to-laserscan-2.5.1-np2py312h3b5449b_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-desktop-0.12.0-np2py312h2ed9cc7_19.conda
+      - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-diagnostic-updater-4.3.6-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-dummy-map-server-0.36.4-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-dummy-robot-bringup-0.36.4-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-dummy-sensors-0.36.4-np2py312h2ed9cc7_19.conda
@@ -2110,6 +2146,7 @@ environments:
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-rqt-shell-1.3.1-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-rqt-srv-1.3.0-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-rqt-topic-1.8.2-np2py312h2ed9cc7_19.conda
+      - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-rsl-1.3.0-np2py312h6f43896_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-rti-connext-dds-cmake-module-1.1.1-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-rttest-0.18.3-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-rviz-assimp-vendor-15.0.12-np2py312h4f3ad64_19.conda
@@ -2126,6 +2163,7 @@ environments:
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-sros2-0.15.5-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-sros2-cmake-0.15.5-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-tango-icons-vendor-0.4.1-np2py312h2ed9cc7_19.conda
+      - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-tcb-span-1.2.0-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-teleop-twist-joy-2.6.5-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-teleop-twist-keyboard-2.4.1-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-tf2-0.41.6-np2py312h2ed9cc7_19.conda
@@ -2141,6 +2179,7 @@ environments:
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-tf2-sensor-msgs-0.41.6-np2py312h3ba0a76_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-tf2-tools-0.41.6-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-tinyxml2-vendor-0.10.1-np2py312h2ed9cc7_19.conda
+      - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-tl-expected-1.2.0-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-tlsf-0.10.1-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-tlsf-cpp-0.18.3-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-topic-monitor-0.36.4-np2py312h2ed9cc7_19.conda
@@ -2162,9 +2201,13 @@ environments:
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-composition-interfaces-2.3.1-np2py312h61f2ce4_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-diagnostic-msgs-5.5.2-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-example-interfaces-0.13.1-np2py312h2c707e6_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-generate-parameter-library-10.0.1-np2py312hdb0de1a_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-generate-parameter-library-py-10.2.1-np2py312h61f2ce4_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-geographic-msgs-1.0.6-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-geometry-msgs-5.5.2-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-lifecycle-msgs-2.3.1-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-nav-msgs-5.5.2-np2py312h2c707e6_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-parameter-traits-10.0.1-np2py312h8b5252a_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-rcl-interfaces-2.3.1-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-rosgraph-msgs-2.3.1-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-rosidl-core-generators-0.3.2-np2py312h61f2ce4_3.conda
@@ -2181,6 +2224,7 @@ environments:
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-type-description-interfaces-2.3.1-np2py312h61f2ce4_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-unique-identifier-msgs-2.7.0-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-visualization-msgs-5.5.2-np2py312h61f2ce4_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/uvw_vendor-1.0.1-he8cfe8b_3.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/_openmp_mutex-4.5-20_gnu.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/aiohttp-3.14.1-py312he7e3343_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/alsa-lib-1.2.16-he30d5cf_1.conda
@@ -2209,6 +2253,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/linux-aarch64/console_bridge-1.0.2-hdd96247_1.tar.bz2
       - conda: https://prefix.dev/conda-forge/linux-aarch64/contourpy-1.3.3-py312hf18b547_4.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/coverage-7.14.1-py312hd077ced_0.conda
+      - conda: https://prefix.dev/conda-forge/linux-aarch64/cpp-expected-1.3.1-hdc560ac_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/cppcheck-2.21.0-py312h5677ec4_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/cryptography-48.0.1-py312h96535df_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/cxx-compiler-1.11.0-h7b35c40_0.conda
@@ -2381,7 +2426,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/linux-aarch64/liburing-2.14-hfefdfc9_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/libusb-1.0.29-h06eaf92_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/libuuid-2.42.1-h1022ec0_0.conda
-      - conda: https://prefix.dev/conda-forge/linux-aarch64/libuv-1.52.1-h80f16a2_0.conda
+      - conda: https://prefix.dev/conda-forge/linux-aarch64/libuv-1.51.0-he30d5cf_1.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/libvorbis-1.3.7-h7ac5ae9_2.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/libvpx-1.15.2-hfae3067_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/libvulkan-loader-1.4.341.0-h8b8848b_0.conda
@@ -2400,6 +2445,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/linux-aarch64/lz4-4.4.5-py312he78555a_1.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/lz4-c-1.10.0-h5ad3122_1.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/make-4.4.1-h2a6d0cb_2.conda
+      - conda: https://prefix.dev/conda-forge/linux-aarch64/markupsafe-3.0.3-py312hd077ced_1.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/matplotlib-base-3.10.9-py312h9d0c5ba_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/mesalib-26.0.3-h455aa48_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/mpg123-1.32.9-h65af167_0.conda
@@ -2565,6 +2611,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/noarch/idna-3.17-pyhcf101f3_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/importlib-metadata-9.0.0-pyhcf101f3_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/iniconfig-2.3.0-pyhd8ed1ab_0.conda
+      - conda: https://prefix.dev/conda-forge/noarch/jinja2-3.1.6-pyhcf101f3_1.conda
       - conda: https://prefix.dev/conda-forge/noarch/kernel-headers_linux-aarch64-4.18.0-h05a177a_9.conda
       - conda: https://prefix.dev/conda-forge/noarch/lark-parser-0.12.0-pyhd8ed1ab_1.conda
       - conda: https://prefix.dev/conda-forge/noarch/libgcc-devel_linux-aarch64-14.3.0-h25ba3ff_119.conda
@@ -2601,6 +2648,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/noarch/sysroot_linux-aarch64-2.28-h585391f_9.conda
       - conda: https://prefix.dev/conda-forge/noarch/toml-0.10.2-pyhcf101f3_3.conda
       - conda: https://prefix.dev/conda-forge/noarch/tomli-2.4.1-pyhcf101f3_0.conda
+      - conda: https://prefix.dev/conda-forge/noarch/typeguard-4.5.2-pyhcf101f3_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/typing-extensions-4.15.0-h396c80c_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/typing-inspection-0.4.2-pyhcf101f3_2.conda
       - conda: https://prefix.dev/conda-forge/noarch/typing_extensions-4.15.0-pyhcf101f3_0.conda
@@ -2666,6 +2714,7 @@ environments:
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-demo-nodes-py-0.36.4-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-depthimage-to-laserscan-2.5.1-np2py312h3c25c5b_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-desktop-0.12.0-np2py312h61f2ce4_19.conda
+      - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-diagnostic-updater-4.3.6-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-dummy-map-server-0.36.4-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-dummy-robot-bringup-0.36.4-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-dummy-sensors-0.36.4-np2py312h61f2ce4_19.conda
@@ -2847,6 +2896,7 @@ environments:
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-rqt-shell-1.3.1-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-rqt-srv-1.3.0-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-rqt-topic-1.8.2-np2py312h61f2ce4_19.conda
+      - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-rsl-1.3.0-np2py312he3bec8b_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-rti-connext-dds-cmake-module-1.1.1-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-rttest-0.18.3-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-rviz-assimp-vendor-15.0.12-np2py312h617ce90_19.conda
@@ -2863,6 +2913,7 @@ environments:
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-sros2-0.15.5-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-sros2-cmake-0.15.5-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-tango-icons-vendor-0.4.1-np2py312h61f2ce4_19.conda
+      - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-tcb-span-1.2.0-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-teleop-twist-joy-2.6.5-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-teleop-twist-keyboard-2.4.1-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-tf2-0.41.6-np2py312h61f2ce4_19.conda
@@ -2878,6 +2929,7 @@ environments:
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-tf2-sensor-msgs-0.41.6-np2py312h78fd680_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-tf2-tools-0.41.6-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-tinyxml2-vendor-0.10.1-np2py312h61f2ce4_19.conda
+      - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-tl-expected-1.2.0-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-tlsf-0.10.1-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-tlsf-cpp-0.18.3-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-topic-monitor-0.36.4-np2py312h61f2ce4_19.conda
@@ -2901,18 +2953,22 @@ environments:
     packages:
       linux-64:
       - conda: http://localhost:12222/general/linux-64/ros-kilted-action-msgs-2.3.1-np2py312h31f38b3_3.conda
-      - conda: http://localhost:12222/general/linux-64/ros-kilted-builtin-interfaces-2.3.1-np2py312h2ed9cc7_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-builtin-interfaces-2.3.1-np2py312h31f38b3_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-composition-interfaces-2.3.1-np2py312h2ed9cc7_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-diagnostic-msgs-5.5.2-np2py312h2ed9cc7_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-example-interfaces-0.13.1-np2py312h2ed9cc7_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-generate-parameter-library-10.0.1-np2py312h2c89a96_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-generate-parameter-library-py-10.2.1-np2py312h2ed9cc7_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-geographic-msgs-1.0.6-np2py312h31f38b3_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-geometry-msgs-5.5.2-np2py312h2ed9cc7_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-lifecycle-msgs-2.3.1-np2py312h2ed9cc7_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-nav-msgs-5.5.2-np2py312h31f38b3_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-parameter-traits-10.0.1-np2py312h1e2911d_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-rcl-interfaces-2.3.1-np2py312h31f38b3_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-rosgraph-msgs-2.3.1-np2py312h31f38b3_3.conda
-      - conda: http://localhost:12222/general/linux-64/ros-kilted-rosidl-core-generators-0.3.2-np2py312h31f38b3_3.conda
-      - conda: http://localhost:12222/general/linux-64/ros-kilted-rosidl-generator-mypy-0.2.1-np2py312h2ed9cc7_3.conda
-      - conda: http://localhost:12222/general/linux-64/ros-kilted-rosidl-generator-pydantic-1.3.0-np2py312h2ed9cc7_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-rosidl-core-generators-0.3.2-np2py312h2ed9cc7_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-rosidl-generator-mypy-0.2.1-np2py312h31f38b3_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-rosidl-generator-pydantic-1.3.0-np2py312h31f38b3_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-sensor-msgs-5.5.2-np2py312h31f38b3_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-service-msgs-2.3.1-np2py312h2ed9cc7_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-shape-msgs-5.5.2-np2py312h2ed9cc7_3.conda
@@ -2922,8 +2978,9 @@ environments:
       - conda: http://localhost:12222/general/linux-64/ros-kilted-stereo-msgs-5.5.2-np2py312h31f38b3_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-trajectory-msgs-5.5.2-np2py312h2ed9cc7_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-type-description-interfaces-2.3.1-np2py312h31f38b3_3.conda
-      - conda: http://localhost:12222/general/linux-64/ros-kilted-unique-identifier-msgs-2.7.0-np2py312h31f38b3_3.conda
+      - conda: http://localhost:12222/general/linux-64/ros-kilted-unique-identifier-msgs-2.7.0-np2py312h2ed9cc7_3.conda
       - conda: http://localhost:12222/general/linux-64/ros-kilted-visualization-msgs-5.5.2-np2py312h31f38b3_3.conda
+      - conda: http://localhost:12222/general/linux-64/uvw_vendor-1.0.1-hb0f4dca_3.conda
       - conda: https://prefix.dev/conda-forge/linux-64/_openmp_mutex-4.5-20_gnu.conda
       - conda: https://prefix.dev/conda-forge/linux-64/aiohttp-3.14.1-py312h5d8c7f2_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/alsa-lib-1.2.16-hb03c661_1.conda
@@ -2952,6 +3009,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/linux-64/console_bridge-1.0.2-h924138e_1.tar.bz2
       - conda: https://prefix.dev/conda-forge/linux-64/contourpy-1.3.3-py312h0a2e395_4.conda
       - conda: https://prefix.dev/conda-forge/linux-64/coverage-7.14.1-py312h8a5da7c_0.conda
+      - conda: https://prefix.dev/conda-forge/linux-64/cpp-expected-1.3.1-h171cf75_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/cppcheck-2.21.0-py312h014360a_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/cryptography-48.0.1-py312ha4b625e_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/cxx-compiler-1.11.0-hfcd1e18_0.conda
@@ -2963,7 +3021,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/linux-64/eigen-abi-3.4.0.100-h3bcb7cf_2.conda
       - conda: https://prefix.dev/conda-forge/linux-64/eigen-abi-devel-3.4.0.100-he46ec76_2.conda
       - conda: https://prefix.dev/conda-forge/linux-64/epoxy-1.5.10-hb03c661_2.conda
-      - conda: https://prefix.dev/conda-forge/linux-64/expat-2.8.1-hecca717_0.conda
+      - conda: https://prefix.dev/conda-forge/linux-64/expat-2.8.1-hecca717_1.conda
       - conda: https://prefix.dev/conda-forge/linux-64/ffmpeg-8.1.1-gpl_hee00b0e_901.conda
       - conda: https://prefix.dev/conda-forge/linux-64/flann-1.9.2-he1b7b50_6.conda
       - conda: https://prefix.dev/conda-forge/linux-64/fmt-12.1.0-hff5e90c_0.conda
@@ -3051,7 +3109,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/linux-64/libegl-devel-1.7.0-ha4b6fd6_3.conda
       - conda: https://prefix.dev/conda-forge/linux-64/libev-4.33-hd590300_2.conda
       - conda: https://prefix.dev/conda-forge/linux-64/libevent-2.1.12-hf998b51_1.conda
-      - conda: https://prefix.dev/conda-forge/linux-64/libexpat-2.8.1-hecca717_0.conda
+      - conda: https://prefix.dev/conda-forge/linux-64/libexpat-2.8.1-hecca717_1.conda
       - conda: https://prefix.dev/conda-forge/linux-64/libffi-3.5.2-h3435931_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/libflac-1.5.0-he200343_1.conda
       - conda: https://prefix.dev/conda-forge/linux-64/libfreetype-2.14.3-ha770c72_0.conda
@@ -3129,7 +3187,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/linux-64/liburing-2.14-hb700be7_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/libusb-1.0.29-h73b1eb8_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/libuuid-2.42.1-h5347b49_0.conda
-      - conda: https://prefix.dev/conda-forge/linux-64/libuv-1.52.1-h280c20c_0.conda
+      - conda: https://prefix.dev/conda-forge/linux-64/libuv-1.51.0-hb03c661_1.conda
       - conda: https://prefix.dev/conda-forge/linux-64/libva-2.23.0-he1eb515_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/libvorbis-1.3.7-h54a6638_2.conda
       - conda: https://prefix.dev/conda-forge/linux-64/libvpl-2.16.0-h54a6638_0.conda
@@ -3150,6 +3208,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/linux-64/lz4-4.4.5-py312h3d67a73_1.conda
       - conda: https://prefix.dev/conda-forge/linux-64/lz4-c-1.10.0-h5888daf_1.conda
       - conda: https://prefix.dev/conda-forge/linux-64/make-4.4.1-hb9d3cd8_2.conda
+      - conda: https://prefix.dev/conda-forge/linux-64/markupsafe-3.0.3-py312h8a5da7c_1.conda
       - conda: https://prefix.dev/conda-forge/linux-64/matplotlib-base-3.10.9-py312he3d6523_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/mesalib-26.0.3-h8cca3c9_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/mpg123-1.32.9-hc50e24c_0.conda
@@ -3317,6 +3376,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/noarch/idna-3.17-pyhcf101f3_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/importlib-metadata-9.0.0-pyhcf101f3_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/iniconfig-2.3.0-pyhd8ed1ab_0.conda
+      - conda: https://prefix.dev/conda-forge/noarch/jinja2-3.1.6-pyhcf101f3_1.conda
       - conda: https://prefix.dev/conda-forge/noarch/kernel-headers_linux-64-4.18.0-he073ed8_9.conda
       - conda: https://prefix.dev/conda-forge/noarch/lark-parser-0.12.0-pyhd8ed1ab_1.conda
       - conda: https://prefix.dev/conda-forge/noarch/libgcc-devel_linux-64-14.3.0-hf649bbc_119.conda
@@ -3353,6 +3413,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/noarch/sysroot_linux-64-2.28-h4ee821c_9.conda
       - conda: https://prefix.dev/conda-forge/noarch/toml-0.10.2-pyhcf101f3_3.conda
       - conda: https://prefix.dev/conda-forge/noarch/tomli-2.4.1-pyhcf101f3_0.conda
+      - conda: https://prefix.dev/conda-forge/noarch/typeguard-4.5.2-pyhcf101f3_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/typing-extensions-4.15.0-h396c80c_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/typing-inspection-0.4.2-pyhcf101f3_2.conda
       - conda: https://prefix.dev/conda-forge/noarch/typing_extensions-4.15.0-pyhcf101f3_0.conda
@@ -3419,6 +3480,7 @@ environments:
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-demo-nodes-py-0.36.4-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-depthimage-to-laserscan-2.5.1-np2py312h3b5449b_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-desktop-0.12.0-np2py312h2ed9cc7_19.conda
+      - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-diagnostic-updater-4.3.6-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-dummy-map-server-0.36.4-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-dummy-robot-bringup-0.36.4-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-dummy-sensors-0.36.4-np2py312h2ed9cc7_19.conda
@@ -3600,6 +3662,7 @@ environments:
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-rqt-shell-1.3.1-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-rqt-srv-1.3.0-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-rqt-topic-1.8.2-np2py312h2ed9cc7_19.conda
+      - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-rsl-1.3.0-np2py312h6f43896_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-rti-connext-dds-cmake-module-1.1.1-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-rttest-0.18.3-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-rviz-assimp-vendor-15.0.12-np2py312h4f3ad64_19.conda
@@ -3616,6 +3679,7 @@ environments:
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-sros2-0.15.5-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-sros2-cmake-0.15.5-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-tango-icons-vendor-0.4.1-np2py312h2ed9cc7_19.conda
+      - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-tcb-span-1.2.0-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-teleop-twist-joy-2.6.5-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-teleop-twist-keyboard-2.4.1-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-tf2-0.41.6-np2py312h2ed9cc7_19.conda
@@ -3631,6 +3695,7 @@ environments:
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-tf2-sensor-msgs-0.41.6-np2py312h3ba0a76_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-tf2-tools-0.41.6-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-tinyxml2-vendor-0.10.1-np2py312h2ed9cc7_19.conda
+      - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-tl-expected-1.2.0-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-tlsf-0.10.1-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-tlsf-cpp-0.18.3-np2py312h2ed9cc7_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-topic-monitor-0.36.4-np2py312h2ed9cc7_19.conda
@@ -3648,29 +3713,34 @@ environments:
       - conda: https://prefix.dev/robostack-kilted/linux-64/ros2-distro-mutex-0.15.0-kilted_19.conda
       linux-aarch64:
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-action-msgs-2.3.1-np2py312h2c707e6_3.conda
-      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-builtin-interfaces-2.3.1-np2py312h2c707e6_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-builtin-interfaces-2.3.1-np2py312h61f2ce4_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-composition-interfaces-2.3.1-np2py312h61f2ce4_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-diagnostic-msgs-5.5.2-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-example-interfaces-0.13.1-np2py312h2c707e6_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-generate-parameter-library-10.0.1-np2py312hdb0de1a_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-generate-parameter-library-py-10.2.1-np2py312h61f2ce4_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-geographic-msgs-1.0.6-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-geometry-msgs-5.5.2-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-lifecycle-msgs-2.3.1-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-nav-msgs-5.5.2-np2py312h2c707e6_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-parameter-traits-10.0.1-np2py312h8b5252a_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-rcl-interfaces-2.3.1-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-rosgraph-msgs-2.3.1-np2py312h2c707e6_3.conda
-      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-rosidl-core-generators-0.3.2-np2py312h2c707e6_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-rosidl-core-generators-0.3.2-np2py312h61f2ce4_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-rosidl-generator-mypy-0.2.1-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-rosidl-generator-pydantic-1.3.0-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-sensor-msgs-5.5.2-np2py312h2c707e6_3.conda
-      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-service-msgs-2.3.1-np2py312h61f2ce4_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-service-msgs-2.3.1-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-shape-msgs-5.5.2-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-statistics-msgs-2.3.1-np2py312h2c707e6_3.conda
-      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-std-msgs-5.5.2-np2py312h61f2ce4_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-std-msgs-5.5.2-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-std-srvs-5.5.2-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-stereo-msgs-5.5.2-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-trajectory-msgs-5.5.2-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-type-description-interfaces-2.3.1-np2py312h61f2ce4_3.conda
-      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-unique-identifier-msgs-2.7.0-np2py312h61f2ce4_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-unique-identifier-msgs-2.7.0-np2py312h2c707e6_3.conda
       - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-visualization-msgs-5.5.2-np2py312h61f2ce4_3.conda
+      - conda: http://localhost:12222/general/linux-aarch64/uvw_vendor-1.0.1-he8cfe8b_3.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/_openmp_mutex-4.5-20_gnu.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/aiohttp-3.14.1-py312he7e3343_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/alsa-lib-1.2.16-he30d5cf_1.conda
@@ -3699,6 +3769,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/linux-aarch64/console_bridge-1.0.2-hdd96247_1.tar.bz2
       - conda: https://prefix.dev/conda-forge/linux-aarch64/contourpy-1.3.3-py312hf18b547_4.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/coverage-7.14.1-py312hd077ced_0.conda
+      - conda: https://prefix.dev/conda-forge/linux-aarch64/cpp-expected-1.3.1-hdc560ac_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/cppcheck-2.21.0-py312h5677ec4_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/cryptography-48.0.1-py312h96535df_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/cxx-compiler-1.11.0-h7b35c40_0.conda
@@ -3710,7 +3781,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/linux-aarch64/eigen-abi-3.4.0.100-h9a8c16c_2.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/eigen-abi-devel-3.4.0.100-hd8f9dff_2.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/epoxy-1.5.10-he30d5cf_2.conda
-      - conda: https://prefix.dev/conda-forge/linux-aarch64/expat-2.8.1-hfae3067_0.conda
+      - conda: https://prefix.dev/conda-forge/linux-aarch64/expat-2.8.1-hfae3067_1.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/ffmpeg-8.1.1-gpl_h2dd1d65_901.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/flann-1.9.2-headf6c6_6.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/fmt-12.1.0-h20c602a_0.conda
@@ -3795,7 +3866,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/linux-aarch64/libegl-devel-1.7.0-hd24410f_3.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/libev-4.33-h31becfc_2.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/libevent-2.1.12-h4ba1bb4_1.conda
-      - conda: https://prefix.dev/conda-forge/linux-aarch64/libexpat-2.8.1-hfae3067_0.conda
+      - conda: https://prefix.dev/conda-forge/linux-aarch64/libexpat-2.8.1-hfae3067_1.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/libffi-3.5.2-h376a255_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/libflac-1.5.0-he9c94f4_1.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/libfreetype-2.14.3-h8af1aa0_1.conda
@@ -3871,7 +3942,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/linux-aarch64/liburing-2.14-hfefdfc9_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/libusb-1.0.29-h06eaf92_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/libuuid-2.42.1-h1022ec0_0.conda
-      - conda: https://prefix.dev/conda-forge/linux-aarch64/libuv-1.52.1-h80f16a2_0.conda
+      - conda: https://prefix.dev/conda-forge/linux-aarch64/libuv-1.51.0-he30d5cf_1.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/libvorbis-1.3.7-h7ac5ae9_2.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/libvpx-1.15.2-hfae3067_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/libvulkan-loader-1.4.341.0-h8b8848b_0.conda
@@ -3890,6 +3961,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/linux-aarch64/lz4-4.4.5-py312he78555a_1.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/lz4-c-1.10.0-h5ad3122_1.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/make-4.4.1-h2a6d0cb_2.conda
+      - conda: https://prefix.dev/conda-forge/linux-aarch64/markupsafe-3.0.3-py312hd077ced_1.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/matplotlib-base-3.10.9-py312h9d0c5ba_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/mesalib-26.0.3-h455aa48_0.conda
       - conda: https://prefix.dev/conda-forge/linux-aarch64/mpg123-1.32.9-h65af167_0.conda
@@ -4055,6 +4127,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/noarch/idna-3.17-pyhcf101f3_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/importlib-metadata-9.0.0-pyhcf101f3_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/iniconfig-2.3.0-pyhd8ed1ab_0.conda
+      - conda: https://prefix.dev/conda-forge/noarch/jinja2-3.1.6-pyhcf101f3_1.conda
       - conda: https://prefix.dev/conda-forge/noarch/kernel-headers_linux-aarch64-4.18.0-h05a177a_9.conda
       - conda: https://prefix.dev/conda-forge/noarch/lark-parser-0.12.0-pyhd8ed1ab_1.conda
       - conda: https://prefix.dev/conda-forge/noarch/libgcc-devel_linux-aarch64-14.3.0-h25ba3ff_119.conda
@@ -4091,6 +4164,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/noarch/sysroot_linux-aarch64-2.28-h585391f_9.conda
       - conda: https://prefix.dev/conda-forge/noarch/toml-0.10.2-pyhcf101f3_3.conda
       - conda: https://prefix.dev/conda-forge/noarch/tomli-2.4.1-pyhcf101f3_0.conda
+      - conda: https://prefix.dev/conda-forge/noarch/typeguard-4.5.2-pyhcf101f3_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/typing-extensions-4.15.0-h396c80c_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/typing-inspection-0.4.2-pyhcf101f3_2.conda
       - conda: https://prefix.dev/conda-forge/noarch/typing_extensions-4.15.0-pyhcf101f3_0.conda
@@ -4156,6 +4230,7 @@ environments:
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-demo-nodes-py-0.36.4-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-depthimage-to-laserscan-2.5.1-np2py312h3c25c5b_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-desktop-0.12.0-np2py312h61f2ce4_19.conda
+      - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-diagnostic-updater-4.3.6-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-dummy-map-server-0.36.4-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-dummy-robot-bringup-0.36.4-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-dummy-sensors-0.36.4-np2py312h61f2ce4_19.conda
@@ -4337,6 +4412,7 @@ environments:
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-rqt-shell-1.3.1-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-rqt-srv-1.3.0-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-rqt-topic-1.8.2-np2py312h61f2ce4_19.conda
+      - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-rsl-1.3.0-np2py312he3bec8b_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-rti-connext-dds-cmake-module-1.1.1-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-rttest-0.18.3-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-rviz-assimp-vendor-15.0.12-np2py312h617ce90_19.conda
@@ -4353,6 +4429,7 @@ environments:
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-sros2-0.15.5-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-sros2-cmake-0.15.5-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-tango-icons-vendor-0.4.1-np2py312h61f2ce4_19.conda
+      - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-tcb-span-1.2.0-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-teleop-twist-joy-2.6.5-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-teleop-twist-keyboard-2.4.1-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-tf2-0.41.6-np2py312h61f2ce4_19.conda
@@ -4368,6 +4445,7 @@ environments:
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-tf2-sensor-msgs-0.41.6-np2py312h78fd680_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-tf2-tools-0.41.6-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-tinyxml2-vendor-0.10.1-np2py312h61f2ce4_19.conda
+      - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-tl-expected-1.2.0-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-tlsf-0.10.1-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-tlsf-cpp-0.18.3-np2py312h61f2ce4_19.conda
       - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-topic-monitor-0.36.4-np2py312h61f2ce4_19.conda
@@ -4404,23 +4482,6 @@ packages:
   license: Apache-2.0
   size: 153254
   timestamp: 1779689220540
-- conda: http://localhost:12222/general/linux-64/ros-kilted-builtin-interfaces-2.3.1-np2py312h2ed9cc7_3.conda
-  sha256: 88d8deb251e6e39749befdaecf4e0451006f89e72ab12415ead87161d64e5e4c
-  md5: 56814aab7f947c1a61f1c959a90098d7
-  depends:
-  - python
-  - ros-kilted-ros-workspace
-  - ros-kilted-rosidl-core-runtime
-  - ros2-distro-mutex 0.15.* kilted_*
-  - libgcc >=14
-  - libstdcxx >=14
-  - __glibc >=2.17,<3.0.a0
-  - python_abi 3.12.* *_cp312
-  - numpy >=1.23,<3
-  - ros2-distro-mutex >=0.15.0,<0.16.0a0
-  license: Apache-2.0
-  size: 79997
-  timestamp: 1779689220543
 - conda: http://localhost:12222/general/linux-64/ros-kilted-builtin-interfaces-2.3.1-np2py312h31f38b3_3.conda
   sha256: fa298fcc9b74adaaf93b9576c71965a687e5a8e6f6ff677084391e6c6a6cdfd5
   md5: a9b617431e706b9039f829ac3c316f9d
@@ -4476,26 +4537,6 @@ packages:
   license: Apache-2.0
   size: 211993
   timestamp: 1779689220550
-- conda: http://localhost:12222/general/linux-64/ros-kilted-diagnostic-msgs-5.5.2-np2py312h31f38b3_3.conda
-  sha256: aeabfc9be26fc332a472ce019ab8219291d3c85734dd9f2f45291a98cc096c11
-  md5: 9a8bf4e5ed5418e8e8021e4364dad5d3
-  depends:
-  - python
-  - ros-kilted-builtin-interfaces
-  - ros-kilted-geometry-msgs
-  - ros-kilted-ros-workspace
-  - ros-kilted-rosidl-default-runtime
-  - ros-kilted-std-msgs
-  - ros2-distro-mutex 0.15.* kilted_*
-  - libgcc >=13
-  - __glibc >=2.17,<3.0.a0
-  - libstdcxx >=13
-  - ros2-distro-mutex >=0.15.0,<0.16.0a0
-  - numpy >=1.23,<3
-  - python_abi 3.12.* *_cp312
-  license: Apache-2.0
-  size: 212661
-  timestamp: 1779689220550
 - conda: http://localhost:12222/general/linux-64/ros-kilted-example-interfaces-0.13.1-np2py312h2ed9cc7_3.conda
   sha256: 39dcde57d544dca3aef2494715c9e65178fb423873e099e860a9773ba9ebf7ce
   md5: f689a14826827d83dc682e04335797d7
@@ -4513,23 +4554,71 @@ packages:
   license: Apache-2.0
   size: 545340
   timestamp: 1779689220553
-- conda: http://localhost:12222/general/linux-64/ros-kilted-example-interfaces-0.13.1-np2py312h31f38b3_3.conda
-  sha256: 8e19e526cbea4eb84d1653d316fffe68983b1db4f68c40cac9b295d082f82c5e
-  md5: 589ec297601700a4dd80cdf65fbb225e
+- conda: http://localhost:12222/general/linux-64/ros-kilted-generate-parameter-library-10.0.1-np2py312h2c89a96_3.conda
+  sha256: 4b6f34cb82d4b0821364e111940cab21e42167ade54e48e47c62be645fad41b6
+  md5: a4ebc63674eab39d18c0bfc503647c10
+  depends:
+  - fmt
+  - python
+  - ros-kilted-generate-parameter-library-py
+  - ros-kilted-parameter-traits
+  - ros-kilted-rclcpp
+  - ros-kilted-rclcpp-lifecycle
+  - ros-kilted-rclpy
+  - ros-kilted-ros-workspace
+  - ros-kilted-rsl
+  - ros-kilted-tcb-span
+  - ros-kilted-tl-expected
+  - ros2-distro-mutex 0.15.* kilted_*
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=14
+  - libstdcxx >=14
+  - python_abi 3.12.* *_cp312
+  - ros2-distro-mutex >=0.15.0,<0.16.0a0
+  - fmt >=12.1.0,<12.2.0a0
+  - numpy >=1.23,<3
+  license: BSD-3-Clause
+  size: 50220
+  timestamp: 1779689220559
+- conda: http://localhost:12222/general/linux-64/ros-kilted-generate-parameter-library-py-10.2.1-np2py312h2ed9cc7_3.conda
+  sha256: a989d596d8bd5e5fb3829c5869383381a2cfb51ed8316926ab2317a2753a3223
+  md5: 40bad1a5b23eafd4c8a1ceb6714c5817
+  depends:
+  - jinja2
+  - python
+  - pyyaml
+  - ros-kilted-ros-workspace
+  - ros2-distro-mutex 0.15.* kilted_*
+  - typeguard
+  - __glibc >=2.17,<3.0.a0
+  - libstdcxx >=14
+  - libgcc >=14
+  - ros2-distro-mutex >=0.15.0,<0.16.0a0
+  - numpy >=1.23,<3
+  - python_abi 3.12.* *_cp312
+  license: BSD-3-Clause
+  size: 71042
+  timestamp: 1779689220562
+- conda: http://localhost:12222/general/linux-64/ros-kilted-geographic-msgs-1.0.6-np2py312h31f38b3_3.conda
+  sha256: 8e5ebc65f46dd9685f2db5efbbead3d73e1a109c9bd9f3dc0128974caaa3c47e
+  md5: d053c1e31c3387ab3aa218ea902d50c3
   depends:
   - python
+  - ros-kilted-geometry-msgs
   - ros-kilted-ros-workspace
   - ros-kilted-rosidl-default-runtime
+  - ros-kilted-std-msgs
+  - ros-kilted-unique-identifier-msgs
   - ros2-distro-mutex 0.15.* kilted_*
+  - libstdcxx >=13
   - libgcc >=13
   - __glibc >=2.17,<3.0.a0
-  - libstdcxx >=13
-  - numpy >=1.23,<3
   - ros2-distro-mutex >=0.15.0,<0.16.0a0
   - python_abi 3.12.* *_cp312
-  license: Apache-2.0
-  size: 547728
-  timestamp: 1779689220553
+  - numpy >=1.23,<3
+  license: BSD-3-Clause
+  size: 469445
+  timestamp: 1779689220566
 - conda: http://localhost:12222/general/linux-64/ros-kilted-geometry-msgs-5.5.2-np2py312h2ed9cc7_3.conda
   sha256: 5ff252d70b50ba74b08e6ba56a346e2008caf16e738d4c89c1440f52fb557f73
   md5: 27fc7da36a2dc096a3f89100a0333791
@@ -4565,23 +4654,6 @@ packages:
   license: Apache-2.0
   size: 271332
   timestamp: 1779689220573
-- conda: http://localhost:12222/general/linux-64/ros-kilted-lifecycle-msgs-2.3.1-np2py312h31f38b3_3.conda
-  sha256: 8b7b1cea3dbcf4059b2d68bdb38132aafc9a014da68fc039b0c7818c91e24daa
-  md5: 520f6d185f47b5c181ebe70a4ead2d80
-  depends:
-  - python
-  - ros-kilted-ros-workspace
-  - ros-kilted-rosidl-default-runtime
-  - ros2-distro-mutex 0.15.* kilted_*
-  - libstdcxx >=13
-  - libgcc >=13
-  - __glibc >=2.17,<3.0.a0
-  - python_abi 3.12.* *_cp312
-  - numpy >=1.23,<3
-  - ros2-distro-mutex >=0.15.0,<0.16.0a0
-  license: Apache-2.0
-  size: 273386
-  timestamp: 1779689220573
 - conda: http://localhost:12222/general/linux-64/ros-kilted-nav-msgs-5.5.2-np2py312h31f38b3_3.conda
   sha256: 7726835b32ca56d0e147a89865e2e54aff12eb19deac916d135bb9b35851751a
   md5: d3929b34df73c5a4455a6ffd20e821e3
@@ -4602,6 +4674,28 @@ packages:
   license: Apache-2.0
   size: 353617
   timestamp: 1779689220580
+- conda: http://localhost:12222/general/linux-64/ros-kilted-parameter-traits-10.0.1-np2py312h1e2911d_3.conda
+  sha256: d254cb3cd8b2765e2855d85b6377cce353cd308b2532732fb8e3062cd8d68ff2
+  md5: e8db9ac441727a2d1154e2a35ad8e981
+  depends:
+  - fmt
+  - python
+  - ros-kilted-rclcpp
+  - ros-kilted-ros-workspace
+  - ros-kilted-rsl
+  - ros-kilted-tcb-span
+  - ros-kilted-tl-expected
+  - ros2-distro-mutex 0.15.* kilted_*
+  - libgcc >=13
+  - libstdcxx >=13
+  - __glibc >=2.17,<3.0.a0
+  - fmt >=12.1.0,<12.2.0a0
+  - numpy >=1.23,<3
+  - python_abi 3.12.* *_cp312
+  - ros2-distro-mutex >=0.15.0,<0.16.0a0
+  license: BSD-3-Clause
+  size: 50490
+  timestamp: 1779689220583
 - conda: http://localhost:12222/general/linux-64/ros-kilted-rcl-interfaces-2.3.1-np2py312h31f38b3_3.conda
   sha256: 0e8d1ba4867a740bad4824463cb51e0f9fbd7e8ac375579108e6b17f8ad5de96
   md5: c1e8ce9f4c2a0091e0360e233edfbfa6
@@ -4620,25 +4714,6 @@ packages:
   license: Apache-2.0
   size: 587957
   timestamp: 1779689220587
-- conda: http://localhost:12222/general/linux-64/ros-kilted-rosgraph-msgs-2.3.1-np2py312h2ed9cc7_3.conda
-  sha256: f6d193f29a7d05e872891acda11c2a9759028b0bc8f52412e8af979a2b14505d
-  md5: a1b8f286b93c94bf1990404dc6764940
-  depends:
-  - python
-  - ros-kilted-builtin-interfaces
-  - ros-kilted-rcl-interfaces
-  - ros-kilted-ros-workspace
-  - ros-kilted-rosidl-default-runtime
-  - ros2-distro-mutex 0.15.* kilted_*
-  - libgcc >=14
-  - __glibc >=2.17,<3.0.a0
-  - libstdcxx >=14
-  - python_abi 3.12.* *_cp312
-  - ros2-distro-mutex >=0.15.0,<0.16.0a0
-  - numpy >=1.23,<3
-  license: Apache-2.0
-  size: 72071
-  timestamp: 1779689220590
 - conda: http://localhost:12222/general/linux-64/ros-kilted-rosgraph-msgs-2.3.1-np2py312h31f38b3_3.conda
   sha256: dfe4584adf93e27a60574125cfc9fdbc698225d7d8d85751fd4df564015a7699
   md5: 36245fc584a49c4d2f48473adf0e71e5
@@ -4689,59 +4764,6 @@ packages:
   license: Apache-2.0
   size: 31729
   timestamp: 1779689220594
-- conda: http://localhost:12222/general/linux-64/ros-kilted-rosidl-core-generators-0.3.2-np2py312h31f38b3_3.conda
-  sha256: c6e51ce064ac830cd35b9620285005afb08c61361d39bf693a124ca7252d1b51
-  md5: 71961e500455b8772ea82b5def480e2d
-  depends:
-  - python
-  - ros-kilted-ament-cmake-core
-  - ros-kilted-ros-workspace
-  - ros-kilted-rosidl-cmake
-  - ros-kilted-rosidl-generator-c
-  - ros-kilted-rosidl-generator-cpp
-  - ros-kilted-rosidl-generator-mypy
-  - ros-kilted-rosidl-generator-py
-  - ros-kilted-rosidl-generator-pydantic
-  - ros-kilted-rosidl-generator-rs
-  - ros-kilted-rosidl-generator-type-description
-  - ros-kilted-rosidl-typesupport-c
-  - ros-kilted-rosidl-typesupport-cpp
-  - ros-kilted-rosidl-typesupport-fastrtps-c
-  - ros-kilted-rosidl-typesupport-fastrtps-cpp
-  - ros-kilted-rosidl-typesupport-introspection-c
-  - ros-kilted-rosidl-typesupport-introspection-cpp
-  - ros2-distro-mutex 0.15.* kilted_*
-  - __glibc >=2.17,<3.0.a0
-  - libstdcxx >=13
-  - libgcc >=13
-  - python_abi 3.12.* *_cp312
-  - numpy >=1.23,<3
-  - ros2-distro-mutex >=0.15.0,<0.16.0a0
-  license: Apache-2.0
-  size: 31670
-  timestamp: 1779689220594
-- conda: http://localhost:12222/general/linux-64/ros-kilted-rosidl-generator-mypy-0.2.1-np2py312h2ed9cc7_3.conda
-  sha256: 35b97456e94228a8b20d3f4d1949033e7b926cd061ff0a5b2670ac477cf2d113
-  md5: ccd7bf2f1c422226783a7f3e3a8f2642
-  depends:
-  - python
-  - ros-kilted-ament-cmake
-  - ros-kilted-rmw
-  - ros-kilted-ros-workspace
-  - ros-kilted-rosidl-cmake
-  - ros-kilted-rosidl-generator-py
-  - ros-kilted-rosidl-parser
-  - ros-kilted-rosidl-pycommon
-  - ros2-distro-mutex 0.15.* kilted_*
-  - libstdcxx >=14
-  - libgcc >=14
-  - __glibc >=2.17,<3.0.a0
-  - ros2-distro-mutex >=0.15.0,<0.16.0a0
-  - numpy >=1.23,<3
-  - python_abi 3.12.* *_cp312
-  license: Apache-2.0
-  size: 42563
-  timestamp: 1779689220597
 - conda: http://localhost:12222/general/linux-64/ros-kilted-rosidl-generator-mypy-0.2.1-np2py312h31f38b3_3.conda
   sha256: d7114a3f2d251f3346988ebfc9408aa20ff7d20597497af2f22e489b59ba67dd
   md5: 5d008c1674c2494ca5860b98b5a98f08
@@ -4764,28 +4786,6 @@ packages:
   license: Apache-2.0
   size: 42576
   timestamp: 1779689220597
-- conda: http://localhost:12222/general/linux-64/ros-kilted-rosidl-generator-pydantic-1.3.0-np2py312h2ed9cc7_3.conda
-  sha256: 9459b666487f37f6f1ae6f3d583b21aadc9061d312ce96c75f08ca159bbebfe2
-  md5: eaf4f88fdee08be3dc066ee6d5d75edd
-  depends:
-  - pydantic
-  - python
-  - ros-kilted-ament-cmake
-  - ros-kilted-rmw
-  - ros-kilted-ros-workspace
-  - ros-kilted-rosidl-cmake
-  - ros-kilted-rosidl-generator-py
-  - ros-kilted-rosidl-parser
-  - ros2-distro-mutex 0.15.* kilted_*
-  - libgcc >=14
-  - libstdcxx >=14
-  - __glibc >=2.17,<3.0.a0
-  - python_abi 3.12.* *_cp312
-  - ros2-distro-mutex >=0.15.0,<0.16.0a0
-  - numpy >=1.23,<3
-  license: Apache-2.0
-  size: 50372
-  timestamp: 1779689220601
 - conda: http://localhost:12222/general/linux-64/ros-kilted-rosidl-generator-pydantic-1.3.0-np2py312h31f38b3_3.conda
   sha256: b794ebf5eebb50430d4bf6956961f1ffdb799e267129b5e1941f291445b3a424
   md5: b80719f2ab20c3e80f365622ca97fc99
@@ -4808,26 +4808,6 @@ packages:
   license: Apache-2.0
   size: 50356
   timestamp: 1779689220601
-- conda: http://localhost:12222/general/linux-64/ros-kilted-sensor-msgs-5.5.2-np2py312h2ed9cc7_3.conda
-  sha256: 115a587071c0b7a44d52b96c6e22143665365600d9fb6f5be4efffdead3279c2
-  md5: 9ed6a2b98ea98711af6fa5c20b98fa9b
-  depends:
-  - python
-  - ros-kilted-builtin-interfaces
-  - ros-kilted-geometry-msgs
-  - ros-kilted-ros-workspace
-  - ros-kilted-rosidl-default-runtime
-  - ros-kilted-std-msgs
-  - ros2-distro-mutex 0.15.* kilted_*
-  - libgcc >=14
-  - __glibc >=2.17,<3.0.a0
-  - libstdcxx >=14
-  - numpy >=1.23,<3
-  - ros2-distro-mutex >=0.15.0,<0.16.0a0
-  - python_abi 3.12.* *_cp312
-  license: Apache-2.0
-  size: 559714
-  timestamp: 1779689220608
 - conda: http://localhost:12222/general/linux-64/ros-kilted-sensor-msgs-5.5.2-np2py312h31f38b3_3.conda
   sha256: 13d52617f165cc7c7f1d17ad6dcc1b3039bd36f52980ec0f880f88fae981896c
   md5: e7352035e4792a456a578acc3b59fa97
@@ -4884,42 +4864,6 @@ packages:
   license: Apache-2.0
   size: 127444
   timestamp: 1779689220614
-- conda: http://localhost:12222/general/linux-64/ros-kilted-shape-msgs-5.5.2-np2py312h31f38b3_3.conda
-  sha256: 4a74be9f69b493ca86611df86e32abb99c9acc72075de6184858bc8fd7b3fce3
-  md5: 9c41a4fb5346607ea972eec8f0d51994
-  depends:
-  - python
-  - ros-kilted-geometry-msgs
-  - ros-kilted-ros-workspace
-  - ros-kilted-rosidl-default-runtime
-  - ros2-distro-mutex 0.15.* kilted_*
-  - libstdcxx >=13
-  - libgcc >=13
-  - __glibc >=2.17,<3.0.a0
-  - ros2-distro-mutex >=0.15.0,<0.16.0a0
-  - numpy >=1.23,<3
-  - python_abi 3.12.* *_cp312
-  license: Apache-2.0
-  size: 126656
-  timestamp: 1779689220614
-- conda: http://localhost:12222/general/linux-64/ros-kilted-statistics-msgs-2.3.1-np2py312h2ed9cc7_3.conda
-  sha256: 7cbafe204d6884be6eefcc63ec42289c280da34efeaa2ad41b780a80324e9242
-  md5: 5afa92355acdb4e6016f4629c4b77ad2
-  depends:
-  - python
-  - ros-kilted-builtin-interfaces
-  - ros-kilted-ros-workspace
-  - ros-kilted-rosidl-default-runtime
-  - ros2-distro-mutex 0.15.* kilted_*
-  - libstdcxx >=14
-  - libgcc >=14
-  - __glibc >=2.17,<3.0.a0
-  - ros2-distro-mutex >=0.15.0,<0.16.0a0
-  - python_abi 3.12.* *_cp312
-  - numpy >=1.23,<3
-  license: Apache-2.0
-  size: 110989
-  timestamp: 1779689220618
 - conda: http://localhost:12222/general/linux-64/ros-kilted-statistics-msgs-2.3.1-np2py312h31f38b3_3.conda
   sha256: 71148cf43ef8a85a1381146d7676e81fa2a96c2bf0d570f2c1cd4b533f3c6002
   md5: b7c784027c6f1998cfc3111addfd7bbe
@@ -4973,42 +4917,6 @@ packages:
   license: Apache-2.0
   size: 170343
   timestamp: 1779689220625
-- conda: http://localhost:12222/general/linux-64/ros-kilted-std-srvs-5.5.2-np2py312h31f38b3_3.conda
-  sha256: 1029bce0f008e480afcab4eefca857fe2943e98c169f8b24e5f2b3d25390c55d
-  md5: 4d7eb14cc720afab8f38c685cdff8568
-  depends:
-  - python
-  - ros-kilted-ros-workspace
-  - ros-kilted-rosidl-default-runtime
-  - ros2-distro-mutex 0.15.* kilted_*
-  - libgcc >=13
-  - libstdcxx >=13
-  - __glibc >=2.17,<3.0.a0
-  - numpy >=1.23,<3
-  - python_abi 3.12.* *_cp312
-  - ros2-distro-mutex >=0.15.0,<0.16.0a0
-  license: Apache-2.0
-  size: 170996
-  timestamp: 1779689220625
-- conda: http://localhost:12222/general/linux-64/ros-kilted-stereo-msgs-5.5.2-np2py312h2ed9cc7_3.conda
-  sha256: 794ea79b1ab5e2dc70aba66ee0ff80cc38ceff7863edcfa6ecf07bebee042055
-  md5: 95f3722fcf77a51124deaf89fe16ddb0
-  depends:
-  - python
-  - ros-kilted-ros-workspace
-  - ros-kilted-rosidl-default-runtime
-  - ros-kilted-sensor-msgs
-  - ros-kilted-std-msgs
-  - ros2-distro-mutex 0.15.* kilted_*
-  - __glibc >=2.17,<3.0.a0
-  - libstdcxx >=14
-  - libgcc >=14
-  - ros2-distro-mutex >=0.15.0,<0.16.0a0
-  - python_abi 3.12.* *_cp312
-  - numpy >=1.23,<3
-  license: Apache-2.0
-  size: 83133
-  timestamp: 1779689220628
 - conda: http://localhost:12222/general/linux-64/ros-kilted-stereo-msgs-5.5.2-np2py312h31f38b3_3.conda
   sha256: 279c78f4b501cd3cd0985911d687817d2c693ddd06c40922e3870eeae18a482a
   md5: d75e68049807033198bd2d2f576c28bb
@@ -5048,26 +4956,6 @@ packages:
   license: Apache-2.0
   size: 151334
   timestamp: 1779689220642
-- conda: http://localhost:12222/general/linux-64/ros-kilted-trajectory-msgs-5.5.2-np2py312h31f38b3_3.conda
-  sha256: 0c849737881989af4346936613f28c31474d568817500883cc6ea888e1fc54e7
-  md5: 486e0d206056ee0951fbe9046c81f784
-  depends:
-  - python
-  - ros-kilted-builtin-interfaces
-  - ros-kilted-geometry-msgs
-  - ros-kilted-ros-workspace
-  - ros-kilted-rosidl-default-runtime
-  - ros-kilted-std-msgs
-  - ros2-distro-mutex 0.15.* kilted_*
-  - libgcc >=13
-  - libstdcxx >=13
-  - __glibc >=2.17,<3.0.a0
-  - python_abi 3.12.* *_cp312
-  - ros2-distro-mutex >=0.15.0,<0.16.0a0
-  - numpy >=1.23,<3
-  license: Apache-2.0
-  size: 150236
-  timestamp: 1779689220642
 - conda: http://localhost:12222/general/linux-64/ros-kilted-type-description-interfaces-2.3.1-np2py312h31f38b3_3.conda
   sha256: 890641022b6e15f0596fca1b7d9214233026c3a1c655ebecf5a69c38e8bb4ead
   md5: 6eb1c5e21e674b44768538d7b591a44c
@@ -5103,44 +4991,6 @@ packages:
   license: BSD-3-Clause
   size: 73671
   timestamp: 1779689220649
-- conda: http://localhost:12222/general/linux-64/ros-kilted-unique-identifier-msgs-2.7.0-np2py312h31f38b3_3.conda
-  sha256: ffab26e57a5f43ce71742a387843da99225b8a40eb919080d41ffe887f971dc0
-  md5: dafea5140213f3e98d381643ef032fd0
-  depends:
-  - python
-  - ros-kilted-ros-workspace
-  - ros-kilted-rosidl-core-runtime
-  - ros2-distro-mutex 0.15.* kilted_*
-  - libgcc >=13
-  - __glibc >=2.17,<3.0.a0
-  - libstdcxx >=13
-  - numpy >=1.23,<3
-  - ros2-distro-mutex >=0.15.0,<0.16.0a0
-  - python_abi 3.12.* *_cp312
-  license: BSD-3-Clause
-  size: 73631
-  timestamp: 1779689220649
-- conda: http://localhost:12222/general/linux-64/ros-kilted-visualization-msgs-5.5.2-np2py312h2ed9cc7_3.conda
-  sha256: e74c4b3966851360c3c8d509167135eaae1e9ba02280d2a21af63a439041981f
-  md5: 7dea8278561cc952084e69df805db7d3
-  depends:
-  - python
-  - ros-kilted-builtin-interfaces
-  - ros-kilted-geometry-msgs
-  - ros-kilted-ros-workspace
-  - ros-kilted-rosidl-default-runtime
-  - ros-kilted-sensor-msgs
-  - ros-kilted-std-msgs
-  - ros2-distro-mutex 0.15.* kilted_*
-  - libgcc >=14
-  - __glibc >=2.17,<3.0.a0
-  - libstdcxx >=14
-  - python_abi 3.12.* *_cp312
-  - numpy >=1.23,<3
-  - ros2-distro-mutex >=0.15.0,<0.16.0a0
-  license: Apache-2.0
-  size: 381125
-  timestamp: 1779689220653
 - conda: http://localhost:12222/general/linux-64/ros-kilted-visualization-msgs-5.5.2-np2py312h31f38b3_3.conda
   sha256: c779410cd6d334e58194e5c311947fbc6931725d0a9a14531d85e9b971e94a9a
   md5: 3595cfc202a786ed3f824d6bbbe6c066
@@ -5162,6 +5012,22 @@ packages:
   license: Apache-2.0
   size: 384782
   timestamp: 1779689220653
+- conda: http://localhost:12222/general/linux-64/uvw_vendor-1.0.1-hb0f4dca_3.conda
+  sha256: e2527b956d925096e652162d66577fc6abddf87cee3628704df1a0daa1098e8b
+  md5: d9c74ae6f8a809c9f4d175a0eea8635f
+  depends:
+  - libuv ==1.51.0
+  - libuv >=1.51.0,<2.0a0
+  - ros2-distro-mutex 0.15.*
+  - ros2-distro-mutex >=0.15.0,<0.16.0a0
+  - ros-kilted-ros-workspace
+  - libgcc >=15
+  - libstdcxx >=15
+  - python_abi 3.12.* *_cp312
+  - numpy >=1.23,<3
+  license: MPL-2.0
+  size: 112955
+  timestamp: 1779763797201
 - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-action-msgs-2.3.1-np2py312h2c707e6_3.conda
   sha256: f684591965e4861c7e69910dccc894f07cd6b82218afe635ef6180d2f6e011fe
   md5: 688f3037b88ae2c377115d91ae8906da
@@ -5181,22 +5047,6 @@ packages:
   license: Apache-2.0
   size: 159509
   timestamp: 1779689225311
-- conda: http://localhost:12222/general/linux-aarch64/ros-kilted-builtin-interfaces-2.3.1-np2py312h2c707e6_3.conda
-  sha256: 6a52d960561ba8768622d1ea2d515f4123eff32d764aa2b567afa94b38cbe63a
-  md5: 1cf0b84d40007230f2e7e40f06c7e10a
-  depends:
-  - python
-  - ros-kilted-ros-workspace
-  - ros-kilted-rosidl-core-runtime
-  - ros2-distro-mutex 0.15.* kilted_*
-  - libgcc >=13
-  - libstdcxx >=13
-  - numpy >=1.23,<3
-  - python_abi 3.12.* *_cp312
-  - ros2-distro-mutex >=0.15.0,<0.16.0a0
-  license: Apache-2.0
-  size: 83474
-  timestamp: 1779689225316
 - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-builtin-interfaces-2.3.1-np2py312h61f2ce4_3.conda
   sha256: d3e56e94302e976998913a444646301a91656e8bec8f822b408d1050a04dad71
   md5: 8b1704d41895a6af060cb652a04cea68
@@ -5213,23 +5063,6 @@ packages:
   license: Apache-2.0
   size: 83681
   timestamp: 1779689225316
-- conda: http://localhost:12222/general/linux-aarch64/ros-kilted-composition-interfaces-2.3.1-np2py312h2c707e6_3.conda
-  sha256: 0dc59b9740a0c8b8fa1ea32a003d84ba681b716543a8060e1859dcf3a1e4d552
-  md5: fd9155bfc85310640d84d3c1b042e97e
-  depends:
-  - python
-  - ros-kilted-rcl-interfaces
-  - ros-kilted-ros-workspace
-  - ros-kilted-rosidl-default-runtime
-  - ros2-distro-mutex 0.15.* kilted_*
-  - libstdcxx >=13
-  - libgcc >=13
-  - ros2-distro-mutex >=0.15.0,<0.16.0a0
-  - numpy >=1.23,<3
-  - python_abi 3.12.* *_cp312
-  license: Apache-2.0
-  size: 237073
-  timestamp: 1779689225320
 - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-composition-interfaces-2.3.1-np2py312h61f2ce4_3.conda
   sha256: 860d2ded4f54ecbc9ca57b191321ff1285298ec2a44b8c542ee2dc9f3a5231fc
   md5: bbb5848765d1dea1ce3e4ea0bef41b4c
@@ -5266,25 +5099,6 @@ packages:
   license: Apache-2.0
   size: 219390
   timestamp: 1779689225324
-- conda: http://localhost:12222/general/linux-aarch64/ros-kilted-diagnostic-msgs-5.5.2-np2py312h61f2ce4_3.conda
-  sha256: 668f63ad83b5df368790b3325cdd50f76418f68d52cb25c2feab8ec78baf9df0
-  md5: 2d6dafafeb2fe5be66b444e0d4a3acf7
-  depends:
-  - python
-  - ros-kilted-builtin-interfaces
-  - ros-kilted-geometry-msgs
-  - ros-kilted-ros-workspace
-  - ros-kilted-rosidl-default-runtime
-  - ros-kilted-std-msgs
-  - ros2-distro-mutex 0.15.* kilted_*
-  - libgcc >=14
-  - libstdcxx >=14
-  - python_abi 3.12.* *_cp312
-  - numpy >=1.23,<3
-  - ros2-distro-mutex >=0.15.0,<0.16.0a0
-  license: Apache-2.0
-  size: 217110
-  timestamp: 1779689225324
 - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-example-interfaces-0.13.1-np2py312h2c707e6_3.conda
   sha256: ce5ee8b89779803cedf9d812003358ac932379bdbeb1483eda817173214a849e
   md5: 54f821223dbfa452abc38728354e1b44
@@ -5301,22 +5115,68 @@ packages:
   license: Apache-2.0
   size: 556301
   timestamp: 1779689225329
-- conda: http://localhost:12222/general/linux-aarch64/ros-kilted-example-interfaces-0.13.1-np2py312h61f2ce4_3.conda
-  sha256: de17784a44c6a0af6749fd1e975baaa1870cb5a546f74b572319fd05c8a476a5
-  md5: a39c2a4454239b1b5379171d709e3122
+- conda: http://localhost:12222/general/linux-aarch64/ros-kilted-generate-parameter-library-10.0.1-np2py312hdb0de1a_3.conda
+  sha256: 572886d54224be2f2b619f993e157ed14c4b4efc7ef9610cfa777281c170eaa9
+  md5: 63ef3d27887a83cc141ee6472e573da0
   depends:
+  - fmt
   - python
+  - ros-kilted-generate-parameter-library-py
+  - ros-kilted-parameter-traits
+  - ros-kilted-rclcpp
+  - ros-kilted-rclcpp-lifecycle
+  - ros-kilted-rclpy
   - ros-kilted-ros-workspace
-  - ros-kilted-rosidl-default-runtime
+  - ros-kilted-rsl
+  - ros-kilted-tcb-span
+  - ros-kilted-tl-expected
   - ros2-distro-mutex 0.15.* kilted_*
+  - libstdcxx >=13
+  - libgcc >=13
+  - ros2-distro-mutex >=0.15.0,<0.16.0a0
+  - fmt >=12.1.0,<12.2.0a0
+  - python_abi 3.12.* *_cp312
+  - numpy >=1.23,<3
+  license: BSD-3-Clause
+  size: 49964
+  timestamp: 1779689225336
+- conda: http://localhost:12222/general/linux-aarch64/ros-kilted-generate-parameter-library-py-10.2.1-np2py312h61f2ce4_3.conda
+  sha256: aef0f99c8291e72d5825a3a638802d78f0bdb7f7a7a461816c2a16daa19be273
+  md5: 106547b77ac0af19f4f4eb887ba5d0cc
+  depends:
+  - jinja2
+  - python
+  - pyyaml
+  - ros-kilted-ros-workspace
+  - ros2-distro-mutex 0.15.* kilted_*
+  - typeguard
   - libgcc >=14
   - libstdcxx >=14
   - ros2-distro-mutex >=0.15.0,<0.16.0a0
   - python_abi 3.12.* *_cp312
   - numpy >=1.23,<3
-  license: Apache-2.0
-  size: 555444
-  timestamp: 1779689225329
+  license: BSD-3-Clause
+  size: 71111
+  timestamp: 1779689225340
+- conda: http://localhost:12222/general/linux-aarch64/ros-kilted-geographic-msgs-1.0.6-np2py312h2c707e6_3.conda
+  sha256: 5f9517bc67f724cdc3c7c92109a43b200c561cf85b674f1a6c0a6d0e21482674
+  md5: a4d6482f0b5c55e749d303ea63bfb98b
+  depends:
+  - python
+  - ros-kilted-geometry-msgs
+  - ros-kilted-ros-workspace
+  - ros-kilted-rosidl-default-runtime
+  - ros-kilted-std-msgs
+  - ros-kilted-unique-identifier-msgs
+  - ros2-distro-mutex 0.15.* kilted_*
+  - libgcc >=13
+  - libstdcxx >=13
+  - python_abi 3.12.* *_cp312
+  - numpy >=1.23,<3
+  - ros2-distro-mutex >=0.15.0,<0.16.0a0
+  license: BSD-3-Clause
+  size: 475539
+  timestamp: 1779689225344
 - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-geometry-msgs-5.5.2-np2py312h2c707e6_3.conda
   sha256: d48387074d044536e48212717399837c22307d0cd2fdd096bd5af13ca5702866
   md5: eb6595bf7a8dd66b2a603cce791b0972
@@ -5350,22 +5210,6 @@ packages:
   license: Apache-2.0
   size: 280596
   timestamp: 1779689225353
-- conda: http://localhost:12222/general/linux-aarch64/ros-kilted-lifecycle-msgs-2.3.1-np2py312h61f2ce4_3.conda
-  sha256: 0f87985aa6e1b1d34c09db7408874fc10ce12a5ce57a8026b17f1f4ff339221e
-  md5: d301387df8059697799241ec3ad082d3
-  depends:
-  - python
-  - ros-kilted-ros-workspace
-  - ros-kilted-rosidl-default-runtime
-  - ros2-distro-mutex 0.15.* kilted_*
-  - libgcc >=14
-  - libstdcxx >=14
-  - numpy >=1.23,<3
-  - ros2-distro-mutex >=0.15.0,<0.16.0a0
-  - python_abi 3.12.* *_cp312
-  license: Apache-2.0
-  size: 280535
-  timestamp: 1779689225353
 - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-nav-msgs-5.5.2-np2py312h2c707e6_3.conda
   sha256: 193bf90178856e8a999e74b4085d2206a12b4d81ba992e971c221435c02e8211
   md5: fa2f4a9b1bbec69654d998f6a8bd94ac
@@ -5385,6 +5229,27 @@ packages:
   license: Apache-2.0
   size: 359649
   timestamp: 1779689225362
+- conda: http://localhost:12222/general/linux-aarch64/ros-kilted-parameter-traits-10.0.1-np2py312h8b5252a_3.conda
+  sha256: 920a981081df85e64b766e0d35ce42ca7e99ad5df956296751693f684503337b
+  md5: e785e8216fbd85534ed3c4f5a2dcda1b
+  depends:
+  - fmt
+  - python
+  - ros-kilted-rclcpp
+  - ros-kilted-ros-workspace
+  - ros-kilted-rsl
+  - ros-kilted-tcb-span
+  - ros-kilted-tl-expected
+  - ros2-distro-mutex 0.15.* kilted_*
+  - libgcc >=14
+  - libstdcxx >=14
+  - numpy >=1.23,<3
+  - ros2-distro-mutex >=0.15.0,<0.16.0a0
+  - python_abi 3.12.* *_cp312
+  - fmt >=12.1.0,<12.2.0a0
+  license: BSD-3-Clause
+  size: 50256
+  timestamp: 1779689225367
 - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-rcl-interfaces-2.3.1-np2py312h2c707e6_3.conda
   sha256: 9fe871c4bbcd7e45e9759ea206bd2ebd12cea957bd459e5a2d1cecd8c0a2cec4
   md5: 42fdfcb4341b70e42e1c87611bb7fb84
@@ -5401,23 +5266,6 @@ packages:
   - python_abi 3.12.* *_cp312
   license: Apache-2.0
   size: 595471
-  timestamp: 1779689225371
-- conda: http://localhost:12222/general/linux-aarch64/ros-kilted-rcl-interfaces-2.3.1-np2py312h61f2ce4_3.conda
-  sha256: 4ede9f94faebd00d1c30d7d21f1d97eb97b982606650558687614fd951e6aa64
-  md5: f1479c72c4ee4d6afdfbe385b85bb38e
-  depends:
-  - python
-  - ros-kilted-builtin-interfaces
-  - ros-kilted-ros-workspace
-  - ros-kilted-rosidl-default-runtime
-  - ros2-distro-mutex 0.15.* kilted_*
-  - libgcc >=14
-  - libstdcxx >=14
-  - numpy >=1.23,<3
-  - python_abi 3.12.* *_cp312
-  - ros2-distro-mutex >=0.15.0,<0.16.0a0
-  license: Apache-2.0
-  size: 588712
   timestamp: 1779689225371
 - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-rosgraph-msgs-2.3.1-np2py312h2c707e6_3.conda
   sha256: 5f830ba3b1a48cca475ec370197466ce44ff9372ee48074d7387a2b7ac23f1d2
@@ -5437,36 +5285,6 @@ packages:
   license: Apache-2.0
   size: 75455
   timestamp: 1779689225375
-- conda: http://localhost:12222/general/linux-aarch64/ros-kilted-rosidl-core-generators-0.3.2-np2py312h2c707e6_3.conda
-  sha256: ac5bbe2580a0b0062b3c34219cbf50160c391edd05f256d325828e38d5cd803e
-  md5: a56831bce28a949cef049601f34d8e15
-  depends:
-  - python
-  - ros-kilted-ament-cmake-core
-  - ros-kilted-ros-workspace
-  - ros-kilted-rosidl-cmake
-  - ros-kilted-rosidl-generator-c
-  - ros-kilted-rosidl-generator-cpp
-  - ros-kilted-rosidl-generator-mypy
-  - ros-kilted-rosidl-generator-py
-  - ros-kilted-rosidl-generator-pydantic
-  - ros-kilted-rosidl-generator-rs
-  - ros-kilted-rosidl-generator-type-description
-  - ros-kilted-rosidl-typesupport-c
-  - ros-kilted-rosidl-typesupport-cpp
-  - ros-kilted-rosidl-typesupport-fastrtps-c
-  - ros-kilted-rosidl-typesupport-fastrtps-cpp
-  - ros-kilted-rosidl-typesupport-introspection-c
-  - ros-kilted-rosidl-typesupport-introspection-cpp
-  - ros2-distro-mutex 0.15.* kilted_*
-  - libstdcxx >=13
-  - libgcc >=13
-  - ros2-distro-mutex >=0.15.0,<0.16.0a0
-  - numpy >=1.23,<3
-  - python_abi 3.12.* *_cp312
-  license: Apache-2.0
-  size: 31612
-  timestamp: 1779689225380
 - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-rosidl-core-generators-0.3.2-np2py312h61f2ce4_3.conda
   sha256: 1b841ebdf4d5b3fc3ccb2a04099ac3fe0dc00fe748e9141ad55c0708aa88838c
   md5: 24104ddf64e488e1ae75ae14389bc376
@@ -5518,27 +5336,6 @@ packages:
   license: Apache-2.0
   size: 42621
   timestamp: 1779689225385
-- conda: http://localhost:12222/general/linux-aarch64/ros-kilted-rosidl-generator-mypy-0.2.1-np2py312h61f2ce4_3.conda
-  sha256: b85811c8c05a028fd81e815aa3b7caeb2ed4b229a4945e74daa4a54bb69731df
-  md5: 9a807591a8ae4a13c9bec0fdf4fe537c
-  depends:
-  - python
-  - ros-kilted-ament-cmake
-  - ros-kilted-rmw
-  - ros-kilted-ros-workspace
-  - ros-kilted-rosidl-cmake
-  - ros-kilted-rosidl-generator-py
-  - ros-kilted-rosidl-parser
-  - ros-kilted-rosidl-pycommon
-  - ros2-distro-mutex 0.15.* kilted_*
-  - libstdcxx >=14
-  - libgcc >=14
-  - python_abi 3.12.* *_cp312
-  - numpy >=1.23,<3
-  - ros2-distro-mutex >=0.15.0,<0.16.0a0
-  license: Apache-2.0
-  size: 42578
-  timestamp: 1779689225385
 - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-rosidl-generator-pydantic-1.3.0-np2py312h2c707e6_3.conda
   sha256: 75654d548641d37163193ca7c8c3c8fea76b098805dd3ce3d6ddf7c14e80d65c
   md5: 002de8909481eb8c1d33ea4fd2d4e979
@@ -5579,25 +5376,6 @@ packages:
   license: Apache-2.0
   size: 566696
   timestamp: 1779689225398
-- conda: http://localhost:12222/general/linux-aarch64/ros-kilted-sensor-msgs-5.5.2-np2py312h61f2ce4_3.conda
-  sha256: 00ee1fb5ad368d8e8fb044c4a628edec460505a18cd4884a8d41ce5e04940d5d
-  md5: a3924ffa31fcddfb7d2351753dd269dd
-  depends:
-  - python
-  - ros-kilted-builtin-interfaces
-  - ros-kilted-geometry-msgs
-  - ros-kilted-ros-workspace
-  - ros-kilted-rosidl-default-runtime
-  - ros-kilted-std-msgs
-  - ros2-distro-mutex 0.15.* kilted_*
-  - libgcc >=14
-  - libstdcxx >=14
-  - python_abi 3.12.* *_cp312
-  - numpy >=1.23,<3
-  - ros2-distro-mutex >=0.15.0,<0.16.0a0
-  license: Apache-2.0
-  size: 567435
-  timestamp: 1779689225398
 - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-service-msgs-2.3.1-np2py312h2c707e6_3.conda
   sha256: 8fc0e12d786e687473f79685aec6b545fad9f9e70a372b4fae6011668e24c945
   md5: 5b52e796f7d9d2940bdce321d12cb14b
@@ -5614,23 +5392,6 @@ packages:
   - python_abi 3.12.* *_cp312
   license: Apache-2.0
   size: 83370
-  timestamp: 1779689225402
-- conda: http://localhost:12222/general/linux-aarch64/ros-kilted-service-msgs-2.3.1-np2py312h61f2ce4_3.conda
-  sha256: 15ae298496608d794a04066385aa6a1a9b1cf4eacd0da8ed48b8873f47e858f8
-  md5: 9a50cfd2e8495578f6f91552ef8b0cf7
-  depends:
-  - python
-  - ros-kilted-builtin-interfaces
-  - ros-kilted-ros-workspace
-  - ros-kilted-rosidl-core-runtime
-  - ros2-distro-mutex 0.15.* kilted_*
-  - libgcc >=14
-  - libstdcxx >=14
-  - numpy >=1.23,<3
-  - ros2-distro-mutex >=0.15.0,<0.16.0a0
-  - python_abi 3.12.* *_cp312
-  license: Apache-2.0
-  size: 84035
   timestamp: 1779689225402
 - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-shape-msgs-5.5.2-np2py312h2c707e6_3.conda
   sha256: 68c982745febf2c1101573ee5ce6ec6bac98c7e4eac180a1c55c37b53bf57609
@@ -5682,23 +5443,6 @@ packages:
   - numpy >=1.23,<3
   license: Apache-2.0
   size: 350629
-  timestamp: 1779689225416
-- conda: http://localhost:12222/general/linux-aarch64/ros-kilted-std-msgs-5.5.2-np2py312h61f2ce4_3.conda
-  sha256: aafed9c15cba3852e1dc9d001c33f5846a3fc32e155a54fd970de0822e8b20b7
-  md5: eec6ef676122744c01ab066bfe292551
-  depends:
-  - python
-  - ros-kilted-builtin-interfaces
-  - ros-kilted-ros-workspace
-  - ros-kilted-rosidl-default-runtime
-  - ros2-distro-mutex 0.15.* kilted_*
-  - libstdcxx >=14
-  - libgcc >=14
-  - python_abi 3.12.* *_cp312
-  - numpy >=1.23,<3
-  - ros2-distro-mutex >=0.15.0,<0.16.0a0
-  license: Apache-2.0
-  size: 350466
   timestamp: 1779689225416
 - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-std-srvs-5.5.2-np2py312h2c707e6_3.conda
   sha256: 74ba4a062a6405b827e47bbbdf1a5bab4172a27edbc314d4e67859da930e75fe
@@ -5786,42 +5530,6 @@ packages:
   license: BSD-3-Clause
   size: 76773
   timestamp: 1779689225451
-- conda: http://localhost:12222/general/linux-aarch64/ros-kilted-unique-identifier-msgs-2.7.0-np2py312h61f2ce4_3.conda
-  sha256: 74546165b4eb3c10fbec6227cce46069b05ac78e77ca506176aad776ca82d60d
-  md5: f0e30ce97f7847f12750633cb4385d68
-  depends:
-  - python
-  - ros-kilted-ros-workspace
-  - ros-kilted-rosidl-core-runtime
-  - ros2-distro-mutex 0.15.* kilted_*
-  - libstdcxx >=14
-  - libgcc >=14
-  - ros2-distro-mutex >=0.15.0,<0.16.0a0
-  - python_abi 3.12.* *_cp312
-  - numpy >=1.23,<3
-  license: BSD-3-Clause
-  size: 76594
-  timestamp: 1779689225451
-- conda: http://localhost:12222/general/linux-aarch64/ros-kilted-visualization-msgs-5.5.2-np2py312h2c707e6_3.conda
-  sha256: 902e9bd935fffbbd1662636172557c656149fc771a54cb9a43ae0b34565d13fa
-  md5: 357e6b7c0a84688fa8fcc5fb10df8c38
-  depends:
-  - python
-  - ros-kilted-builtin-interfaces
-  - ros-kilted-geometry-msgs
-  - ros-kilted-ros-workspace
-  - ros-kilted-rosidl-default-runtime
-  - ros-kilted-sensor-msgs
-  - ros-kilted-std-msgs
-  - ros2-distro-mutex 0.15.* kilted_*
-  - libgcc >=13
-  - libstdcxx >=13
-  - numpy >=1.23,<3
-  - ros2-distro-mutex >=0.15.0,<0.16.0a0
-  - python_abi 3.12.* *_cp312
-  license: Apache-2.0
-  size: 387366
-  timestamp: 1779689225455
 - conda: http://localhost:12222/general/linux-aarch64/ros-kilted-visualization-msgs-5.5.2-np2py312h61f2ce4_3.conda
   sha256: a70226a1bc3cde77e1d64f6ec1937491ebb137beebd3a874499cfe56a6a2fe40
   md5: 15f5db0ac5d9eeeb3dcf769585e59151
@@ -5842,6 +5550,22 @@ packages:
   license: Apache-2.0
   size: 386749
   timestamp: 1779689225455
+- conda: http://localhost:12222/general/linux-aarch64/uvw_vendor-1.0.1-he8cfe8b_3.conda
+  sha256: c3bdaabff510deb575e2eba95fd59bdcb364b613081d86e9580cf7aea2f5d7d9
+  md5: 64871a399885333830f6191329f2644f
+  depends:
+  - libuv ==1.51.0
+  - libuv >=1.51.0,<2.0a0
+  - ros2-distro-mutex 0.15.*
+  - ros2-distro-mutex >=0.15.0,<0.16.0a0
+  - ros-kilted-ros-workspace
+  - libgcc >=15
+  - libstdcxx >=15
+  - python_abi 3.12.* *_cp312
+  - numpy >=1.23,<3
+  license: MPL-2.0
+  size: 112432
+  timestamp: 1779763798210
 - conda: https://prefix.dev/conda-forge/linux-64/_openmp_mutex-4.5-20_gnu.conda
   build_number: 20
   sha256: 1dd3fffd892081df9726d7eb7e0dea6198962ba775bd88842135a4ddb4deb3c9
@@ -6283,6 +6007,17 @@ packages:
   run_exports: {}
   size: 389696
   timestamp: 1779838017522
+- conda: https://prefix.dev/conda-forge/linux-64/cpp-expected-1.3.1-h171cf75_0.conda
+  sha256: 0d9405d9f2de5d4b15d746609d87807aac10e269072d6408b769159762ed113d
+  md5: d17488e343e4c5c0bd0db18b3934d517
+  depends:
+  - libstdcxx >=14
+  - libgcc >=14
+  - __glibc >=2.17,<3.0.a0
+  license: CC0-1.0
+  run_exports: {}
+  size: 24283
+  timestamp: 1756734785482
 - conda: https://prefix.dev/conda-forge/linux-64/cppcheck-2.21.0-py312h014360a_0.conda
   sha256: 3d7f0d3f3023b2ed7a01d47e9856fc991b9f045a28d9602254cb20ebc8225e07
   md5: 8483023dfb572d9518fba2ba5d52cc5e
@@ -6451,20 +6186,6 @@ packages:
     - epoxy >=1.5.10,<1.6.0a0
   size: 411735
   timestamp: 1758743520805
-- conda: https://prefix.dev/conda-forge/linux-64/expat-2.8.1-hecca717_0.conda
-  sha256: 29a10599d56d93bd750914888ebe6822d47722070762b4647b34d12df9f4476e
-  md5: d0757fd84af06f065eba49d39af6c546
-  depends:
-  - __glibc >=2.17,<3.0.a0
-  - libexpat 2.8.1 hecca717_0
-  - libgcc >=14
-  license: MIT
-  license_family: MIT
-  run_exports:
-    weak:
-    - libexpat >=2.8.1,<3.0a0
-  size: 148238
-  timestamp: 1779278694477
 - conda: https://prefix.dev/conda-forge/linux-64/expat-2.8.1-hecca717_1.conda
   sha256: bc1e8177a4ebbbfcda98b6f4a1575f3337e69f0d2f1025a84570533ca27b89eb
   md5: e211a78613b9d50a096644b97cede8f7
@@ -7884,19 +7605,6 @@ packages:
     - libevent >=2.1.12,<2.1.13.0a0
   size: 427426
   timestamp: 1685725977222
-- conda: https://prefix.dev/conda-forge/linux-64/libexpat-2.8.1-hecca717_0.conda
-  sha256: 363018b25fdb5534c79783d912bd4b685a3547f4fc5996357ad548899b0ee8e7
-  md5: 93764a5ca80616e9c10106cdaec92f74
-  depends:
-  - __glibc >=2.17,<3.0.a0
-  - libgcc >=14
-  constrains:
-  - expat 2.8.1.*
-  license: MIT
-  license_family: MIT
-  run_exports: {}
-  size: 77294
-  timestamp: 1779278686680
 - conda: https://prefix.dev/conda-forge/linux-64/libexpat-2.8.1-hecca717_1.conda
   sha256: 16feffd9ddbbe5b718515d38ee376c685ba95491cd901244e24671d20b952a77
   md5: b24d3c612f71e7aa74158d92106318b2
@@ -9089,19 +8797,19 @@ packages:
     - libuuid >=2.42.1,<3.0a0
   size: 40163
   timestamp: 1779118517630
-- conda: https://prefix.dev/conda-forge/linux-64/libuv-1.52.1-h280c20c_0.conda
-  sha256: e28e4519223f78b3163599ca89c3f2d80bfb53e907e7fc74e806e60d1efa578b
-  md5: 4e33d49bf4fc853855a3b00643aa5484
+- conda: https://prefix.dev/conda-forge/linux-64/libuv-1.51.0-hb03c661_1.conda
+  sha256: c180f4124a889ac343fc59d15558e93667d894a966ec6fdb61da1604481be26b
+  md5: 0f03292cc56bf91a077a134ea8747118
   depends:
-  - libgcc >=14
   - __glibc >=2.17,<3.0.a0
+  - libgcc >=14
   license: MIT
   license_family: MIT
   run_exports:
     weak:
-    - libuv >=1.52.1,<2.0a0
-  size: 419935
-  timestamp: 1779396012261
+    - libuv >=1.51.0,<2.0a0
+  size: 895108
+  timestamp: 1753948278280
 - conda: https://prefix.dev/conda-forge/linux-64/libva-2.23.0-he1eb515_0.conda
   sha256: 255c7d00b54e26f19fad9340db080716bced1d8539606e2b8396c57abd40007c
   md5: 25813fe38b3e541fc40007592f12bae5
@@ -9418,6 +9126,21 @@ packages:
   run_exports: {}
   size: 513088
   timestamp: 1727801714848
+- conda: https://prefix.dev/conda-forge/linux-64/markupsafe-3.0.3-py312h8a5da7c_1.conda
+  sha256: 5f3aad1f3a685ed0b591faad335957dbdb1b73abfd6fc731a0d42718e0653b33
+  md5: 93a4752d42b12943a355b682ee43285b
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=14
+  - python >=3.12,<3.13.0a0
+  - python_abi 3.12.* *_cp312
+  constrains:
+  - jinja2 >=3.0.0
+  license: BSD-3-Clause
+  license_family: BSD
+  run_exports: {}
+  size: 26057
+  timestamp: 1772445297924
 - conda: https://prefix.dev/conda-forge/linux-64/matplotlib-base-3.10.9-py312he3d6523_0.conda
   sha256: c7e133837376e53e6a52719c205a3067c42f05769bc3e8307417f8d817dfc63e
   md5: 7d499b5b6d150f133800dc3a582771c7
@@ -11770,6 +11493,16 @@ packages:
   run_exports: {}
   size: 390698
   timestamp: 1779839029690
+- conda: https://prefix.dev/conda-forge/linux-aarch64/cpp-expected-1.3.1-hdc560ac_0.conda
+  sha256: 4edebca2a9dadd8afabb3948a007edae2072e4869d8959b3e51aebc2367e1df4
+  md5: 13f0be21fdd39114c28501ac21f0dd00
+  depends:
+  - libstdcxx >=14
+  - libgcc >=14
+  license: CC0-1.0
+  run_exports: {}
+  size: 25132
+  timestamp: 1756734793606
 - conda: https://prefix.dev/conda-forge/linux-aarch64/cppcheck-2.21.0-py312h5677ec4_0.conda
   sha256: cd3f3d52f097744e9ff0a89c4baa5983a59f8512baa1ecc2fcd30f2936acea39
   md5: 0f17fd306fccec1735d0b29cc4ec5aa0
@@ -11930,19 +11663,6 @@ packages:
     - epoxy >=1.5.10,<1.6.0a0
   size: 422103
   timestamp: 1758743388115
-- conda: https://prefix.dev/conda-forge/linux-aarch64/expat-2.8.1-hfae3067_0.conda
-  sha256: a9cd5eb1700e11cc39acc36630a2d72a4e317943bd7c5695cd8804419f04ff42
-  md5: 89f0247b3cea528d8ad1a6664a313153
-  depends:
-  - libexpat 2.8.1 hfae3067_0
-  - libgcc >=14
-  license: MIT
-  license_family: MIT
-  run_exports:
-    weak:
-    - libexpat >=2.8.1,<3.0a0
-  size: 140114
-  timestamp: 1779278679081
 - conda: https://prefix.dev/conda-forge/linux-aarch64/expat-2.8.1-hfae3067_1.conda
   sha256: e4cc29e20435f2787031eafaf100496cb700d2ebc246e91211cbde023b2600b4
   md5: 4bcb07322aecccd75514fd585ad0b719
@@ -13257,18 +12977,6 @@ packages:
     - libevent >=2.1.12,<2.1.13.0a0
   size: 438992
   timestamp: 1685726046519
-- conda: https://prefix.dev/conda-forge/linux-aarch64/libexpat-2.8.1-hfae3067_0.conda
-  sha256: 1fc392b997c6ee2bd3226a7cd870d0edbcbb367e25f9f18dd4a7025fced6efc0
-  md5: 513dd884361dfb8a554298ed69b58823
-  depends:
-  - libgcc >=14
-  constrains:
-  - expat 2.8.1.*
-  license: MIT
-  license_family: MIT
-  run_exports: {}
-  size: 77140
-  timestamp: 1779278671302
 - conda: https://prefix.dev/conda-forge/linux-aarch64/libexpat-2.8.1-hfae3067_1.conda
   sha256: 20a5726bc8705d91437c9e6ef83b30da64a1719b869656d20a1ee818333ea5ac
   md5: fac3b65a605cd253037fdf3daf2de8d9
@@ -14354,18 +14062,18 @@ packages:
     - libuuid >=2.42.1,<3.0a0
   size: 43453
   timestamp: 1779118526838
-- conda: https://prefix.dev/conda-forge/linux-aarch64/libuv-1.52.1-h80f16a2_0.conda
-  sha256: 3e2ead35f47d01364031f323f1be984018c8f19a3a264f952ddcd043685a1c86
-  md5: ac7bcbd2c77691cd6d1ede8c029e8c8a
+- conda: https://prefix.dev/conda-forge/linux-aarch64/libuv-1.51.0-he30d5cf_1.conda
+  sha256: 7a0fb5638582efc887a18b7d270b0c4a6f6e681bf401cab25ebafa2482569e90
+  md5: 8e62bf5af966325ee416f19c6f14ffa3
   depends:
   - libgcc >=14
   license: MIT
   license_family: MIT
   run_exports:
     weak:
-    - libuv >=1.52.1,<2.0a0
-  size: 456627
-  timestamp: 1779396031450
+    - libuv >=1.51.0,<2.0a0
+  size: 629238
+  timestamp: 1753948296190
 - conda: https://prefix.dev/conda-forge/linux-aarch64/libvorbis-1.3.7-h7ac5ae9_2.conda
   sha256: 066708ca7179a1c6e5639d015de7ed6e432b93ad50525843db67d57eb1ba1faf
   md5: 9d099329070afe52d797462ca7bf35f3
@@ -14626,6 +14334,20 @@ packages:
   run_exports: {}
   size: 528318
   timestamp: 1727801707353
+- conda: https://prefix.dev/conda-forge/linux-aarch64/markupsafe-3.0.3-py312hd077ced_1.conda
+  sha256: 5919bf53e9f74ee1c6ce35ce13a7cd92741d45385c2d0b3eae48b01c0f11f41a
+  md5: 1fecdd103b37427ba6041b9b03d657ea
+  depends:
+  - libgcc >=14
+  - python >=3.12,<3.13.0a0
+  - python_abi 3.12.* *_cp312
+  constrains:
+  - jinja2 >=3.0.0
+  license: BSD-3-Clause
+  license_family: BSD
+  run_exports: {}
+  size: 26305
+  timestamp: 1772446326927
 - conda: https://prefix.dev/conda-forge/linux-aarch64/matplotlib-base-3.10.9-py312h9d0c5ba_0.conda
   sha256: 7bad069609cd69159e2658ce7c89c12b3d93b9b6e7e27ef7de31a1daa0f0b092
   md5: 02f91252126f398a45af7c9ff5ac089b
@@ -17033,6 +16755,18 @@ packages:
   run_exports: {}
   size: 13387
   timestamp: 1760831448842
+- conda: https://prefix.dev/conda-forge/noarch/jinja2-3.1.6-pyhcf101f3_1.conda
+  sha256: fc9ca7348a4f25fed2079f2153ecdcf5f9cf2a0bc36c4172420ca09e1849df7b
+  md5: 04558c96691bed63104678757beb4f8d
+  depends:
+  - markupsafe >=2.0
+  - python >=3.10
+  - python
+  license: BSD-3-Clause
+  license_family: BSD
+  run_exports: {}
+  size: 120685
+  timestamp: 1764517220861
 - conda: https://prefix.dev/conda-forge/noarch/kernel-headers_linux-64-4.18.0-he073ed8_9.conda
   sha256: 41557eeadf641de6aeae49486cef30d02a6912d8da98585d687894afd65b356a
   md5: 86d9cba083cd041bfbf242a01a7a1999
@@ -17506,6 +17240,21 @@ packages:
   run_exports: {}
   size: 21561
   timestamp: 1774492402955
+- conda: https://prefix.dev/conda-forge/noarch/typeguard-4.5.2-pyhcf101f3_0.conda
+  sha256: 59d7851d32fddb5b510272e6557aa982edeb927d349648dac27f5bf01d18bb26
+  md5: 4460f039b7dedf15f7df086446ca75ae
+  depends:
+  - typing_extensions >=4.14.0
+  - python >=3.10
+  - importlib-metadata >=3.6
+  - python
+  constrains:
+  - pytest >=7
+  license: MIT
+  license_family: MIT
+  run_exports: {}
+  size: 38297
+  timestamp: 1778779291237
 - conda: https://prefix.dev/conda-forge/noarch/typing-extensions-4.15.0-h396c80c_0.conda
   sha256: 7c2df5721c742c2a47b2c8f960e718c930031663ac1174da67c1ed5999f7938c
   md5: edd329d7d3a4ab45dcf905899a7a6115
@@ -18814,6 +18563,27 @@ packages:
   run_exports: {}
   size: 23187
   timestamp: 1779622833677
+- conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-diagnostic-updater-4.3.6-np2py312h2ed9cc7_19.conda
+  sha256: 25509d60e907e8f26bb33f7eb05e1e4b5291a62f8bc750b099432212993a963a
+  md5: fe8c8a423e2b196accfc63d8655b70df
+  depends:
+  - python
+  - ros-kilted-diagnostic-msgs
+  - ros-kilted-rclcpp
+  - ros-kilted-rclpy
+  - ros-kilted-ros-workspace
+  - ros-kilted-std-msgs
+  - ros2-distro-mutex 0.15.* kilted_*
+  - __glibc >=2.17,<3.0.a0
+  - libstdcxx >=14
+  - libgcc >=14
+  - numpy >=1.23,<3
+  - python_abi 3.12.* *_cp312
+  - ros2-distro-mutex >=0.15.0,<0.16.0a0
+  license: BSD-3-Clause
+  run_exports: {}
+  size: 186860
+  timestamp: 1779616054455
 - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-dummy-map-server-0.36.4-np2py312h2ed9cc7_19.conda
   sha256: bbdea4fc12149cd456a11ce4824c2c8ae36895db56eabeb4f8dbf286dd286680
   md5: c79d6b018323764ef4743b5e8f303615
@@ -22911,6 +22681,32 @@ packages:
   run_exports: {}
   size: 38817
   timestamp: 1779617914954
+- conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-rsl-1.3.0-np2py312h6f43896_19.conda
+  sha256: 8044f8e3a03116c47d51fea637286bb415d08b0748f1323bd2440af44dcaae9f
+  md5: 962b1b643454b673351b41dcd5f4bacc
+  depends:
+  - cpp-expected
+  - eigen
+  - eigen-abi-devel
+  - fmt
+  - python
+  - ros-kilted-rclcpp
+  - ros-kilted-ros-workspace
+  - ros-kilted-tcb-span
+  - ros2-distro-mutex 0.15.* kilted_*
+  - libstdcxx >=14
+  - libgcc >=14
+  - __glibc >=2.17,<3.0.a0
+  - ros2-distro-mutex >=0.15.0,<0.16.0a0
+  - numpy >=1.23,<3
+  - fmt >=12.1.0,<12.2.0a0
+  - python_abi 3.12.* *_cp312
+  - eigen-abi >=3.4.0.100,<3.4.0.101.0a0
+  - graphviz >=14.1.2,<15.0a0
+  license: BSD-3-Clause
+  run_exports: {}
+  size: 62670
+  timestamp: 1779615505806
 - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-rti-connext-dds-cmake-module-1.1.1-np2py312h2ed9cc7_19.conda
   sha256: 0585058da1108617b84486b16f8988c44e8c51acf1e3a86fac7937fbfc6e3d34
   md5: 77eccb50bea59105a52b3cf2aaf9d6f3
@@ -23296,6 +23092,23 @@ packages:
   run_exports: {}
   size: 26486
   timestamp: 1779605691539
+- conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-tcb-span-1.2.0-np2py312h2ed9cc7_19.conda
+  sha256: 58a6c85244421a99f3139faebcbabbe1cf441b1fc275e2c89fba0ff1ab1e5f2f
+  md5: b9d4727c3da0d6ff1175ccc35614032c
+  depends:
+  - python
+  - ros-kilted-ros-workspace
+  - ros2-distro-mutex 0.15.* kilted_*
+  - libgcc >=14
+  - __glibc >=2.17,<3.0.a0
+  - libstdcxx >=14
+  - ros2-distro-mutex >=0.15.0,<0.16.0a0
+  - python_abi 3.12.* *_cp312
+  - numpy >=1.23,<3
+  license: BSL-1.0
+  run_exports: {}
+  size: 27574
+  timestamp: 1779605023875
 - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-teleop-twist-joy-2.6.5-np2py312h2ed9cc7_19.conda
   sha256: 04597d4cc47d2742ae59100d68a238a451e4696d1c459475603d895c833a64d1
   md5: 894c383cb3ffad15693a9fd01596175e
@@ -23635,6 +23448,23 @@ packages:
   run_exports: {}
   size: 24305
   timestamp: 1779605029402
+- conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-tl-expected-1.2.0-np2py312h2ed9cc7_19.conda
+  sha256: 3c564a444c240c994fa64ae88128d05bc10a0523260b0aefaf7197bc4989f370
+  md5: 9c384ed24af66e980f3a1d35f07ae4e9
+  depends:
+  - python
+  - ros-kilted-ros-workspace
+  - ros2-distro-mutex 0.15.* kilted_*
+  - libstdcxx >=14
+  - libgcc >=14
+  - __glibc >=2.17,<3.0.a0
+  - numpy >=1.23,<3
+  - ros2-distro-mutex >=0.15.0,<0.16.0a0
+  - python_abi 3.12.* *_cp312
+  license: CC0-1.0
+  run_exports: {}
+  size: 33488
+  timestamp: 1779604993442
 - conda: https://prefix.dev/robostack-kilted/linux-64/ros-kilted-tlsf-0.10.1-np2py312h2ed9cc7_19.conda
   sha256: 373aba454a26da9bd49889686962bbf7452a3464c24f0fea6ec92dfa19f09a05
   md5: 1e1bb51fcfdd6e9b1fec5b243c54eb5f
@@ -25110,6 +24940,26 @@ packages:
   run_exports: {}
   size: 23221
   timestamp: 1779618057210
+- conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-diagnostic-updater-4.3.6-np2py312h61f2ce4_19.conda
+  sha256: 8b24b730b6efccf8876ad5d6068f3c13a39388d1dde8d74b54533a405ea584e7
+  md5: 681ea3b2744f4bc86acedab5b5caffe2
+  depends:
+  - python
+  - ros-kilted-diagnostic-msgs
+  - ros-kilted-rclcpp
+  - ros-kilted-rclpy
+  - ros-kilted-ros-workspace
+  - ros-kilted-std-msgs
+  - ros2-distro-mutex 0.15.* kilted_*
+  - libstdcxx >=14
+  - libgcc >=14
+  - numpy >=1.23,<3
+  - ros2-distro-mutex >=0.15.0,<0.16.0a0
+  - python_abi 3.12.* *_cp312
+  license: BSD-3-Clause
+  run_exports: {}
+  size: 188864
+  timestamp: 1779609014028
 - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-dummy-map-server-0.36.4-np2py312h61f2ce4_19.conda
   sha256: 50b73c9c1c664c552a25ce6e088381c503a441bd9b7b8935ac35f40f1abe4e44
   md5: 1a436e3dfe46bb98ba72d0c955077381
@@ -29025,6 +28875,31 @@ packages:
   run_exports: {}
   size: 38783
   timestamp: 1779613736429
+- conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-rsl-1.3.0-np2py312he3bec8b_19.conda
+  sha256: 4625c9aff34398e6201ea71c215e9ad764fa72d0d18e9ccaf27982e2d85487e7
+  md5: 16ab3613767ab846d7824c7f6facbac2
+  depends:
+  - cpp-expected
+  - eigen
+  - eigen-abi-devel
+  - fmt
+  - python
+  - ros-kilted-rclcpp
+  - ros-kilted-ros-workspace
+  - ros-kilted-tcb-span
+  - ros2-distro-mutex 0.15.* kilted_*
+  - libgcc >=14
+  - libstdcxx >=14
+  - graphviz >=14.1.2,<15.0a0
+  - numpy >=1.23,<3
+  - ros2-distro-mutex >=0.15.0,<0.16.0a0
+  - python_abi 3.12.* *_cp312
+  - fmt >=12.1.0,<12.2.0a0
+  - eigen-abi >=3.4.0.100,<3.4.0.101.0a0
+  license: BSD-3-Clause
+  run_exports: {}
+  size: 64011
+  timestamp: 1779608514517
 - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-rti-connext-dds-cmake-module-1.1.1-np2py312h61f2ce4_19.conda
   sha256: 7b38c74a2930f387ae7f9232f7b5eba5b2c0393bae6b1d187d6c357bc64cd003
   md5: c6941cc58e51dab928af3002d9146e74
@@ -29394,6 +29269,22 @@ packages:
   run_exports: {}
   size: 26406
   timestamp: 1779605822620
+- conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-tcb-span-1.2.0-np2py312h61f2ce4_19.conda
+  sha256: 704159b1cf1b9680adedaf6d91e97531301286cfa2d5e9d82ae08fa82cad6a16
+  md5: e2198b699c4c6de3deb3620a24e4fc4c
+  depends:
+  - python
+  - ros-kilted-ros-workspace
+  - ros2-distro-mutex 0.15.* kilted_*
+  - libgcc >=14
+  - libstdcxx >=14
+  - python_abi 3.12.* *_cp312
+  - numpy >=1.23,<3
+  - ros2-distro-mutex >=0.15.0,<0.16.0a0
+  license: BSL-1.0
+  run_exports: {}
+  size: 27646
+  timestamp: 1779605223992
 - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-teleop-twist-joy-2.6.5-np2py312h61f2ce4_19.conda
   sha256: 783b43cc44c861d186659cb04583eeafffea9e29e0ec1b4f34e05c21308315f3
   md5: 7ad5c39f6b69ef36802aae99c01a5b29
@@ -29718,6 +29609,22 @@ packages:
   run_exports: {}
   size: 24336
   timestamp: 1779605229462
+- conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-tl-expected-1.2.0-np2py312h61f2ce4_19.conda
+  sha256: 4590c121d4559b4eb2dbeca3d11d1c29a35998503dfeab47dd1bce42ab74dcb8
+  md5: 5b851205c219d86513951c8fef8accf9
+  depends:
+  - python
+  - ros-kilted-ros-workspace
+  - ros2-distro-mutex 0.15.* kilted_*
+  - libgcc >=14
+  - libstdcxx >=14
+  - ros2-distro-mutex >=0.15.0,<0.16.0a0
+  - numpy >=1.23,<3
+  - python_abi 3.12.* *_cp312
+  license: CC0-1.0
+  run_exports: {}
+  size: 33542
+  timestamp: 1779605186910
 - conda: https://prefix.dev/robostack-kilted/linux-aarch64/ros-kilted-tlsf-0.10.1-np2py312h61f2ce4_19.conda
   sha256: 01c94b6a900f54ac0c37e7dd42fdb94af7d2a00a4fc642316d26b1a097c5c26d
   md5: e07d0e25866efe3e8f3e4e8a2dfc9fc7

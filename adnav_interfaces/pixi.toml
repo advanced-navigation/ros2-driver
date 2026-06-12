@@ -9,7 +9,7 @@ platforms = ["linux-64", "linux-aarch64"]
 preview = ["pixi-build"]
 
 [dependencies]
-adnav_interfaces = { path = "." }
+ros-kilted-desktop = "*"
 
 [package]
 name        = "adnav_interfaces"
@@ -39,27 +39,34 @@ ros-kilted-std-msgs           = "*"
 ros-kilted-geometry-msgs      = "*"
 ros-kilted-builtin-interfaces = "*"
 
-# Test env builds the package from source with colcon (deb parity),
-# so it needs the build (host) deps as well as the test deps.
-[feature.tests.dependencies]
-cxx-compiler                  = "*"
-cmake                         = "*"
-make                          = "*"
-pkg-config                    = "*"
-ros-kilted-ament-cmake        = "*"
-ros-kilted-std-msgs           = "*"
-ros-kilted-geometry-msgs      = "*"
-ros-kilted-builtin-interfaces = "*"
-# the ament_idl build backend injects rosidl itself; a colcon source build needs it explicitly
-ros-kilted-rosidl-default-generators = "*"
-ros-kilted-rosidl-default-runtime    = "*"
-# CMakeLists uses ament_lint_auto under BUILD_TESTING
-ros-kilted-ament-lint-auto   = "*"
-ros-kilted-ament-lint-common = "*"
-colcon-common-extensions     = "*"
+# Build-only tools the run-closure (pulled in via the default feature's path
+# dependency) doesn't provide. Everything else — ament-cmake, the rosidl stack,
+# the message packages — comes transitively, so it isn't re-listed here.
+[feature.dev.dependencies]
+colcon-common-extensions              = "*"
+cxx-compiler                          = "*"
+make                                  = "*"
+pkg-config                            = "*"
+ros-kilted-rosidl-default-generators  = "*"
 
-[feature.tests.tasks]
-test = "colcon build && (LD_PRELOAD=$CONDA_PREFIX/lib/libpython3.so colcon test --event-handlers console_direct+ || true) && colcon test-result --all --verbose"
+[feature.dev.tasks]
+build = "colcon build"
+
+# Tests extend dev: same build env, plus lint tooling and the test task.
+[feature.tests.dependencies]
+ros-kilted-ament-lint-auto = "*"
+
+# `test` runs build -> colcon-test -> test-result as a dependency chain. A
+# failing step stops the chain and fails the task, so a build break or a test
+# failure both surface — no exit codes to juggle.
+[feature.tests.tasks.colcon-test]
+cmd        = "LD_PRELOAD=$CONDA_PREFIX/lib/libpython3.so colcon test --event-handlers console_direct+"
+depends-on = ["build"]
+
+[feature.tests.tasks.test]
+cmd        = "colcon test-result --all --verbose"
+depends-on = ["colcon-test"]
 
 [environments]
-tests = { features = ["tests"], no-default-feature = true }
+dev   = { features = ["dev"] }
+tests = { features = ["dev", "tests"] }
