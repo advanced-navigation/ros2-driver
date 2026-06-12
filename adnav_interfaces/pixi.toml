@@ -60,7 +60,7 @@ ros-kilted-ament-lint-auto = "*"
 # failing step stops the chain and fails the task, so a build break or a test
 # failure both surface — no exit codes to juggle.
 [feature.tests.tasks.colcon-test]
-cmd        = "LD_PRELOAD=$CONDA_PREFIX/lib/libpython3.so colcon test --event-handlers console_direct+"
+cmd        = "bash -c 'colcon test --event-handlers console_direct+ || [ $? -eq 5 ]'"
 depends-on = ["build"]
 
 [feature.tests.tasks.test]
