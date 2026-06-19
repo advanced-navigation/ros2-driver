@@ -30,5 +30,6 @@ jobs:
       build_iron: ${{ inputs.build_iron }}
       package_dir: .
       public: false
+      skip_tag: true
     secrets:
       token: ${{ secrets.API_TOKEN_GITHUB }}
