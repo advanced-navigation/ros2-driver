@@ -1,5 +1,4 @@
 name: Tag & Release
-
 on:
   workflow_dispatch:
     inputs:
@@ -7,29 +6,54 @@ on:
         type: choice
         description: 'If not specified, all packages will be released.'
         options:
+          - ""
           - adnav_driver
           - adnav_interfaces
-
       build_kilted:
         type: boolean
         default: true
         description: "Release for Kilted"
-
       build_iron:
         type: boolean
         default: false
         description: "Release for Iron"
 
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write
 
 jobs:
-  release:
+  deb:
     uses: Greenroom-Robotics/ros_semantic_release_action/.github/workflows/release.yml@main
     with:
       package: ${{ inputs.package }}
+      package_dir: .
       build_kilted: ${{ inputs.build_kilted }}
       build_iron: ${{ inputs.build_iron }}
-      package_dir: .
-      public: false
-      skip_tag: true
+      changelog: false
+      skip_tag: false
     secrets:
       token: ${{ secrets.API_TOKEN_GITHUB }}
+
+  pixi:
+    needs: deb
+    runs-on: 2vcpu-ubuntu-2404
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: greenroom-robotics/mise/.github/actions/recipes-pr@v4
+        with:
+          dispatch-sha: ${{ github.sha }}
+          package: ${{ inputs.package }}
+          ros-distro: kilted
+          gh-app-client-id: ${{ secrets.GH_APP_CLIENT_ID }}
+          gh-app-private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+          azure-client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          azure-tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          azure-subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
