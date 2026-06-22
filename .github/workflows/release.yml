@@ -38,7 +38,7 @@ jobs:
 
   pixi:
     needs: deb
-    runs-on: 2vcpu-ubuntu-2404
+    runs-on: runs-on=${{ github.run_id }}/runner=2cpu-linux-x64
     permissions:
       contents: read
       id-token: write
