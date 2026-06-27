@@ -47,7 +47,7 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - uses: greenroom-robotics/mise/.github/actions/recipes-pr@v4
+      - uses: greenroom-robotics/mise/.github/actions/recipes-pr@v5
         with:
           dispatch-sha: ${{ github.sha }}
           package: ${{ inputs.package }}

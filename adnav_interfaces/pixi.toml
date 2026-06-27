@@ -12,40 +12,40 @@ preview = ["pixi-build"]
 ros-kilted-desktop = "*"
 
 [package]
-name        = "adnav_interfaces"
-version     = "2.2.1"
+name = "adnav_interfaces"
+version = "2.2.1"
 description = "Advanced Navigation ROS 2 Driver Interfaces"
-license     = "LicenseRef-Proprietary"
-authors     = ["Greenroom Robotics <software-team@greenroomrobotics.com>"]
+license = "LicenseRef-Proprietary"
+authors = ["Greenroom Robotics <software-team@greenroomrobotics.com>"]
 
 [package.build.backend]
-name    = "pixi-build-ros-gr"
-version = ">=0.4,<0.5"
+name = "pixi-build-ros-gr"
+version = "*"
 
 [package.build.config]
-mode         = "pixi-native"
-build-type   = "ament_idl"
-distro       = "kilted"
+mode = "pixi-native"
+build-type = "ament_idl"
+distro = "kilted"
 build-number = 1
 
 [package.host-dependencies]
-ros-kilted-ament-cmake        = "*"
-ros-kilted-std-msgs           = "*"
-ros-kilted-geometry-msgs      = "*"
+ros-kilted-ament-cmake = "*"
+ros-kilted-std-msgs = "*"
+ros-kilted-geometry-msgs = "*"
 ros-kilted-builtin-interfaces = "*"
 
 [package.run-dependencies]
-ros-kilted-std-msgs           = "*"
-ros-kilted-geometry-msgs      = "*"
+ros-kilted-std-msgs = "*"
+ros-kilted-geometry-msgs = "*"
 ros-kilted-builtin-interfaces = "*"
 
 # Build-only tools the run-closure (pulled in via the default feature's path
 # dependency) doesn't provide. Everything else — ament-cmake, the rosidl stack,
 # the message packages — comes transitively, so it isn't re-listed here.
 [feature.tests.dependencies]
-ros-dev-tools-meta                    = "*"
-ros-kilted-rosidl-default-generators  = "*"
-ros-kilted-ament-lint-auto            = "*"
+ros-dev-tools-meta = "*"
+ros-kilted-rosidl-default-generators = "*"
+ros-kilted-ament-lint-auto = "*"
 
 [feature.tests.tasks]
 build = "colcon build"
@@ -54,11 +54,11 @@ build = "colcon build"
 # failing step stops the chain and fails the task, so a build break or a test
 # failure both surface — no exit codes to juggle.
 [feature.tests.tasks.colcon-test]
-cmd        = "bash -c 'colcon test --event-handlers console_direct+ || [ $? -eq 5 ]'"
+cmd = "bash -c 'colcon test --event-handlers console_direct+ || [ $? -eq 5 ]'"
 depends-on = ["build"]
 
 [feature.tests.tasks.test]
-cmd        = "colcon test-result --all --verbose"
+cmd = "colcon test-result --all --verbose"
 depends-on = ["colcon-test"]
 
 [environments]
